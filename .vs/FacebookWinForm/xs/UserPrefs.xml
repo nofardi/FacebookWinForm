@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{CEF34FE0-E66F-46C3-82CF-A8EC3A3703DE}|Default">
+  <MonoDevelop.Ide.ItemProperties.FacebookWinForm PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FacebookWinForm/Program.cs">
+    <Files>
+      <File FileName="FacebookWinForm/MainForm.cs" Line="8" Column="10" />
+      <File FileName="FacebookWinForm/Program.cs" Line="8" Column="13" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

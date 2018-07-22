@@ -1,0 +1,2 @@
+/Users/ndiamant/Projects/FacebookWinForm/FacebookWinForm/obj/x86/Debug/FacebookWinForm.csprojResolveAssemblyReference.cache
+/Users/ndiamant/Projects/FacebookWinForm/FacebookWinForm/obj/x86/Debug/FacebookWinForm.csproj.CoreCompileInputs.cache
