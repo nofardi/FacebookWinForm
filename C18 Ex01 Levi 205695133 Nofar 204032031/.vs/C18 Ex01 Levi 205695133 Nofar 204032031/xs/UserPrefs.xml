@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{5789E154-EE36-4E64-B8DB-C1ABDA8D73E0}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MainForm/MainForm.cs">
+    <Files>
+      <File FileName="MainForm/App.config" Line="1" Column="1" />
+      <File FileName="MainForm/AppLogic.cs" Line="59" Column="1" />
+      <File FileName="MainForm/MainForm.cs" Line="1" Column="1" />
+      <File FileName="MainForm/MainForm.resx" Line="1" Column="1" />
+      <File FileName="MainForm/Program.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.FacebookApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
