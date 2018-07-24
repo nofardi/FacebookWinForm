@@ -1,0 +1,11 @@
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\Facebook.dll
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FbGraphApiWrapper.dll
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.csproj.GenerateResource.Cache
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FacebookApp.exe.config
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.MainForm.resources
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.Properties.Resources.resources
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FacebookApp.exe
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FacebookApp.pdb
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.exe
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.pdb
+c:\users\mark\documents\visual studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.csprojResolveAssemblyReference.cache
