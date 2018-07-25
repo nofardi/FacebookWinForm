@@ -32,3 +32,14 @@ C:/Users/Mark/Documents/Visual Studio 2015/Projects/C18 Ex01 Levi 205695133 Nofa
 C:/Users/Mark/Documents/Visual Studio 2015/Projects/C18 Ex01 Levi 205695133 Nofar 204032031/C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031/obj/Debug/FacebookApp.csproj.GenerateResource.Cache
 C:/Users/Mark/Documents/Visual Studio 2015/Projects/C18 Ex01 Levi 205695133 Nofar 204032031/C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031/obj/Debug/C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031.exe
 C:/Users/Mark/Documents/Visual Studio 2015/Projects/C18 Ex01 Levi 205695133 Nofar 204032031/C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031/obj/Debug/C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031.pdb
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FacebookApp.exe.config
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.exe
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.pdb
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FacebookApp.exe
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FacebookApp.pdb
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\Facebook.dll
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.csprojResolveAssemblyReference.cache
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.MainForm.resources
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.Properties.Resources.resources
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.csproj.GenerateResource.Cache

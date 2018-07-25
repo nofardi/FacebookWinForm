@@ -36,30 +36,30 @@
                this.buttonPost = new System.Windows.Forms.Button();
                this.pictureBoxBackGround = new System.Windows.Forms.PictureBox();
                this.groupBoxFriends = new System.Windows.Forms.GroupBox();
+               this.pictureBoxFriend = new System.Windows.Forms.PictureBox();
+               this.listBoxFriends = new System.Windows.Forms.ListBox();
                this.groupBoxPhotos = new System.Windows.Forms.GroupBox();
                this.groupBoxIntro = new System.Windows.Forms.GroupBox();
                this.groupBoxEvents = new System.Windows.Forms.GroupBox();
+               this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
+               this.listBoxEvents = new System.Windows.Forms.ListBox();
                this.groupBoxCheckins = new System.Windows.Forms.GroupBox();
+               this.pictureBoxCheckin = new System.Windows.Forms.PictureBox();
+               this.listBoxCheckins = new System.Windows.Forms.ListBox();
                this.groupBoxLikedPages = new System.Windows.Forms.GroupBox();
+               this.pictureBoxLikedPage = new System.Windows.Forms.PictureBox();
+               this.listBoxLikedPages = new System.Windows.Forms.ListBox();
                this.listBoxPosts = new System.Windows.Forms.ListBox();
-               this.listBox1 = new System.Windows.Forms.ListBox();
-               this.pictureBox1 = new System.Windows.Forms.PictureBox();
-               this.pictureBox2 = new System.Windows.Forms.PictureBox();
-               this.listBox2 = new System.Windows.Forms.ListBox();
-               this.pictureBox3 = new System.Windows.Forms.PictureBox();
-               this.listBox3 = new System.Windows.Forms.ListBox();
-               this.pictureBox4 = new System.Windows.Forms.PictureBox();
-               this.listBox4 = new System.Windows.Forms.ListBox();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackGround)).BeginInit();
                this.groupBoxFriends.SuspendLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
                this.groupBoxEvents.SuspendLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
                this.groupBoxCheckins.SuspendLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCheckin)).BeginInit();
                this.groupBoxLikedPages.SuspendLayout();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).BeginInit();
                this.SuspendLayout();
                // 
                // buttonLogIn
@@ -141,14 +141,33 @@
                // 
                // groupBoxFriends
                // 
-               this.groupBoxFriends.Controls.Add(this.pictureBox4);
-               this.groupBoxFriends.Controls.Add(this.listBox4);
+               this.groupBoxFriends.Controls.Add(this.pictureBoxFriend);
+               this.groupBoxFriends.Controls.Add(this.listBoxFriends);
                this.groupBoxFriends.Location = new System.Drawing.Point(13, 548);
                this.groupBoxFriends.Name = "groupBoxFriends";
                this.groupBoxFriends.Size = new System.Drawing.Size(200, 164);
                this.groupBoxFriends.TabIndex = 8;
                this.groupBoxFriends.TabStop = false;
                this.groupBoxFriends.Text = "Friends";
+               // 
+               // pictureBoxFriend
+               // 
+               this.pictureBoxFriend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+               this.pictureBoxFriend.Location = new System.Drawing.Point(136, 12);
+               this.pictureBoxFriend.Name = "pictureBoxFriend";
+               this.pictureBoxFriend.Size = new System.Drawing.Size(60, 62);
+               this.pictureBoxFriend.TabIndex = 21;
+               this.pictureBoxFriend.TabStop = false;
+               // 
+               // listBoxFriends
+               // 
+               this.listBoxFriends.FormattingEnabled = true;
+               this.listBoxFriends.ItemHeight = 16;
+               this.listBoxFriends.Location = new System.Drawing.Point(6, 26);
+               this.listBoxFriends.Name = "listBoxFriends";
+               this.listBoxFriends.Size = new System.Drawing.Size(128, 132);
+               this.listBoxFriends.TabIndex = 20;
+               this.listBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
                // 
                // groupBoxPhotos
                // 
@@ -170,8 +189,8 @@
                // 
                // groupBoxEvents
                // 
-               this.groupBoxEvents.Controls.Add(this.pictureBox1);
-               this.groupBoxEvents.Controls.Add(this.listBox1);
+               this.groupBoxEvents.Controls.Add(this.pictureBoxEvent);
+               this.groupBoxEvents.Controls.Add(this.listBoxEvents);
                this.groupBoxEvents.Location = new System.Drawing.Point(592, 202);
                this.groupBoxEvents.Name = "groupBoxEvents";
                this.groupBoxEvents.Size = new System.Drawing.Size(200, 164);
@@ -179,10 +198,29 @@
                this.groupBoxEvents.TabStop = false;
                this.groupBoxEvents.Text = "Events";
                // 
+               // pictureBoxEvent
+               // 
+               this.pictureBoxEvent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+               this.pictureBoxEvent.Location = new System.Drawing.Point(136, 12);
+               this.pictureBoxEvent.Name = "pictureBoxEvent";
+               this.pictureBoxEvent.Size = new System.Drawing.Size(60, 62);
+               this.pictureBoxEvent.TabIndex = 15;
+               this.pictureBoxEvent.TabStop = false;
+               // 
+               // listBoxEvents
+               // 
+               this.listBoxEvents.FormattingEnabled = true;
+               this.listBoxEvents.ItemHeight = 16;
+               this.listBoxEvents.Location = new System.Drawing.Point(6, 26);
+               this.listBoxEvents.Name = "listBoxEvents";
+               this.listBoxEvents.Size = new System.Drawing.Size(128, 132);
+               this.listBoxEvents.TabIndex = 14;
+               this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
+               // 
                // groupBoxCheckins
                // 
-               this.groupBoxCheckins.Controls.Add(this.pictureBox2);
-               this.groupBoxCheckins.Controls.Add(this.listBox2);
+               this.groupBoxCheckins.Controls.Add(this.pictureBoxCheckin);
+               this.groupBoxCheckins.Controls.Add(this.listBoxCheckins);
                this.groupBoxCheckins.Location = new System.Drawing.Point(592, 378);
                this.groupBoxCheckins.Name = "groupBoxCheckins";
                this.groupBoxCheckins.Size = new System.Drawing.Size(200, 164);
@@ -190,10 +228,29 @@
                this.groupBoxCheckins.TabStop = false;
                this.groupBoxCheckins.Text = "Checkins";
                // 
+               // pictureBoxCheckin
+               // 
+               this.pictureBoxCheckin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+               this.pictureBoxCheckin.Location = new System.Drawing.Point(136, 12);
+               this.pictureBoxCheckin.Name = "pictureBoxCheckin";
+               this.pictureBoxCheckin.Size = new System.Drawing.Size(60, 62);
+               this.pictureBoxCheckin.TabIndex = 17;
+               this.pictureBoxCheckin.TabStop = false;
+               // 
+               // listBoxCheckins
+               // 
+               this.listBoxCheckins.FormattingEnabled = true;
+               this.listBoxCheckins.ItemHeight = 16;
+               this.listBoxCheckins.Location = new System.Drawing.Point(6, 26);
+               this.listBoxCheckins.Name = "listBoxCheckins";
+               this.listBoxCheckins.Size = new System.Drawing.Size(128, 132);
+               this.listBoxCheckins.TabIndex = 16;
+               this.listBoxCheckins.SelectedIndexChanged += new System.EventHandler(this.listBoxCheckins_SelectedIndexChanged);
+               // 
                // groupBoxLikedPages
                // 
-               this.groupBoxLikedPages.Controls.Add(this.pictureBox3);
-               this.groupBoxLikedPages.Controls.Add(this.listBox3);
+               this.groupBoxLikedPages.Controls.Add(this.pictureBoxLikedPage);
+               this.groupBoxLikedPages.Controls.Add(this.listBoxLikedPages);
                this.groupBoxLikedPages.Location = new System.Drawing.Point(592, 548);
                this.groupBoxLikedPages.Name = "groupBoxLikedPages";
                this.groupBoxLikedPages.Size = new System.Drawing.Size(200, 164);
@@ -201,82 +258,33 @@
                this.groupBoxLikedPages.TabStop = false;
                this.groupBoxLikedPages.Text = "Liked Pages";
                // 
+               // pictureBoxLikedPage
+               // 
+               this.pictureBoxLikedPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+               this.pictureBoxLikedPage.Location = new System.Drawing.Point(136, 12);
+               this.pictureBoxLikedPage.Name = "pictureBoxLikedPage";
+               this.pictureBoxLikedPage.Size = new System.Drawing.Size(60, 62);
+               this.pictureBoxLikedPage.TabIndex = 19;
+               this.pictureBoxLikedPage.TabStop = false;
+               // 
+               // listBoxLikedPages
+               // 
+               this.listBoxLikedPages.FormattingEnabled = true;
+               this.listBoxLikedPages.ItemHeight = 16;
+               this.listBoxLikedPages.Location = new System.Drawing.Point(6, 26);
+               this.listBoxLikedPages.Name = "listBoxLikedPages";
+               this.listBoxLikedPages.Size = new System.Drawing.Size(128, 132);
+               this.listBoxLikedPages.TabIndex = 18;
+               this.listBoxLikedPages.SelectedIndexChanged += new System.EventHandler(this.listBoxLikedPages_SelectedIndexChanged);
+               // 
                // listBoxPosts
                // 
                this.listBoxPosts.FormattingEnabled = true;
                this.listBoxPosts.ItemHeight = 16;
                this.listBoxPosts.Location = new System.Drawing.Point(231, 294);
                this.listBoxPosts.Name = "listBoxPosts";
-               this.listBoxPosts.Size = new System.Drawing.Size(333, 212);
+               this.listBoxPosts.Size = new System.Drawing.Size(333, 404);
                this.listBoxPosts.TabIndex = 13;
-               // 
-               // listBox1
-               // 
-               this.listBox1.FormattingEnabled = true;
-               this.listBox1.ItemHeight = 16;
-               this.listBox1.Location = new System.Drawing.Point(6, 26);
-               this.listBox1.Name = "listBox1";
-               this.listBox1.Size = new System.Drawing.Size(131, 132);
-               this.listBox1.TabIndex = 14;
-               // 
-               // pictureBox1
-               // 
-               this.pictureBox1.Location = new System.Drawing.Point(140, 9);
-               this.pictureBox1.Name = "pictureBox1";
-               this.pictureBox1.Size = new System.Drawing.Size(60, 62);
-               this.pictureBox1.TabIndex = 15;
-               this.pictureBox1.TabStop = false;
-               // 
-               // pictureBox2
-               // 
-               this.pictureBox2.Location = new System.Drawing.Point(140, 9);
-               this.pictureBox2.Name = "pictureBox2";
-               this.pictureBox2.Size = new System.Drawing.Size(60, 62);
-               this.pictureBox2.TabIndex = 17;
-               this.pictureBox2.TabStop = false;
-               // 
-               // listBox2
-               // 
-               this.listBox2.FormattingEnabled = true;
-               this.listBox2.ItemHeight = 16;
-               this.listBox2.Location = new System.Drawing.Point(6, 26);
-               this.listBox2.Name = "listBox2";
-               this.listBox2.Size = new System.Drawing.Size(131, 132);
-               this.listBox2.TabIndex = 16;
-               // 
-               // pictureBox3
-               // 
-               this.pictureBox3.Location = new System.Drawing.Point(140, 9);
-               this.pictureBox3.Name = "pictureBox3";
-               this.pictureBox3.Size = new System.Drawing.Size(60, 62);
-               this.pictureBox3.TabIndex = 19;
-               this.pictureBox3.TabStop = false;
-               // 
-               // listBox3
-               // 
-               this.listBox3.FormattingEnabled = true;
-               this.listBox3.ItemHeight = 16;
-               this.listBox3.Location = new System.Drawing.Point(6, 26);
-               this.listBox3.Name = "listBox3";
-               this.listBox3.Size = new System.Drawing.Size(131, 132);
-               this.listBox3.TabIndex = 18;
-               // 
-               // pictureBox4
-               // 
-               this.pictureBox4.Location = new System.Drawing.Point(140, 9);
-               this.pictureBox4.Name = "pictureBox4";
-               this.pictureBox4.Size = new System.Drawing.Size(60, 62);
-               this.pictureBox4.TabIndex = 21;
-               this.pictureBox4.TabStop = false;
-               // 
-               // listBox4
-               // 
-               this.listBox4.FormattingEnabled = true;
-               this.listBox4.ItemHeight = 16;
-               this.listBox4.Location = new System.Drawing.Point(6, 26);
-               this.listBox4.Name = "listBox4";
-               this.listBox4.Size = new System.Drawing.Size(131, 132);
-               this.listBox4.TabIndex = 20;
                // 
                // MainForm
                // 
@@ -297,18 +305,19 @@
                this.Controls.Add(this.buttonLogOut);
                this.Controls.Add(this.buttonLogIn);
                this.Controls.Add(this.pictureBoxBackGround);
+               this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
                this.Name = "MainForm";
                this.Text = "Facebook Form";
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).EndInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackGround)).EndInit();
                this.groupBoxFriends.ResumeLayout(false);
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).EndInit();
                this.groupBoxEvents.ResumeLayout(false);
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
                this.groupBoxCheckins.ResumeLayout(false);
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCheckin)).EndInit();
                this.groupBoxLikedPages.ResumeLayout(false);
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).EndInit();
                this.ResumeLayout(false);
                this.PerformLayout();
 
@@ -326,17 +335,17 @@
           private System.Windows.Forms.GroupBox groupBoxFriends;
           private System.Windows.Forms.GroupBox groupBoxPhotos;
           private System.Windows.Forms.GroupBox groupBoxIntro;
-          private System.Windows.Forms.PictureBox pictureBox4;
-          private System.Windows.Forms.ListBox listBox4;
+          private System.Windows.Forms.PictureBox pictureBoxFriend;
+          private System.Windows.Forms.ListBox listBoxFriends;
           private System.Windows.Forms.GroupBox groupBoxEvents;
-          private System.Windows.Forms.PictureBox pictureBox1;
-          private System.Windows.Forms.ListBox listBox1;
+          private System.Windows.Forms.PictureBox pictureBoxEvent;
+          private System.Windows.Forms.ListBox listBoxEvents;
           private System.Windows.Forms.GroupBox groupBoxCheckins;
-          private System.Windows.Forms.PictureBox pictureBox2;
-          private System.Windows.Forms.ListBox listBox2;
+          private System.Windows.Forms.PictureBox pictureBoxCheckin;
+          private System.Windows.Forms.ListBox listBoxCheckins;
           private System.Windows.Forms.GroupBox groupBoxLikedPages;
-          private System.Windows.Forms.PictureBox pictureBox3;
-          private System.Windows.Forms.ListBox listBox3;
+          private System.Windows.Forms.PictureBox pictureBoxLikedPage;
+          private System.Windows.Forms.ListBox listBoxLikedPages;
           private System.Windows.Forms.ListBox listBoxPosts;
      }
 }
