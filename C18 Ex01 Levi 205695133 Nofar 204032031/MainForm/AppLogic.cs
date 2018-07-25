@@ -13,19 +13,22 @@ namespace FacebookApp
         private LoginResult m_LoginResult = null;
         private User m_LoggedInUser = null;
         public const string k_MyAppID = "1771402262915011";
-        public readonly string[] r_Permissions =
-             {
-               "public_profile",
+          public readonly string[] r_Permissions =
+               {"public_profile",
                 "user_friends",
                 "user_likes",
                 "user_photos",
                 "user_posts",
+                "user_about_me",
+                "publish_actions",
                 "manage_pages",
+                "publish_actions",
                 "publish_pages",
-                "publish_actions"
+                
           };
+          //"publish_actions"
 
-        public User LoggedInUser
+          public User LoggedInUser
         {
             get
             {

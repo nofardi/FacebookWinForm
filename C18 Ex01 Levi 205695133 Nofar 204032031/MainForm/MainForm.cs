@@ -21,10 +21,6 @@ namespace FacebookApp
             {
                 populateUIWithUserInformation();
             }
-            else
-            {
-                MessageBox.Show(m_AppLogic.LoginResult.ErrorMessage);
-            }
         }
 
         private void populateUIWithUserInformation()
@@ -32,7 +28,7 @@ namespace FacebookApp
             buttonEnabler();
             labelWelcome.Text = string.Format(@"{0} {1}", m_AppLogic.LoggedInUser.FirstName, m_AppLogic.LoggedInUser.LastName);
             pictureBoxUserPicture.LoadAsync(m_AppLogic.LoggedInUser.PictureNormalURL);
-            pictureBoxBackGround.LoadAsync(m_AppLogic.LoggedInUser.PhotosTaggedIn[0].PictureNormalURL);
+            //pictureBoxBackGround.LoadAsync(m_AppLogic.LoggedInUser.Cover.SourceURL);
             populateTextBoxPostWithDefaultString();
             populateListBoxes();
             populateUserFeed();
@@ -46,22 +42,19 @@ namespace FacebookApp
             //    populateListBoxLikedPages();
         }
 
-        private void populateTextBoxPostWithDefaultString()
-        {
-            string defaultString = string.Format(@"What's on your mind {0}?", m_AppLogic.LoggedInUser.FirstName);
-            textBoxPost.Text = defaultString;
-            textBoxPost.ForeColor = System.Drawing.Color.LightGray;
-        }
+          private void populateTextBoxPostWithDefaultString()
+          {
+               textBoxPost.Undo();
+               string defaultString = string.Format(@"What's on your mind {0}?", m_AppLogic.LoggedInUser.FirstName);
+               textBoxPost.Text = defaultString;
+               textBoxPost.ForeColor = System.Drawing.Color.LightGray;
+          }
 
         private void populateListBoxFriends()
         {
             listBoxFriends.Items.Clear();
             listBoxFriends.DisplayMember = "Name";
-            if (m_AppLogic.LoggedInUser.Friends.Count == 0)
-            {
-                MessageBox.Show("No Friends to retrieve :(");
-            }
-            else
+            if (m_AppLogic.LoggedInUser.Friends.Count > 0)
             {
                 foreach (User friend in m_AppLogic.LoggedInUser.Friends)
                 {
@@ -74,30 +67,21 @@ namespace FacebookApp
 
         private void populateListBoxEvents()
         {
-            listBoxEvents.Items.Clear();
-            listBoxEvents.DisplayMember = "Name";
+               //listBoxEvents.Items.Clear();
+               //listBoxEvents.DisplayMember = "Name";
 
-            if (m_AppLogic.LoggedInUser.Events.Count == 0)
-            {
-                MessageBox.Show("No Events to retrieve :(");
-            }
-            else
-            {
-                foreach (Event fbEvent in m_AppLogic.LoggedInUser.Events)
-                {
-                    listBoxEvents.Items.Add(fbEvent);
-                }
-            }
-
-        }
+               //if (m_AppLogic.LoggedInUser.Events.Count > 0)
+               //{
+               //     foreach (Event fbEvent in m_AppLogic.LoggedInUser.Events)
+               //     {
+               //          listBoxEvents.Items.Add(fbEvent);
+               //     }
+               //}
+          }
 
         private void populateListBoxCheckins()
         {
-            if (m_AppLogic.LoggedInUser.Checkins.Count == 0)
-            {
-                MessageBox.Show("No Checkins to retrieve :(");
-            }
-            else
+            if (m_AppLogic.LoggedInUser.Checkins.Count > 0)
             {
                 foreach (Checkin checkin in m_AppLogic.LoggedInUser.Checkins)
                 {
@@ -112,11 +96,7 @@ namespace FacebookApp
             listBoxLikedPages.Items.Clear();
             listBoxLikedPages.DisplayMember = "Name";
 
-            if (m_AppLogic.LoggedInUser.LikedPages.Count == 0)
-            {
-                MessageBox.Show("No liked pages to retrieve :(");
-            }
-            else
+            if (m_AppLogic.LoggedInUser.LikedPages.Count > 0)
             {
                 foreach (Page page in m_AppLogic.LoggedInUser.LikedPages)
                 {
@@ -135,20 +115,30 @@ namespace FacebookApp
         private void clearUI()
         {
             buttonEnabler();
-            labelWelcome.Text = "";
-            pictureBoxUserPicture.Image = null;
-            pictureBoxBackGround.Image = null;
-            textBoxPost.Text = "";
-            listBoxPosts.Items.Clear();
-            clearGroupBoxes();
+            clearControls();
         }
 
-        private void clearGroupBoxes()
+        private void clearControls()
         {
-            groupBoxFriends.Controls.Clear();
-            groupBoxEvents.Controls.Clear();
-            groupBoxCheckins.Controls.Clear();
-            groupBoxLikedPages.Controls.Clear();
+            foreach(Control control in this.Controls)
+               {
+                    if(control is ListBox)
+                    {
+                         ((ListBox)control).Items.Clear();
+                    }
+                    else
+                         if(control is PictureBox)
+                    {
+                         ((PictureBox)control).Image = null;
+                    }
+                    else
+                    {
+                         if(control is Label || control is TextBox)
+                         {
+                              control.Text = string.Empty;
+                         }
+                    }
+               }
         }
 
         private void buttonEnabler()
@@ -156,6 +146,7 @@ namespace FacebookApp
             buttonLogIn.Enabled = !buttonLogIn.Enabled;
             buttonLogOut.Enabled = !buttonLogOut.Enabled;
             buttonPost.Enabled = buttonLogOut.Enabled;
+               textBoxPost.Enabled = buttonPost.Enabled;
         }
 
         private void buttonPost_Click(object sender, EventArgs e)
@@ -165,33 +156,31 @@ namespace FacebookApp
             populateTextBoxPostWithDefaultString();
         }
 
-        private void populateUserFeed()
-        {
-            if (m_AppLogic.LoggedInUser.Posts.Count == 0)
-            {
-                MessageBox.Show("No Posts to retrieve :(");
-            }
-            else
-            {
-                foreach (Post post in m_AppLogic.LoggedInUser.Posts)
-                {
-                    if (post.Message != null)
-                    {
-                        listBoxPosts.Items.Add(post.Message);
-                    }
-                    else if (post.Caption != null)
-                    {
-                        listBoxPosts.Items.Add(post.Caption);
-                    }
-                    else
-                    {
-                        listBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
-                    }
-                }
-            }
+          private void populateUserFeed()
+          {
+               listBoxPosts.Items.Clear();
+               if (m_AppLogic.LoggedInUser.Posts.Count > 0)
+               {
 
-            
-        }
+                    foreach (Post post in m_AppLogic.LoggedInUser.Posts)
+                    {
+                         if (post.Message != null)
+                         {
+                              listBoxPosts.Items.Add(post.Message);
+                         }
+                         else if (post.Caption != null)
+                         {
+                              listBoxPosts.Items.Add(post.Caption);
+                         }
+                         else
+                         {
+                              listBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
+                         }
+                    }
+               }
+
+
+          }
 
         private void textBoxPost_Enter(object sender, EventArgs e)
         {
@@ -209,9 +198,9 @@ namespace FacebookApp
             if (listBoxFriends.SelectedItems.Count == 1)
             {
                 User selectedFriend = listBoxFriends.SelectedItem as User;
-                if (selectedFriend.PictureNormalURL != null)
+                if (selectedFriend.PictureSmallURL != null)
                 {
-                    pictureBoxFriend.LoadAsync(selectedFriend.PictureNormalURL);
+                    pictureBoxFriend.LoadAsync(selectedFriend.PictureSmallURL);
                 }
                 else
                 {
@@ -230,7 +219,7 @@ namespace FacebookApp
             if (listBoxEvents.SelectedItems.Count == 1)
             {
                 Event selectedEvent = listBoxEvents.SelectedItem as Event;
-                pictureBoxEvent.LoadAsync(selectedEvent.PictureNormalURL);
+                pictureBoxEvent.LoadAsync(selectedEvent.PictureSmallURL);
             }
         }
 
@@ -258,7 +247,7 @@ namespace FacebookApp
             if (listBoxLikedPages.SelectedItems.Count == 1)
             {
                 Page selectedPage = listBoxLikedPages.SelectedItem as Page;
-                pictureBoxLikedPage.LoadAsync(selectedPage.PictureNormalURL);
+                pictureBoxLikedPage.LoadAsync(selectedPage.PictureSmallURL);
             }
         }
     }

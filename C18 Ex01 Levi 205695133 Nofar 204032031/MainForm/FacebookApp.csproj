@@ -84,9 +84,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="FacebookApp.csproj" />
-    <Compile Include="ListPictureContainer.Designer.cs" />
-    <Compile Include="ListPictureContainer.cs" />
-    <None Include="ListPictureContainer.resx" />
     <None Include="bin\Debug\Facebook.dll" />
     <None Include="bin\Debug\FacebookApp.exe" />
     <None Include="bin\Debug\FacebookApp.exe.config" />

@@ -37,9 +37,6 @@ C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 2
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.pdb
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FacebookApp.exe
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FacebookApp.pdb
-C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\Facebook.dll
-C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\bin\Debug\FbGraphApiWrapper.dll
-C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.csprojResolveAssemblyReference.cache
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.MainForm.resources
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.Properties.Resources.resources
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.csproj.GenerateResource.Cache

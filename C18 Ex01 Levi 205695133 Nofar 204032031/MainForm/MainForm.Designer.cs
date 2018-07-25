@@ -104,12 +104,12 @@
                this.labelWelcome.ForeColor = System.Drawing.Color.White;
                this.labelWelcome.Location = new System.Drawing.Point(165, 125);
                this.labelWelcome.Name = "labelWelcome";
-               this.labelWelcome.Size = new System.Drawing.Size(289, 31);
+               this.labelWelcome.Size = new System.Drawing.Size(0, 31);
                this.labelWelcome.TabIndex = 4;
-               this.labelWelcome.Text = "FirstName LastName";
                // 
                // textBoxPost
                // 
+               this.textBoxPost.Enabled = false;
                this.textBoxPost.Location = new System.Drawing.Point(231, 211);
                this.textBoxPost.Name = "textBoxPost";
                this.textBoxPost.Size = new System.Drawing.Size(333, 22);
@@ -131,7 +131,7 @@
                // 
                // pictureBoxBackGround
                // 
-               this.pictureBoxBackGround.BackColor = System.Drawing.SystemColors.HotTrack;
+               this.pictureBoxBackGround.BackColor = System.Drawing.SystemColors.Control;
                this.pictureBoxBackGround.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                this.pictureBoxBackGround.Location = new System.Drawing.Point(12, 3);
                this.pictureBoxBackGround.Name = "pictureBoxBackGround";
@@ -280,9 +280,11 @@
                // listBoxPosts
                // 
                this.listBoxPosts.FormattingEnabled = true;
+               this.listBoxPosts.HorizontalScrollbar = true;
                this.listBoxPosts.ItemHeight = 16;
                this.listBoxPosts.Location = new System.Drawing.Point(231, 294);
                this.listBoxPosts.Name = "listBoxPosts";
+               this.listBoxPosts.ScrollAlwaysVisible = true;
                this.listBoxPosts.Size = new System.Drawing.Size(333, 404);
                this.listBoxPosts.TabIndex = 13;
                // 
