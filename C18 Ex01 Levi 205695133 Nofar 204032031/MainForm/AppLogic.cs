@@ -32,6 +32,7 @@ namespace FacebookApp
                 return m_LoggedInUser;
             }
         }
+
         public LoginResult LoginResult
         {
             get

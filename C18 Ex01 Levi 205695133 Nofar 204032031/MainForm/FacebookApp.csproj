@@ -83,6 +83,38 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="FacebookApp.csproj" />
+    <Compile Include="ListPictureContainer.Designer.cs" />
+    <Compile Include="ListPictureContainer.cs" />
+    <None Include="ListPictureContainer.resx" />
+    <None Include="bin\Debug\Facebook.dll" />
+    <None Include="bin\Debug\FacebookApp.exe" />
+    <None Include="bin\Debug\FacebookApp.exe.config" />
+    <None Include="bin\Debug\FacebookApp.pdb" />
+    <None Include="bin\Debug\FacebookApp.vshost.exe" />
+    <None Include="bin\Debug\FacebookApp.vshost.exe.config" />
+    <None Include="bin\Debug\FbGraphApiWrapper.dll" />
+    <None Include="bin\Debug\MainForm.vshost.exe.config" />
+    <None Include="obj\Debug\C18 Ex01 LeviKorenblit 205695133 NofarDiamant 204032031.csproj.FileListAbsolute.txt" />
+    <None Include="obj\Debug\C18 Ex01 LeviKorenblit 205695133 NofarDiamant 204032031.csproj.GenerateResource.Cache" />
+    <None Include="obj\Debug\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031.exe" />
+    <None Include="obj\Debug\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031.pdb" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\FacebookApp.ListPictureContainer.resources" />
+    <None Include="obj\Debug\FacebookApp.MainForm.resources" />
+    <None Include="obj\Debug\FacebookApp.Properties.Resources.resources" />
+    <None Include="obj\Debug\FacebookApp.csproj.FileListAbsolute.txt" />
+    <None Include="obj\Debug\FacebookApp.csproj.GenerateResource.Cache" />
+    <None Include="obj\Debug\FacebookApp.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\FacebookApp.exe" />
+    <None Include="obj\Debug\FacebookApp.pdb" />
+    <None Include="obj\Debug\MainForm.csproj.FileListAbsolute.txt" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <None Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Compile Include="CommonPhotosFinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
