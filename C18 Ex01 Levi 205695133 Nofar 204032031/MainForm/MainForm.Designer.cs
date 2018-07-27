@@ -50,6 +50,7 @@
                this.pictureBoxLikedPage = new System.Windows.Forms.PictureBox();
                this.listBoxLikedPages = new System.Windows.Forms.ListBox();
                this.listBoxPosts = new System.Windows.Forms.ListBox();
+               this.buttonRefresh = new System.Windows.Forms.Button();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackGround)).BeginInit();
                this.groupBoxFriends.SuspendLayout();
@@ -285,14 +286,27 @@
                this.listBoxPosts.Location = new System.Drawing.Point(231, 294);
                this.listBoxPosts.Name = "listBoxPosts";
                this.listBoxPosts.ScrollAlwaysVisible = true;
-               this.listBoxPosts.Size = new System.Drawing.Size(333, 404);
+               this.listBoxPosts.Size = new System.Drawing.Size(333, 356);
                this.listBoxPosts.TabIndex = 13;
+               // 
+               // buttonRefresh
+               // 
+               this.buttonRefresh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+               this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonRefresh.Location = new System.Drawing.Point(489, 656);
+               this.buttonRefresh.Name = "buttonRefresh";
+               this.buttonRefresh.Size = new System.Drawing.Size(75, 27);
+               this.buttonRefresh.TabIndex = 14;
+               this.buttonRefresh.Text = "Refresh";
+               this.buttonRefresh.UseVisualStyleBackColor = false;
+               this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
                // 
                // MainForm
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.ClientSize = new System.Drawing.Size(804, 724);
+               this.Controls.Add(this.buttonRefresh);
                this.Controls.Add(this.listBoxPosts);
                this.Controls.Add(this.groupBoxLikedPages);
                this.Controls.Add(this.groupBoxCheckins);
@@ -349,6 +363,7 @@
           private System.Windows.Forms.PictureBox pictureBoxLikedPage;
           private System.Windows.Forms.ListBox listBoxLikedPages;
           private System.Windows.Forms.ListBox listBoxPosts;
+          private System.Windows.Forms.Button buttonRefresh;
      }
 }
 
