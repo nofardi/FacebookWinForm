@@ -1,33 +1,33 @@
 ﻿namespace FacebookApp
 {
-     partial class MainForm
-     {
-          /// <summary>
-          /// Required designer variable.
-          /// </summary>
-          private System.ComponentModel.IContainer components = null;
+    partial class MainForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-          /// <summary>
-          /// Clean up any resources being used.
-          /// </summary>
-          /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-          protected override void Dispose(bool disposing)
-          {
-               if (disposing && (components != null))
-               {
-                    components.Dispose();
-               }
-               base.Dispose(disposing);
-          }
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-          #region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-          /// <summary>
-          /// Required method for Designer support - do not modify
-          /// the contents of this method with the code editor.
-          /// </summary>
-          private void InitializeComponent()
-          {
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.pictureBoxUserPicture = new System.Windows.Forms.PictureBox();
@@ -54,22 +54,21 @@
             this.featuresTabs = new System.Windows.Forms.TabControl();
             this.timelineTab = new System.Windows.Forms.TabPage();
             this.matchTab = new System.Windows.Forms.TabPage();
+            this.matchBox = new System.Windows.Forms.GroupBox();
             this.matchProgress = new System.Windows.Forms.ProgressBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ageLabel = new System.Windows.Forms.Label();
+            this.locationLabel = new System.Windows.Forms.Label();
+            this.genderLabel = new System.Windows.Forms.Label();
             this.matchButton = new System.Windows.Forms.Button();
             this.ageNumeric = new System.Windows.Forms.NumericUpDown();
             this.genderList = new System.Windows.Forms.CheckedListBox();
             this.locationCombo = new System.Windows.Forms.ComboBox();
             this.commonTab = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.commonIntro = new System.Windows.Forms.GroupBox();
+            this.commonPages = new System.Windows.Forms.GroupBox();
             this.commonPhotos = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.findCommonButton = new System.Windows.Forms.Button();
             this.friendsListBox = new System.Windows.Forms.ListBox();
-            this.matchBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackGround)).BeginInit();
             this.groupBoxFriends.SuspendLayout();
@@ -85,7 +84,6 @@
             this.matchTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ageNumeric)).BeginInit();
             this.commonTab.SuspendLayout();
-            this.commonPhotos.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLogIn
@@ -361,9 +359,9 @@
             // 
             this.matchTab.Controls.Add(this.matchBox);
             this.matchTab.Controls.Add(this.matchProgress);
-            this.matchTab.Controls.Add(this.label3);
-            this.matchTab.Controls.Add(this.label2);
-            this.matchTab.Controls.Add(this.label1);
+            this.matchTab.Controls.Add(this.ageLabel);
+            this.matchTab.Controls.Add(this.locationLabel);
+            this.matchTab.Controls.Add(this.genderLabel);
             this.matchTab.Controls.Add(this.matchButton);
             this.matchTab.Controls.Add(this.ageNumeric);
             this.matchTab.Controls.Add(this.genderList);
@@ -376,6 +374,15 @@
             this.matchTab.Text = "Match!";
             this.matchTab.UseVisualStyleBackColor = true;
             // 
+            // matchBox
+            // 
+            this.matchBox.Location = new System.Drawing.Point(9, 141);
+            this.matchBox.Name = "matchBox";
+            this.matchBox.Size = new System.Drawing.Size(750, 386);
+            this.matchBox.TabIndex = 8;
+            this.matchBox.TabStop = false;
+            this.matchBox.Text = "Match Options";
+            // 
             // matchProgress
             // 
             this.matchProgress.Location = new System.Drawing.Point(9, 92);
@@ -383,32 +390,32 @@
             this.matchProgress.Size = new System.Drawing.Size(100, 23);
             this.matchProgress.TabIndex = 7;
             // 
-            // label3
+            // ageLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(259, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Min Age";
+            this.ageLabel.AutoSize = true;
+            this.ageLabel.Location = new System.Drawing.Point(259, 18);
+            this.ageLabel.Name = "ageLabel";
+            this.ageLabel.Size = new System.Drawing.Size(59, 17);
+            this.ageLabel.TabIndex = 6;
+            this.ageLabel.Text = "Min Age";
             // 
-            // label2
+            // locationLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(132, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Location";
+            this.locationLabel.AutoSize = true;
+            this.locationLabel.Location = new System.Drawing.Point(132, 18);
+            this.locationLabel.Name = "locationLabel";
+            this.locationLabel.Size = new System.Drawing.Size(62, 17);
+            this.locationLabel.TabIndex = 5;
+            this.locationLabel.Text = "Location";
             // 
-            // label1
+            // genderLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Gender";
+            this.genderLabel.AutoSize = true;
+            this.genderLabel.Location = new System.Drawing.Point(6, 18);
+            this.genderLabel.Name = "genderLabel";
+            this.genderLabel.Size = new System.Drawing.Size(56, 17);
+            this.genderLabel.TabIndex = 4;
+            this.genderLabel.Text = "Gender";
             // 
             // matchButton
             // 
@@ -448,8 +455,8 @@
             // 
             // commonTab
             // 
-            this.commonTab.Controls.Add(this.groupBox3);
-            this.commonTab.Controls.Add(this.groupBox2);
+            this.commonTab.Controls.Add(this.commonIntro);
+            this.commonTab.Controls.Add(this.commonPages);
             this.commonTab.Controls.Add(this.commonPhotos);
             this.commonTab.Controls.Add(this.findCommonButton);
             this.commonTab.Controls.Add(this.friendsListBox);
@@ -461,40 +468,32 @@
             this.commonTab.Text = "Common Finder";
             this.commonTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // commonIntro
             // 
-            this.groupBox3.Location = new System.Drawing.Point(575, 234);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(184, 160);
-            this.groupBox3.TabIndex = 18;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Intro In Common";
+            this.commonIntro.Location = new System.Drawing.Point(575, 234);
+            this.commonIntro.Name = "commonIntro";
+            this.commonIntro.Size = new System.Drawing.Size(184, 160);
+            this.commonIntro.TabIndex = 18;
+            this.commonIntro.TabStop = false;
+            this.commonIntro.Text = "Intro In Common";
             // 
-            // groupBox2
+            // commonPages
             // 
-            this.groupBox2.Location = new System.Drawing.Point(374, 234);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(184, 160);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Pages In Common";
+            this.commonPages.Location = new System.Drawing.Point(374, 234);
+            this.commonPages.Name = "commonPages";
+            this.commonPages.Size = new System.Drawing.Size(184, 160);
+            this.commonPages.TabIndex = 17;
+            this.commonPages.TabStop = false;
+            this.commonPages.Text = "Pages In Common";
             // 
             // commonPhotos
             // 
-            this.commonPhotos.Controls.Add(this.panel1);
             this.commonPhotos.Location = new System.Drawing.Point(374, 7);
             this.commonPhotos.Name = "commonPhotos";
             this.commonPhotos.Size = new System.Drawing.Size(385, 221);
             this.commonPhotos.TabIndex = 16;
             this.commonPhotos.TabStop = false;
             this.commonPhotos.Text = "Photos In Common";
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(6, 21);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 0;
             // 
             // findCommonButton
             // 
@@ -516,15 +515,6 @@
             this.friendsListBox.ScrollAlwaysVisible = true;
             this.friendsListBox.Size = new System.Drawing.Size(333, 388);
             this.friendsListBox.TabIndex = 14;
-            // 
-            // matchBox
-            // 
-            this.matchBox.Location = new System.Drawing.Point(9, 141);
-            this.matchBox.Name = "matchBox";
-            this.matchBox.Size = new System.Drawing.Size(750, 386);
-            this.matchBox.TabIndex = 8;
-            this.matchBox.TabStop = false;
-            this.matchBox.Text = "Match Options";
             // 
             // MainForm
             // 
@@ -557,55 +547,53 @@
             this.matchTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ageNumeric)).EndInit();
             this.commonTab.ResumeLayout(false);
-            this.commonPhotos.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
-          }
+        }
 
-          #endregion
+        #endregion
 
-          private System.Windows.Forms.Button buttonLogIn;
-          private System.Windows.Forms.Button buttonLogOut;
-          private System.Windows.Forms.PictureBox pictureBoxUserPicture;
-          private System.Windows.Forms.Label labelWelcome;
-          private System.Windows.Forms.TextBox textBoxPost;
-          private System.Windows.Forms.Button buttonPost;
-          private System.Windows.Forms.PictureBox pictureBoxBackGround;
-          private System.Windows.Forms.GroupBox groupBoxFriends;
-          private System.Windows.Forms.GroupBox groupBoxPhotos;
-          private System.Windows.Forms.GroupBox groupBoxIntro;
-          private System.Windows.Forms.PictureBox pictureBoxFriend;
-          private System.Windows.Forms.ListBox listBoxFriends;
-          private System.Windows.Forms.GroupBox groupBoxEvents;
-          private System.Windows.Forms.PictureBox pictureBoxEvent;
-          private System.Windows.Forms.ListBox listBoxEvents;
-          private System.Windows.Forms.GroupBox groupBoxCheckins;
-          private System.Windows.Forms.PictureBox pictureBoxCheckin;
-          private System.Windows.Forms.ListBox listBoxCheckins;
-          private System.Windows.Forms.GroupBox groupBoxLikedPages;
-          private System.Windows.Forms.PictureBox pictureBoxLikedPage;
-          private System.Windows.Forms.ListBox listBoxLikedPages;
-          private System.Windows.Forms.ListBox listBoxPosts;
-          private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Button buttonLogIn;
+        private System.Windows.Forms.Button buttonLogOut;
+        private System.Windows.Forms.PictureBox pictureBoxUserPicture;
+        private System.Windows.Forms.Label labelWelcome;
+        private System.Windows.Forms.TextBox textBoxPost;
+        private System.Windows.Forms.Button buttonPost;
+        private System.Windows.Forms.PictureBox pictureBoxBackGround;
+        private System.Windows.Forms.GroupBox groupBoxFriends;
+        private System.Windows.Forms.GroupBox groupBoxPhotos;
+        private System.Windows.Forms.GroupBox groupBoxIntro;
+        private System.Windows.Forms.PictureBox pictureBoxFriend;
+        private System.Windows.Forms.ListBox listBoxFriends;
+        private System.Windows.Forms.GroupBox groupBoxEvents;
+        private System.Windows.Forms.PictureBox pictureBoxEvent;
+        private System.Windows.Forms.ListBox listBoxEvents;
+        private System.Windows.Forms.GroupBox groupBoxCheckins;
+        private System.Windows.Forms.PictureBox pictureBoxCheckin;
+        private System.Windows.Forms.ListBox listBoxCheckins;
+        private System.Windows.Forms.GroupBox groupBoxLikedPages;
+        private System.Windows.Forms.PictureBox pictureBoxLikedPage;
+        private System.Windows.Forms.ListBox listBoxLikedPages;
+        private System.Windows.Forms.ListBox listBoxPosts;
+        private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.TabControl featuresTabs;
         private System.Windows.Forms.TabPage timelineTab;
         private System.Windows.Forms.TabPage matchTab;
         private System.Windows.Forms.TabPage commonTab;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label genderLabel;
         private System.Windows.Forms.Button matchButton;
         private System.Windows.Forms.NumericUpDown ageNumeric;
         private System.Windows.Forms.CheckedListBox genderList;
         private System.Windows.Forms.ComboBox locationCombo;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label ageLabel;
+        private System.Windows.Forms.Label locationLabel;
         private System.Windows.Forms.ProgressBar matchProgress;
         private System.Windows.Forms.Button findCommonButton;
         private System.Windows.Forms.ListBox friendsListBox;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox commonPages;
         private System.Windows.Forms.GroupBox commonPhotos;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox commonIntro;
         private System.Windows.Forms.GroupBox matchBox;
     }
 }
