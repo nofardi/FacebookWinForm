@@ -31,10 +31,10 @@
                this.buttonLogIn = new System.Windows.Forms.Button();
                this.buttonLogOut = new System.Windows.Forms.Button();
                this.pictureBoxUserPicture = new System.Windows.Forms.PictureBox();
-               this.labelWelcome = new System.Windows.Forms.Label();
+               this.labelName = new System.Windows.Forms.Label();
                this.textBoxPost = new System.Windows.Forms.TextBox();
                this.buttonPost = new System.Windows.Forms.Button();
-               this.pictureBoxBackGround = new System.Windows.Forms.PictureBox();
+               this.pictureBoxCover = new System.Windows.Forms.PictureBox();
                this.groupBoxFriends = new System.Windows.Forms.GroupBox();
                this.pictureBoxFriend = new System.Windows.Forms.PictureBox();
                this.listBoxFriends = new System.Windows.Forms.ListBox();
@@ -51,10 +51,12 @@
                this.listBoxLikedPages = new System.Windows.Forms.ListBox();
                this.listBoxPosts = new System.Windows.Forms.ListBox();
                this.buttonRefresh = new System.Windows.Forms.Button();
+               this.textBoxIntro = new System.Windows.Forms.TextBox();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).BeginInit();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackGround)).BeginInit();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
                this.groupBoxFriends.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
+               this.groupBoxIntro.SuspendLayout();
                this.groupBoxEvents.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
                this.groupBoxCheckins.SuspendLayout();
@@ -97,23 +99,25 @@
                this.pictureBoxUserPicture.TabIndex = 2;
                this.pictureBoxUserPicture.TabStop = false;
                // 
-               // labelWelcome
+               // labelName
                // 
-               this.labelWelcome.AutoSize = true;
-               this.labelWelcome.BackColor = System.Drawing.SystemColors.HotTrack;
-               this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.labelWelcome.ForeColor = System.Drawing.Color.White;
-               this.labelWelcome.Location = new System.Drawing.Point(165, 125);
-               this.labelWelcome.Name = "labelWelcome";
-               this.labelWelcome.Size = new System.Drawing.Size(0, 31);
-               this.labelWelcome.TabIndex = 4;
+               this.labelName.AutoSize = true;
+               this.labelName.BackColor = System.Drawing.SystemColors.HotTrack;
+               this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.labelName.ForeColor = System.Drawing.Color.White;
+               this.labelName.Location = new System.Drawing.Point(165, 125);
+               this.labelName.Name = "labelName";
+               this.labelName.Size = new System.Drawing.Size(0, 31);
+               this.labelName.TabIndex = 4;
                // 
                // textBoxPost
                // 
                this.textBoxPost.Enabled = false;
                this.textBoxPost.Location = new System.Drawing.Point(231, 211);
+               this.textBoxPost.Multiline = true;
                this.textBoxPost.Name = "textBoxPost";
-               this.textBoxPost.Size = new System.Drawing.Size(333, 22);
+               this.textBoxPost.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+               this.textBoxPost.Size = new System.Drawing.Size(333, 74);
                this.textBoxPost.TabIndex = 5;
                this.textBoxPost.Enter += new System.EventHandler(this.textBoxPost_Enter);
                // 
@@ -122,7 +126,7 @@
                this.buttonPost.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
                this.buttonPost.Enabled = false;
                this.buttonPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonPost.Location = new System.Drawing.Point(489, 239);
+               this.buttonPost.Location = new System.Drawing.Point(489, 291);
                this.buttonPost.Name = "buttonPost";
                this.buttonPost.Size = new System.Drawing.Size(75, 31);
                this.buttonPost.TabIndex = 6;
@@ -130,15 +134,15 @@
                this.buttonPost.UseVisualStyleBackColor = false;
                this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
                // 
-               // pictureBoxBackGround
+               // pictureBoxCover
                // 
-               this.pictureBoxBackGround.BackColor = System.Drawing.SystemColors.Control;
-               this.pictureBoxBackGround.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-               this.pictureBoxBackGround.Location = new System.Drawing.Point(12, 3);
-               this.pictureBoxBackGround.Name = "pictureBoxBackGround";
-               this.pictureBoxBackGround.Size = new System.Drawing.Size(780, 163);
-               this.pictureBoxBackGround.TabIndex = 7;
-               this.pictureBoxBackGround.TabStop = false;
+               this.pictureBoxCover.BackColor = System.Drawing.SystemColors.Control;
+               this.pictureBoxCover.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+               this.pictureBoxCover.Location = new System.Drawing.Point(12, 3);
+               this.pictureBoxCover.Name = "pictureBoxCover";
+               this.pictureBoxCover.Size = new System.Drawing.Size(780, 163);
+               this.pictureBoxCover.TabIndex = 7;
+               this.pictureBoxCover.TabStop = false;
                // 
                // groupBoxFriends
                // 
@@ -156,7 +160,7 @@
                this.pictureBoxFriend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                this.pictureBoxFriend.Location = new System.Drawing.Point(136, 12);
                this.pictureBoxFriend.Name = "pictureBoxFriend";
-               this.pictureBoxFriend.Size = new System.Drawing.Size(60, 62);
+               this.pictureBoxFriend.Size = new System.Drawing.Size(60, 60);
                this.pictureBoxFriend.TabIndex = 21;
                this.pictureBoxFriend.TabStop = false;
                // 
@@ -181,6 +185,7 @@
                // 
                // groupBoxIntro
                // 
+               this.groupBoxIntro.Controls.Add(this.textBoxIntro);
                this.groupBoxIntro.Location = new System.Drawing.Point(13, 202);
                this.groupBoxIntro.Name = "groupBoxIntro";
                this.groupBoxIntro.Size = new System.Drawing.Size(200, 164);
@@ -204,7 +209,7 @@
                this.pictureBoxEvent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                this.pictureBoxEvent.Location = new System.Drawing.Point(136, 12);
                this.pictureBoxEvent.Name = "pictureBoxEvent";
-               this.pictureBoxEvent.Size = new System.Drawing.Size(60, 62);
+               this.pictureBoxEvent.Size = new System.Drawing.Size(60, 60);
                this.pictureBoxEvent.TabIndex = 15;
                this.pictureBoxEvent.TabStop = false;
                // 
@@ -234,7 +239,7 @@
                this.pictureBoxCheckin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                this.pictureBoxCheckin.Location = new System.Drawing.Point(136, 12);
                this.pictureBoxCheckin.Name = "pictureBoxCheckin";
-               this.pictureBoxCheckin.Size = new System.Drawing.Size(60, 62);
+               this.pictureBoxCheckin.Size = new System.Drawing.Size(60, 60);
                this.pictureBoxCheckin.TabIndex = 17;
                this.pictureBoxCheckin.TabStop = false;
                // 
@@ -264,7 +269,7 @@
                this.pictureBoxLikedPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                this.pictureBoxLikedPage.Location = new System.Drawing.Point(136, 12);
                this.pictureBoxLikedPage.Name = "pictureBoxLikedPage";
-               this.pictureBoxLikedPage.Size = new System.Drawing.Size(60, 62);
+               this.pictureBoxLikedPage.Size = new System.Drawing.Size(60, 60);
                this.pictureBoxLikedPage.TabIndex = 19;
                this.pictureBoxLikedPage.TabStop = false;
                // 
@@ -283,23 +288,36 @@
                this.listBoxPosts.FormattingEnabled = true;
                this.listBoxPosts.HorizontalScrollbar = true;
                this.listBoxPosts.ItemHeight = 16;
-               this.listBoxPosts.Location = new System.Drawing.Point(231, 294);
+               this.listBoxPosts.Location = new System.Drawing.Point(231, 335);
                this.listBoxPosts.Name = "listBoxPosts";
                this.listBoxPosts.ScrollAlwaysVisible = true;
-               this.listBoxPosts.Size = new System.Drawing.Size(333, 356);
+               this.listBoxPosts.Size = new System.Drawing.Size(333, 372);
                this.listBoxPosts.TabIndex = 13;
                // 
                // buttonRefresh
                // 
-               this.buttonRefresh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+               this.buttonRefresh.AutoSize = true;
+               this.buttonRefresh.BackColor = System.Drawing.SystemColors.Menu;
+               this.buttonRefresh.Enabled = false;
                this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonRefresh.Location = new System.Drawing.Point(489, 656);
+               this.buttonRefresh.Location = new System.Drawing.Point(619, 49);
                this.buttonRefresh.Name = "buttonRefresh";
                this.buttonRefresh.Size = new System.Drawing.Size(75, 27);
                this.buttonRefresh.TabIndex = 14;
                this.buttonRefresh.Text = "Refresh";
                this.buttonRefresh.UseVisualStyleBackColor = false;
                this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+               // 
+               // textBoxIntro
+               // 
+               this.textBoxIntro.BackColor = System.Drawing.Color.White;
+               this.textBoxIntro.Location = new System.Drawing.Point(7, 22);
+               this.textBoxIntro.Multiline = true;
+               this.textBoxIntro.Name = "textBoxIntro";
+               this.textBoxIntro.ReadOnly = true;
+               this.textBoxIntro.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+               this.textBoxIntro.Size = new System.Drawing.Size(187, 132);
+               this.textBoxIntro.TabIndex = 0;
                // 
                // MainForm
                // 
@@ -316,18 +334,20 @@
                this.Controls.Add(this.groupBoxFriends);
                this.Controls.Add(this.buttonPost);
                this.Controls.Add(this.textBoxPost);
-               this.Controls.Add(this.labelWelcome);
+               this.Controls.Add(this.labelName);
                this.Controls.Add(this.pictureBoxUserPicture);
                this.Controls.Add(this.buttonLogOut);
                this.Controls.Add(this.buttonLogIn);
-               this.Controls.Add(this.pictureBoxBackGround);
+               this.Controls.Add(this.pictureBoxCover);
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
                this.Name = "MainForm";
                this.Text = "Facebook Form";
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).EndInit();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackGround)).EndInit();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
                this.groupBoxFriends.ResumeLayout(false);
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).EndInit();
+               this.groupBoxIntro.ResumeLayout(false);
+               this.groupBoxIntro.PerformLayout();
                this.groupBoxEvents.ResumeLayout(false);
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
                this.groupBoxCheckins.ResumeLayout(false);
@@ -344,10 +364,10 @@
           private System.Windows.Forms.Button buttonLogIn;
           private System.Windows.Forms.Button buttonLogOut;
           private System.Windows.Forms.PictureBox pictureBoxUserPicture;
-          private System.Windows.Forms.Label labelWelcome;
+          private System.Windows.Forms.Label labelName;
           private System.Windows.Forms.TextBox textBoxPost;
           private System.Windows.Forms.Button buttonPost;
-          private System.Windows.Forms.PictureBox pictureBoxBackGround;
+          private System.Windows.Forms.PictureBox pictureBoxCover;
           private System.Windows.Forms.GroupBox groupBoxFriends;
           private System.Windows.Forms.GroupBox groupBoxPhotos;
           private System.Windows.Forms.GroupBox groupBoxIntro;
@@ -364,6 +384,7 @@
           private System.Windows.Forms.ListBox listBoxLikedPages;
           private System.Windows.Forms.ListBox listBoxPosts;
           private System.Windows.Forms.Button buttonRefresh;
+          protected System.Windows.Forms.TextBox textBoxIntro;
      }
 }
 

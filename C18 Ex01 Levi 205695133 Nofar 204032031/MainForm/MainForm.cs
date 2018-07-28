@@ -1,12 +1,14 @@
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace FacebookApp
 {
      public partial class MainForm : Form
      {
-          private AppLogic m_AppLogic = new AppLogic();
+          private UserLogic m_UserLogic = new UserLogic();
+          private readonly Color r_DefaultFontColor = Color.LightGray; 
 
           public MainForm()
           {
@@ -15,9 +17,9 @@ namespace FacebookApp
 
           private void buttonLogIn_Click(object sender, EventArgs e)
           {
-               m_AppLogic.Login();
+               m_UserLogic.Login();
 
-               if (!string.IsNullOrEmpty(m_AppLogic.LoginResult.AccessToken))
+               if (!string.IsNullOrEmpty(m_UserLogic.LoginResult.AccessToken))
                {
                     populateUIWithUserInformation();
                }
@@ -25,121 +27,69 @@ namespace FacebookApp
 
           private void populateUIWithUserInformation()
           {
-               buttonEnabler();
-               labelWelcome.Text = string.Format(@"{0} {1}", m_AppLogic.LoggedInUser.FirstName, m_AppLogic.LoggedInUser.LastName);
-               pictureBoxUserPicture.LoadAsync(m_AppLogic.LoggedInUser.PictureNormalURL);
-               //pictureBoxBackGround.LoadAsync(m_AppLogic.LoggedInUser.Cover.SourceURL);
-               populateTextBoxPostWithDefaultString();
-               populateListBoxes();
-               populateUserFeed();
-          }
+               controlsEnabler();
+               populateLabelName();
+               populatePictrureBoxUserPicture();
+               populatePictureBoxCover();
 
-          private void populateListBoxes()
-          {
                populateListBoxFriends();
                populateListBoxEvents();
                populateListBoxCheckins();
-               //    populateListBoxLikedPages();
-          }
+               populateListBoxLikedPages();
 
-          private void populateTextBoxPostWithDefaultString()
-          {
-               textBoxPost.Undo();
-               string defaultString = string.Format(@"What's on your mind {0}?", m_AppLogic.LoggedInUser.FirstName);
-               textBoxPost.Text = defaultString;
-               textBoxPost.ForeColor = System.Drawing.Color.LightGray;
-          }
 
-          private void populateListBoxFriends()
-          {
-               listBoxFriends.Items.Clear();
-               listBoxFriends.DisplayMember = "Name";
-               if (m_AppLogic.LoggedInUser.Friends.Count > 0)
-               {
-                    foreach (User friend in m_AppLogic.LoggedInUser.Friends)
-                    {
-                         listBoxFriends.Items.Add(friend);
-                         friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
-                    }
-               }
 
-          }
-
-          private void populateListBoxEvents()
-          {
-               //listBoxEvents.Items.Clear();
-               //listBoxEvents.DisplayMember = "Name";
-
-               //if (m_AppLogic.LoggedInUser.Events.Count > 0)
-               //{
-               //     foreach (Event fbEvent in m_AppLogic.LoggedInUser.Events)
-               //     {
-               //          listBoxEvents.Items.Add(fbEvent);
-               //     }
-               //}
-          }
-
-          private void populateListBoxCheckins()
-          {
-               if (m_AppLogic.LoggedInUser.Checkins.Count > 0)
-               {
-                    foreach (Checkin checkin in m_AppLogic.LoggedInUser.Checkins)
-                    {
-                         listBoxCheckins.Items.Add(checkin.Place.Name);
-                    }
-               }
-
-          }
-
-          private void populateListBoxLikedPages()
-          {
-               listBoxLikedPages.Items.Clear();
-               listBoxLikedPages.DisplayMember = "Name";
-
-               if (m_AppLogic.LoggedInUser.LikedPages.Count > 0)
-               {
-                    foreach (Page page in m_AppLogic.LoggedInUser.LikedPages)
-                    {
-                         listBoxLikedPages.Items.Add(page);
-                    }
-               }
-
-          }
-
-          private void buttonLogOut_Click(object sender, EventArgs e)
-          {
-               m_AppLogic.Logout();
-               clearUI();
-          }
-
-          private void clearUI()
-          {
-               buttonEnabler();
-               Utility.ClearControls(Controls);
-          }
-
-          private void buttonEnabler()
-          {
-               buttonLogIn.Enabled = !buttonLogIn.Enabled;
-               buttonLogOut.Enabled = !buttonLogOut.Enabled;
-               buttonPost.Enabled = buttonLogOut.Enabled;
-               textBoxPost.Enabled = buttonPost.Enabled;
-          }
-
-          private void buttonPost_Click(object sender, EventArgs e)
-          {
-               m_AppLogic.LoggedInUser.PostStatus(textBoxPost.Text);
-               populateUserFeed();
+               populateTextBoxIntro();
                populateTextBoxPostWithDefaultString();
+               populateUserFeed();
+
+               populateGroupBoxPhotos();
+          }
+
+          private void populateLabelName()
+          {
+               if(m_UserLogic.LoggedInUser.FirstName != null && m_UserLogic.LoggedInUser.LastName !=null)
+               {
+                    labelName.Text = string.Format(@"{0} {1}", m_UserLogic.LoggedInUser.FirstName, m_UserLogic.LoggedInUser.LastName);
+               }
+               else
+               {
+                    MessageBox.Show("Error: can't retrieve name");
+               }
+          }
+
+          private void populatePictrureBoxUserPicture()
+          {
+               if (m_UserLogic.LoggedInUser.PictureNormalURL != null)
+               {
+                    pictureBoxUserPicture.LoadAsync(m_UserLogic.LoggedInUser.PictureNormalURL);
+               }
+               else
+               {
+                    pictureBoxUserPicture.Image = pictureBoxUserPicture.ErrorImage;
+               }
+          }
+          
+          private void  populatePictureBoxCover()
+          {
+               if (m_UserLogic.LoggedInUser.Cover != null)
+               {
+                    pictureBoxCover.LoadAsync(m_UserLogic.LoggedInUser.Cover.SourceURL);
+               }
+               else
+               {
+                    pictureBoxCover.Image = pictureBoxCover.ErrorImage;
+               }
           }
 
           private void populateUserFeed()
           {
                listBoxPosts.Items.Clear();
-               if (m_AppLogic.LoggedInUser.Posts.Count > 0)
-               {
+               m_UserLogic.LoggedInUser.ReFetch();
 
-                    foreach (Post post in m_AppLogic.LoggedInUser.Posts)
+               try
+               {
+                    foreach (Post post in m_UserLogic.LoggedInUser.Posts)
                     {
                          if (post.Message != null)
                          {
@@ -155,9 +105,175 @@ namespace FacebookApp
                          }
                     }
                }
+               catch(Exception ex)
+               {
+                    string message = string.Format(@"Feed: {0}", ex.Message);
+                    MessageBox.Show(message);
+               }
+          }
 
+          private void populateTextBoxIntro()
+          {
+               textBoxIntro.Clear();
+               textBoxIntro.Text = m_UserLogic.GetUserIntro();
+          }
+
+          private void populateTextBoxPostWithDefaultString()
+          {
+               textBoxPost.Undo();
+               string defaultString = string.Format(@"What's on your mind {0}?", m_UserLogic.LoggedInUser.FirstName);
+               textBoxPost.Text = defaultString;
+               textBoxPost.ForeColor = r_DefaultFontColor;
+          }
+
+          private void populateGroupBoxPhotos()
+          {
+               //groupBoxPhotos.Controls.Clear();
+
+               //try
+               //{
+               //     foreach(Photo photo in m_UserLogic.LoggedInUser.Pictures)
+               //     {
+               //          PictureBox pictureBox = new PictureBox();
+               //          pictureBox.LoadAsync(photo.PictureThumbURL);
+               //          groupBoxPhotos.Controls.Add(pictureBox);
+               //     }
+
+               //}
+               //catch (Exception ex)
+               //{
+               //     MessageBox.Show(ex.Message);
+               //}
 
           }
+               
+
+          private void populateListBoxFriends()
+          {
+               listBoxFriends.Items.Clear();
+               listBoxFriends.DisplayMember = "Name";
+
+               try
+               {
+                    foreach (User friend in m_UserLogic.LoggedInUser.Friends)
+                    {
+                         listBoxFriends.Items.Add(friend);
+                         friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
+                    }
+               }
+               catch(Exception ex)
+               {
+                    string message = string.Format(@"Friends: {0}", ex.Message);
+                    MessageBox.Show(message);
+               }
+          }
+
+          private void populateListBoxEvents()
+          {
+               listBoxEvents.Items.Clear();
+               listBoxEvents.DisplayMember = "Name";
+
+               try
+               {
+                    foreach (Event fbEvent in m_UserLogic.LoggedInUser.Events)
+                    {
+                         listBoxEvents.Items.Add(fbEvent);
+                    }
+               }
+               catch (Exception ex)
+               {
+                    string message = string.Format(@"Events: {0}", ex.Message);
+                    MessageBox.Show(message);
+               }
+          }
+
+          private void populateListBoxCheckins()
+          {
+               listBoxCheckins.Items.Clear();
+               listBoxCheckins.DisplayMember = "Name";
+               try
+               {
+                    foreach (Checkin checkin in m_UserLogic.LoggedInUser.Checkins)
+                    {
+                         listBoxCheckins.Items.Add(checkin.Place.Name);
+                    }
+               }
+               catch (Exception ex)
+               {
+                    string message = string.Format(@"Checkins: {0}", ex.Message);
+                    MessageBox.Show(message);
+               }
+          }
+
+          private void populateListBoxLikedPages()
+          {
+               listBoxLikedPages.Items.Clear();
+               listBoxLikedPages.DisplayMember = "Name";
+
+               try
+               {
+                    foreach (Page page in m_UserLogic.LoggedInUser.LikedPages)
+                    {
+                         listBoxLikedPages.Items.Add(page);
+                    }
+               }
+               catch (Exception ex)
+               {
+                    string message = string.Format(@"Liked pages: {0}", ex.Message);
+                    MessageBox.Show(message);
+               }
+
+          }
+
+          private void buttonLogOut_Click(object sender, EventArgs e)
+          {
+               m_UserLogic.Logout();
+               clearUI();
+          }
+
+          private void clearUI()
+          {
+               controlsEnabler();
+               Utility.ClearControls(Controls);
+          }
+
+          private void controlsEnabler()
+          {
+               buttonLogIn.Enabled = !m_UserLogic.LoggedIn;
+               buttonLogOut.Enabled = m_UserLogic.LoggedIn;
+               buttonPost.Enabled = m_UserLogic.LoggedIn;
+               buttonRefresh.Enabled = m_UserLogic.LoggedIn;
+               textBoxPost.Enabled = m_UserLogic.LoggedIn;
+          }
+
+          private void buttonPost_Click(object sender, EventArgs e)
+          {
+               postStatus();
+               populateUserFeed();
+               populateTextBoxPostWithDefaultString();
+          }
+
+          private void postStatus()
+          {
+               string status = textBoxPost.Text;
+
+               if (string.IsNullOrEmpty(status) || textBoxPost.ForeColor == r_DefaultFontColor)
+               {
+                    MessageBox.Show("Error: Empty post");
+               }
+               else
+               {
+                    try
+                    {
+                         m_UserLogic.LoggedInUser.PostStatus(status);
+                    }
+                    catch(Exception ex)
+                    {
+                         MessageBox.Show(ex.Message);
+                    }                
+               }
+          }
+
 
           private void textBoxPost_Enter(object sender, EventArgs e)
           {
@@ -196,7 +312,14 @@ namespace FacebookApp
                if (listBoxEvents.SelectedItems.Count == 1)
                {
                     Event selectedEvent = listBoxEvents.SelectedItem as Event;
-                    pictureBoxEvent.LoadAsync(selectedEvent.PictureSmallURL);
+                    if (selectedEvent.PictureSmallURL != null)
+                    {
+                         pictureBoxEvent.LoadAsync(selectedEvent.PictureSmallURL);
+                    }
+                    else
+                    {
+                         pictureBoxEvent.Image = pictureBoxEvent.ErrorImage;
+                    }
                }
           }
 
@@ -210,7 +333,14 @@ namespace FacebookApp
                if (listBoxCheckins.SelectedItems.Count == 1)
                {
                     Checkin selectedCheckin = listBoxCheckins.SelectedItem as Checkin;
-                    pictureBoxCheckin.LoadAsync(selectedCheckin.PictureURL);
+                    if (selectedCheckin.PictureURL != null)
+                    {
+                         pictureBoxCheckin.LoadAsync(selectedCheckin.PictureURL);
+                    }
+                    else
+                    {
+                         pictureBoxCheckin.Image = pictureBoxCheckin.ErrorImage;
+                    }
                }
           }
 
@@ -224,13 +354,21 @@ namespace FacebookApp
                if (listBoxLikedPages.SelectedItems.Count == 1)
                {
                     Page selectedPage = listBoxLikedPages.SelectedItem as Page;
-                    pictureBoxLikedPage.LoadAsync(selectedPage.PictureSmallURL);
+                    if (selectedPage.PictureSmallURL != null)
+                    {
+                         pictureBoxLikedPage.LoadAsync(selectedPage.PictureSmallURL);
+                    }
+                    else
+                    {
+                         pictureBoxLikedPage.Image = pictureBoxLikedPage.ErrorImage;
+                    }
                }
           }
 
           private void buttonRefresh_Click(object sender, EventArgs e)
           {
-               populateUserFeed();
+               m_UserLogic.LoggedInUser.ReFetch();
+               populateUIWithUserInformation();
           }
      }
 }
