@@ -1,32 +1,25 @@
 ﻿using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using System.Collections.Generic;
+using System;
+
 namespace FacebookApp
 {
-    public class CommonPhotosFinder
+    public class CommonPhotosFinder : ICommonFinders
     {
         public List<Photo> PhotosInCommon { get; set; }
-
-        public User LoggedInUser { get; set; }
-        public User FriendUser { get; set; }
 
         public CommonPhotosFinder()
         {
         }
 
-        public CommonPhotosFinder(User i_LoggedInUser, User i_SelectedUser)
-        {
-            LoggedInUser = i_LoggedInUser;
-            FriendUser = i_SelectedUser;
-        }
-
-        public void FindCommonPhotos()
+        public void FindCommon(User i_FirstUser, User i_SecUser)
         {
             PhotosInCommon = new List<Photo>();
 
-            foreach (Photo photo in LoggedInUser.PhotosTaggedIn)
+            foreach (Photo photo in i_FirstUser.PhotosTaggedIn)
             {
-                foreach (Photo friendPhoto in FriendUser.PhotosTaggedIn)
+                foreach (Photo friendPhoto in i_SecUser.PhotosTaggedIn)
                 {
                     if (photo.Id == friendPhoto.Id)
                     {
@@ -36,6 +29,9 @@ namespace FacebookApp
             }
         }
 
-
+        public void SetProp(CommonProp i_CommonProp)
+        {
+            i_CommonProp.PhotosInCommon = PhotosInCommon;
+        }
     }
 }
