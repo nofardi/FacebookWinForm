@@ -1,6 +1,8 @@
 ﻿using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
+using System;
 using System.Text;
+using System.Windows.Forms;
 
 namespace FacebookApp
 {
@@ -11,7 +13,8 @@ namespace FacebookApp
           private bool m_LoggedIn = false;
           public const string k_MyAppID = "1771402262915011";
           public readonly string[] r_Permissions =
-               { "public_profile",
+               {
+               "public_profile",
                 "user_education_history",
                 "user_birthday",
                 "user_actions.video",
@@ -71,6 +74,7 @@ namespace FacebookApp
 
           public void Login()
           {
+
                m_LoginResult = FacebookService.Login(k_MyAppID, r_Permissions);
 
                if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
@@ -78,6 +82,7 @@ namespace FacebookApp
                     m_LoggedInUser = m_LoginResult.LoggedInUser;
                     m_LoggedIn = true;
                }
+
           }
 
           public void Logout()

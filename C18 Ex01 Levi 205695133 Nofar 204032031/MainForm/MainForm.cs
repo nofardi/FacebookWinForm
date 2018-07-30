@@ -1,6 +1,7 @@
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace FacebookApp
@@ -8,7 +9,7 @@ namespace FacebookApp
      public partial class MainForm : Form
      {
           private UserLogic m_UserLogic = new UserLogic();
-          private readonly Color r_DefaultFontColor = Color.LightGray; 
+          private readonly Color r_DefaultFontColor = Color.LightGray;
 
           public MainForm()
           {
@@ -23,11 +24,14 @@ namespace FacebookApp
                {
                     populateUIWithUserInformation();
                }
+               else
+               {
+                    MessageBox.Show("Error accessing user");
+               }
           }
 
           private void populateUIWithUserInformation()
           {
-               controlsEnabler();
                populateLabelName();
                populatePictrureBoxUserPicture();
                populatePictureBoxCover();
@@ -44,11 +48,13 @@ namespace FacebookApp
                populateUserFeed();
 
                populateGroupBoxPhotos();
+
+               controlsEnabler();
           }
 
           private void populateLabelName()
           {
-               if(m_UserLogic.LoggedInUser.FirstName != null && m_UserLogic.LoggedInUser.LastName !=null)
+               if (m_UserLogic.LoggedInUser.FirstName != null && m_UserLogic.LoggedInUser.LastName != null)
                {
                     labelName.Text = string.Format(@"{0} {1}", m_UserLogic.LoggedInUser.FirstName, m_UserLogic.LoggedInUser.LastName);
                }
@@ -69,8 +75,8 @@ namespace FacebookApp
                     pictureBoxUserPicture.Image = pictureBoxUserPicture.ErrorImage;
                }
           }
-          
-          private void  populatePictureBoxCover()
+
+          private void populatePictureBoxCover()
           {
                if (m_UserLogic.LoggedInUser.Cover != null)
                {
@@ -84,38 +90,21 @@ namespace FacebookApp
 
           private void populateUserFeed()
           {
-               listBoxPosts.Items.Clear();
-               m_UserLogic.LoggedInUser.ReFetch();
-
-               try
-               {
-                    foreach (Post post in m_UserLogic.LoggedInUser.Posts)
-                    {
-                         if (post.Message != null)
-                         {
-                              listBoxPosts.Items.Add(post.Message);
-                         }
-                         else if (post.Caption != null)
-                         {
-                              listBoxPosts.Items.Add(post.Caption);
-                         }
-                         else
-                         {
-                              listBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
-                         }
-                    }
-               }
-               catch(Exception ex)
-               {
-                    string message = string.Format(@"Feed: {0}", ex.Message);
-                    MessageBox.Show(message);
-               }
+               
+               feed.PopulateFeed(m_UserLogic.LoggedInUser.Posts);             
           }
 
           private void populateTextBoxIntro()
           {
                textBoxIntro.Clear();
-               textBoxIntro.Text = m_UserLogic.GetUserIntro();
+               try
+               {
+                    textBoxIntro.Text = m_UserLogic.GetUserIntro();
+               }
+               catch (Exception ex)
+               {
+                    MessageBox.Show(ex.Message);
+               }
           }
 
           private void populateTextBoxPostWithDefaultString()
@@ -129,13 +118,13 @@ namespace FacebookApp
           private void populateGroupBoxPhotos()
           {
                //groupBoxPhotos.Controls.Clear();
-
+               //m_UserLogic.LoggedInUser.Albums.
                //try
                //{
-               //     foreach(Photo photo in m_UserLogic.LoggedInUser.Pictures)
+               //     foreach (Pictures photo in m_UserLogic.LoggedInUser.Pictures)
                //     {
                //          PictureBox pictureBox = new PictureBox();
-               //          pictureBox.LoadAsync(photo.PictureThumbURL);
+               //          pictureBox.LoadAsync(photo.ThumbURL);
                //          groupBoxPhotos.Controls.Add(pictureBox);
                //     }
 
@@ -144,9 +133,8 @@ namespace FacebookApp
                //{
                //     MessageBox.Show(ex.Message);
                //}
-
           }
-               
+
 
           private void populateListBoxFriends()
           {
@@ -158,10 +146,9 @@ namespace FacebookApp
                     foreach (User friend in m_UserLogic.LoggedInUser.Friends)
                     {
                          listBoxFriends.Items.Add(friend);
-                         friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
                     }
                }
-               catch(Exception ex)
+               catch (Exception ex)
                {
                     string message = string.Format(@"Friends: {0}", ex.Message);
                     MessageBox.Show(message);
@@ -242,20 +229,70 @@ namespace FacebookApp
                buttonLogIn.Enabled = !m_UserLogic.LoggedIn;
                buttonLogOut.Enabled = m_UserLogic.LoggedIn;
                buttonPost.Enabled = m_UserLogic.LoggedIn;
+               buttonGetPicturePath.Enabled = m_UserLogic.LoggedIn;
                buttonRefresh.Enabled = m_UserLogic.LoggedIn;
                textBoxPost.Enabled = m_UserLogic.LoggedIn;
+               textBoxPicturePath.Visible = false;
           }
 
           private void buttonPost_Click(object sender, EventArgs e)
           {
-               postStatus();
-               populateUserFeed();
+               if (tryToPost())
+               {
+                    m_UserLogic.LoggedInUser.ReFetch();//!!!
+                    populateUserFeed();
+               }
                populateTextBoxPostWithDefaultString();
           }
 
-          private void postStatus()
+          private bool tryToPost()
+          {
+               bool isSuccess = false;
+
+               if (textBoxPicturePath.Visible)
+               {
+                    isSuccess = tryToPostPicture();
+               }
+               else
+               {
+                    isSuccess = tryToPostStatus();
+               }
+
+               textBoxPicturePath.Visible = false;
+
+               return isSuccess;
+          }
+
+          private bool tryToPostPicture()
+          {
+               string picturePath = textBoxPicturePath.Text;
+               string description = textBoxPost.Text;
+               bool isSuccess = false;
+               try
+               {
+                    if (File.Exists(picturePath))
+                    {
+                         m_UserLogic.LoggedInUser.PostPhoto(picturePath, description);
+                         isSuccess = true;
+                    }
+                    else
+                    {
+                         MessageBox.Show("Error: Photo doesnt exist");
+                    }
+               }
+               catch (Exception ex)
+               {
+                    MessageBox.Show(ex.Message);
+               }
+          
+
+               return isSuccess;
+          }
+
+          private bool tryToPostStatus()
           {
                string status = textBoxPost.Text;
+               bool isSuccess = false;
 
                if (string.IsNullOrEmpty(status) || textBoxPost.ForeColor == r_DefaultFontColor)
                {
@@ -266,12 +303,15 @@ namespace FacebookApp
                     try
                     {
                          m_UserLogic.LoggedInUser.PostStatus(status);
+                         isSuccess = true;
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                          MessageBox.Show(ex.Message);
-                    }                
+                    }
                }
+
+               return isSuccess;
           }
 
 
@@ -369,6 +409,23 @@ namespace FacebookApp
           {
                m_UserLogic.LoggedInUser.ReFetch();
                populateUIWithUserInformation();
+          }
+
+          private void buttonGetPicturePath_Click(object sender, EventArgs e)
+          {
+               OpenFileDialog fileDialog = new OpenFileDialog();
+               // image filters  
+               fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+               if (fileDialog.ShowDialog() == DialogResult.OK)
+               {
+                    // display image in picture box  
+                    //pictureBox1.Image = new Bitmap(open.FileName);
+                    // image file path 
+                    textBoxPicturePath.Visible = true;
+                    textBoxPicturePath.Text = fileDialog.FileName;
+                    textBoxPost.Text = string.Empty;
+               }
+               fileDialog.Dispose();
           }
      }
 }

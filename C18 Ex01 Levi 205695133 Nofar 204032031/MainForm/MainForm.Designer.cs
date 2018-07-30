@@ -40,6 +40,7 @@
                this.listBoxFriends = new System.Windows.Forms.ListBox();
                this.groupBoxPhotos = new System.Windows.Forms.GroupBox();
                this.groupBoxIntro = new System.Windows.Forms.GroupBox();
+               this.textBoxIntro = new System.Windows.Forms.TextBox();
                this.groupBoxEvents = new System.Windows.Forms.GroupBox();
                this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
                this.listBoxEvents = new System.Windows.Forms.ListBox();
@@ -49,9 +50,10 @@
                this.groupBoxLikedPages = new System.Windows.Forms.GroupBox();
                this.pictureBoxLikedPage = new System.Windows.Forms.PictureBox();
                this.listBoxLikedPages = new System.Windows.Forms.ListBox();
-               this.listBoxPosts = new System.Windows.Forms.ListBox();
                this.buttonRefresh = new System.Windows.Forms.Button();
-               this.textBoxIntro = new System.Windows.Forms.TextBox();
+               this.buttonGetPicturePath = new System.Windows.Forms.Button();
+               this.textBoxPicturePath = new System.Windows.Forms.TextBox();
+               this.feed = new FacebookApp.Feed();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
                this.groupBoxFriends.SuspendLayout();
@@ -69,7 +71,7 @@
                // 
                this.buttonLogIn.BackColor = System.Drawing.SystemColors.Menu;
                this.buttonLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonLogIn.Location = new System.Drawing.Point(619, 12);
+               this.buttonLogIn.Location = new System.Drawing.Point(679, 12);
                this.buttonLogIn.Name = "buttonLogIn";
                this.buttonLogIn.Size = new System.Drawing.Size(75, 31);
                this.buttonLogIn.TabIndex = 0;
@@ -82,7 +84,7 @@
                this.buttonLogOut.BackColor = System.Drawing.SystemColors.Menu;
                this.buttonLogOut.Enabled = false;
                this.buttonLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonLogOut.Location = new System.Drawing.Point(700, 12);
+               this.buttonLogOut.Location = new System.Drawing.Point(760, 12);
                this.buttonLogOut.Name = "buttonLogOut";
                this.buttonLogOut.Size = new System.Drawing.Size(75, 31);
                this.buttonLogOut.TabIndex = 1;
@@ -117,7 +119,7 @@
                this.textBoxPost.Multiline = true;
                this.textBoxPost.Name = "textBoxPost";
                this.textBoxPost.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-               this.textBoxPost.Size = new System.Drawing.Size(333, 74);
+               this.textBoxPost.Size = new System.Drawing.Size(399, 74);
                this.textBoxPost.TabIndex = 5;
                this.textBoxPost.Enter += new System.EventHandler(this.textBoxPost_Enter);
                // 
@@ -126,7 +128,7 @@
                this.buttonPost.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
                this.buttonPost.Enabled = false;
                this.buttonPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonPost.Location = new System.Drawing.Point(489, 291);
+               this.buttonPost.Location = new System.Drawing.Point(231, 291);
                this.buttonPost.Name = "buttonPost";
                this.buttonPost.Size = new System.Drawing.Size(75, 31);
                this.buttonPost.TabIndex = 6;
@@ -140,7 +142,7 @@
                this.pictureBoxCover.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                this.pictureBoxCover.Location = new System.Drawing.Point(12, 3);
                this.pictureBoxCover.Name = "pictureBoxCover";
-               this.pictureBoxCover.Size = new System.Drawing.Size(780, 163);
+               this.pictureBoxCover.Size = new System.Drawing.Size(834, 163);
                this.pictureBoxCover.TabIndex = 7;
                this.pictureBoxCover.TabStop = false;
                // 
@@ -193,11 +195,22 @@
                this.groupBoxIntro.TabStop = false;
                this.groupBoxIntro.Text = "Intro";
                // 
+               // textBoxIntro
+               // 
+               this.textBoxIntro.BackColor = System.Drawing.Color.White;
+               this.textBoxIntro.Location = new System.Drawing.Point(7, 22);
+               this.textBoxIntro.Multiline = true;
+               this.textBoxIntro.Name = "textBoxIntro";
+               this.textBoxIntro.ReadOnly = true;
+               this.textBoxIntro.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+               this.textBoxIntro.Size = new System.Drawing.Size(187, 132);
+               this.textBoxIntro.TabIndex = 0;
+               // 
                // groupBoxEvents
                // 
                this.groupBoxEvents.Controls.Add(this.pictureBoxEvent);
                this.groupBoxEvents.Controls.Add(this.listBoxEvents);
-               this.groupBoxEvents.Location = new System.Drawing.Point(592, 202);
+               this.groupBoxEvents.Location = new System.Drawing.Point(644, 202);
                this.groupBoxEvents.Name = "groupBoxEvents";
                this.groupBoxEvents.Size = new System.Drawing.Size(200, 164);
                this.groupBoxEvents.TabIndex = 11;
@@ -227,7 +240,7 @@
                // 
                this.groupBoxCheckins.Controls.Add(this.pictureBoxCheckin);
                this.groupBoxCheckins.Controls.Add(this.listBoxCheckins);
-               this.groupBoxCheckins.Location = new System.Drawing.Point(592, 378);
+               this.groupBoxCheckins.Location = new System.Drawing.Point(644, 378);
                this.groupBoxCheckins.Name = "groupBoxCheckins";
                this.groupBoxCheckins.Size = new System.Drawing.Size(200, 164);
                this.groupBoxCheckins.TabIndex = 12;
@@ -257,7 +270,7 @@
                // 
                this.groupBoxLikedPages.Controls.Add(this.pictureBoxLikedPage);
                this.groupBoxLikedPages.Controls.Add(this.listBoxLikedPages);
-               this.groupBoxLikedPages.Location = new System.Drawing.Point(592, 548);
+               this.groupBoxLikedPages.Location = new System.Drawing.Point(644, 548);
                this.groupBoxLikedPages.Name = "groupBoxLikedPages";
                this.groupBoxLikedPages.Size = new System.Drawing.Size(200, 164);
                this.groupBoxLikedPages.TabIndex = 12;
@@ -283,24 +296,13 @@
                this.listBoxLikedPages.TabIndex = 18;
                this.listBoxLikedPages.SelectedIndexChanged += new System.EventHandler(this.listBoxLikedPages_SelectedIndexChanged);
                // 
-               // listBoxPosts
-               // 
-               this.listBoxPosts.FormattingEnabled = true;
-               this.listBoxPosts.HorizontalScrollbar = true;
-               this.listBoxPosts.ItemHeight = 16;
-               this.listBoxPosts.Location = new System.Drawing.Point(231, 335);
-               this.listBoxPosts.Name = "listBoxPosts";
-               this.listBoxPosts.ScrollAlwaysVisible = true;
-               this.listBoxPosts.Size = new System.Drawing.Size(333, 372);
-               this.listBoxPosts.TabIndex = 13;
-               // 
                // buttonRefresh
                // 
                this.buttonRefresh.AutoSize = true;
                this.buttonRefresh.BackColor = System.Drawing.SystemColors.Menu;
                this.buttonRefresh.Enabled = false;
                this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonRefresh.Location = new System.Drawing.Point(619, 49);
+               this.buttonRefresh.Location = new System.Drawing.Point(679, 49);
                this.buttonRefresh.Name = "buttonRefresh";
                this.buttonRefresh.Size = new System.Drawing.Size(75, 27);
                this.buttonRefresh.TabIndex = 14;
@@ -308,24 +310,45 @@
                this.buttonRefresh.UseVisualStyleBackColor = false;
                this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
                // 
-               // textBoxIntro
+               // buttonGetPicturePath
                // 
-               this.textBoxIntro.BackColor = System.Drawing.Color.White;
-               this.textBoxIntro.Location = new System.Drawing.Point(7, 22);
-               this.textBoxIntro.Multiline = true;
-               this.textBoxIntro.Name = "textBoxIntro";
-               this.textBoxIntro.ReadOnly = true;
-               this.textBoxIntro.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-               this.textBoxIntro.Size = new System.Drawing.Size(187, 132);
-               this.textBoxIntro.TabIndex = 0;
+               this.buttonGetPicturePath.AutoSize = true;
+               this.buttonGetPicturePath.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+               this.buttonGetPicturePath.Enabled = false;
+               this.buttonGetPicturePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.buttonGetPicturePath.Location = new System.Drawing.Point(312, 291);
+               this.buttonGetPicturePath.Name = "buttonGetPicturePath";
+               this.buttonGetPicturePath.Size = new System.Drawing.Size(73, 30);
+               this.buttonGetPicturePath.TabIndex = 15;
+               this.buttonGetPicturePath.Text = "Photo";
+               this.buttonGetPicturePath.UseVisualStyleBackColor = false;
+               this.buttonGetPicturePath.Click += new System.EventHandler(this.buttonGetPicturePath_Click);
+               // 
+               // textBoxPicturePath
+               // 
+               this.textBoxPicturePath.Enabled = false;
+               this.textBoxPicturePath.Location = new System.Drawing.Point(231, 183);
+               this.textBoxPicturePath.Name = "textBoxPicturePath";
+               this.textBoxPicturePath.Size = new System.Drawing.Size(399, 22);
+               this.textBoxPicturePath.TabIndex = 16;
+               this.textBoxPicturePath.Visible = false;
+               // 
+               // feed
+               // 
+               this.feed.Location = new System.Drawing.Point(231, 327);
+               this.feed.Name = "feed";
+               this.feed.Size = new System.Drawing.Size(399, 385);
+               this.feed.TabIndex = 17;
                // 
                // MainForm
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.ClientSize = new System.Drawing.Size(804, 724);
+               this.ClientSize = new System.Drawing.Size(858, 724);
+               this.Controls.Add(this.feed);
+               this.Controls.Add(this.textBoxPicturePath);
+               this.Controls.Add(this.buttonGetPicturePath);
                this.Controls.Add(this.buttonRefresh);
-               this.Controls.Add(this.listBoxPosts);
                this.Controls.Add(this.groupBoxLikedPages);
                this.Controls.Add(this.groupBoxCheckins);
                this.Controls.Add(this.groupBoxEvents);
@@ -382,9 +405,11 @@
           private System.Windows.Forms.GroupBox groupBoxLikedPages;
           private System.Windows.Forms.PictureBox pictureBoxLikedPage;
           private System.Windows.Forms.ListBox listBoxLikedPages;
-          private System.Windows.Forms.ListBox listBoxPosts;
           private System.Windows.Forms.Button buttonRefresh;
           protected System.Windows.Forms.TextBox textBoxIntro;
+          private System.Windows.Forms.Button buttonGetPicturePath;
+          private System.Windows.Forms.TextBox textBoxPicturePath;
+          private Feed feed;
      }
 }
 
