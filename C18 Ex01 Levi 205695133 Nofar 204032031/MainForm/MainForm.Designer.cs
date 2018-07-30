@@ -56,7 +56,6 @@
             this.featuresTabs = new System.Windows.Forms.TabControl();
             this.timelineTab = new System.Windows.Forms.TabPage();
             this.matchTab = new System.Windows.Forms.TabPage();
-            this.commonTab = new System.Windows.Forms.TabPage();
             this.matchBox = new System.Windows.Forms.GroupBox();
             this.matchProgress = new System.Windows.Forms.ProgressBar();
             this.ageLabel = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@
             this.ageNumeric = new System.Windows.Forms.NumericUpDown();
             this.genderList = new System.Windows.Forms.CheckedListBox();
             this.locationCombo = new System.Windows.Forms.ComboBox();
+            this.commonTab = new System.Windows.Forms.TabPage();
             this.commonIntro = new System.Windows.Forms.GroupBox();
             this.commonPages = new System.Windows.Forms.GroupBox();
             this.commonPhotos = new System.Windows.Forms.GroupBox();
@@ -88,8 +88,8 @@
             this.featuresTabs.SuspendLayout();
             this.timelineTab.SuspendLayout();
             this.matchTab.SuspendLayout();
-            this.commonTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ageNumeric)).BeginInit();
+            this.commonTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLogIn
@@ -123,6 +123,7 @@
             this.pictureBoxUserPicture.Location = new System.Drawing.Point(33, 49);
             this.pictureBoxUserPicture.Name = "pictureBoxUserPicture";
             this.pictureBoxUserPicture.Size = new System.Drawing.Size(126, 117);
+            this.pictureBoxUserPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxUserPicture.TabIndex = 2;
             this.pictureBoxUserPicture.TabStop = false;
             // 
@@ -168,6 +169,7 @@
             this.pictureBoxCover.Location = new System.Drawing.Point(12, 3);
             this.pictureBoxCover.Name = "pictureBoxCover";
             this.pictureBoxCover.Size = new System.Drawing.Size(834, 153);
+            this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCover.TabIndex = 7;
             this.pictureBoxCover.TabStop = false;
             // 
@@ -188,6 +190,7 @@
             this.pictureBoxFriend.Location = new System.Drawing.Point(136, 12);
             this.pictureBoxFriend.Name = "pictureBoxFriend";
             this.pictureBoxFriend.Size = new System.Drawing.Size(60, 60);
+            this.pictureBoxFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFriend.TabIndex = 21;
             this.pictureBoxFriend.TabStop = false;
             // 
@@ -249,6 +252,7 @@
             this.pictureBoxEvent.Location = new System.Drawing.Point(136, 12);
             this.pictureBoxEvent.Name = "pictureBoxEvent";
             this.pictureBoxEvent.Size = new System.Drawing.Size(60, 60);
+            this.pictureBoxEvent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxEvent.TabIndex = 15;
             this.pictureBoxEvent.TabStop = false;
             // 
@@ -279,6 +283,7 @@
             this.pictureBoxCheckin.Location = new System.Drawing.Point(136, 12);
             this.pictureBoxCheckin.Name = "pictureBoxCheckin";
             this.pictureBoxCheckin.Size = new System.Drawing.Size(60, 60);
+            this.pictureBoxCheckin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCheckin.TabIndex = 17;
             this.pictureBoxCheckin.TabStop = false;
             // 
@@ -309,6 +314,7 @@
             this.pictureBoxLikedPage.Location = new System.Drawing.Point(136, 12);
             this.pictureBoxLikedPage.Name = "pictureBoxLikedPage";
             this.pictureBoxLikedPage.Size = new System.Drawing.Size(60, 60);
+            this.pictureBoxLikedPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLikedPage.TabIndex = 19;
             this.pictureBoxLikedPage.TabStop = false;
             // 
@@ -410,20 +416,6 @@
             this.matchTab.Text = "Match!";
             this.matchTab.UseVisualStyleBackColor = true;
             // 
-            // commonTab
-            // 
-            this.commonTab.Controls.Add(this.commonIntro);
-            this.commonTab.Controls.Add(this.commonPages);
-            this.commonTab.Controls.Add(this.commonPhotos);
-            this.commonTab.Controls.Add(this.findCommonButton);
-            this.commonTab.Controls.Add(this.friendsListBox);
-            this.commonTab.Location = new System.Drawing.Point(4, 25);
-            this.commonTab.Name = "commonTab";
-            this.commonTab.Size = new System.Drawing.Size(826, 520);
-            this.commonTab.TabIndex = 2;
-            this.commonTab.Text = "Common Finder";
-            this.commonTab.UseVisualStyleBackColor = true;
-            // 
             // matchBox
             // 
             this.matchBox.Location = new System.Drawing.Point(9, 136);
@@ -502,6 +494,20 @@
             this.locationCombo.Size = new System.Drawing.Size(121, 24);
             this.locationCombo.TabIndex = 9;
             // 
+            // commonTab
+            // 
+            this.commonTab.Controls.Add(this.commonIntro);
+            this.commonTab.Controls.Add(this.commonPages);
+            this.commonTab.Controls.Add(this.commonPhotos);
+            this.commonTab.Controls.Add(this.findCommonButton);
+            this.commonTab.Controls.Add(this.friendsListBox);
+            this.commonTab.Location = new System.Drawing.Point(4, 25);
+            this.commonTab.Name = "commonTab";
+            this.commonTab.Size = new System.Drawing.Size(826, 520);
+            this.commonTab.TabIndex = 2;
+            this.commonTab.Text = "Common Finder";
+            this.commonTab.UseVisualStyleBackColor = true;
+            // 
             // commonIntro
             // 
             this.commonIntro.Location = new System.Drawing.Point(578, 242);
@@ -551,7 +557,7 @@
             // 
             // feed
             // 
-            this.feed.Location = new System.Drawing.Point(215, 152);
+            this.feed.Location = new System.Drawing.Point(215, 158);
             this.feed.Name = "feed";
             this.feed.Size = new System.Drawing.Size(399, 352);
             this.feed.TabIndex = 17;
@@ -596,8 +602,8 @@
             this.timelineTab.PerformLayout();
             this.matchTab.ResumeLayout(false);
             this.matchTab.PerformLayout();
-            this.commonTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ageNumeric)).EndInit();
+            this.commonTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

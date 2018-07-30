@@ -46,7 +46,7 @@ namespace FacebookApp
         private void populateUIWithUserInformation()
         {
             populateLabelName();
-            populatePictrureBoxUserPicture();
+            populatePictureBoxUserPicture();
             populatePictureBoxCover();
 
             populateListBoxFriends();
@@ -95,7 +95,7 @@ namespace FacebookApp
             }
         }
 
-        private void populatePictrureBoxUserPicture()
+        private void populatePictureBoxUserPicture()
         {
             if (m_UserLogic.LoggedInUser.PictureNormalURL != null)
             {
@@ -152,9 +152,9 @@ namespace FacebookApp
             photoPanel.Populate(photos);
         }
 
-
         private void populateListBoxFriends()
         {
+           
             listBoxFriends.Items.Clear();
             listBoxFriends.DisplayMember = "Name";
 
