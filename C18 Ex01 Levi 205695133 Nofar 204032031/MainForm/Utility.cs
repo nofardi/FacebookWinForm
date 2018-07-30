@@ -25,7 +25,7 @@ namespace FacebookApp
                     {
                          control.Controls.Clear();
                     }
-                    else if (control is GroupBox || control is TabControl || control is UserControl)
+                    else if (control is GroupBox || control is UserControl)
                     {
                          ClearControls(control.Controls);
                     }

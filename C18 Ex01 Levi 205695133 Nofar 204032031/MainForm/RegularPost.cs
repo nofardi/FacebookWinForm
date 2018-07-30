@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Text;
 
 namespace FacebookApp
 {
@@ -22,10 +23,18 @@ namespace FacebookApp
                {
                     populateUserInformation();
                     labelTime.Text = m_Post.UpdateTime.ToString();
-                    textBoxPost.Text = m_Post.Message;
+                    populateTextBoxPost();
                     populateLinkLabelLike();
                     populatePictureBoxPicturePost(m_Post.PictureURL);
                }
+          }
+
+          private void populateTextBoxPost()
+          {
+               StringBuilder message = new StringBuilder();
+               message.Append(m_Post.Message);
+               message.Append(m_Post.Description);//****
+               textBoxPost.Text = message.ToString();
           }
 
           private void populateUserInformation()
