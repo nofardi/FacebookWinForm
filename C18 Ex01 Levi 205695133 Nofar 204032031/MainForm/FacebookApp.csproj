@@ -52,12 +52,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonFinder.cs" />
+    <Compile Include="CommonFriends.cs" />
+    <Compile Include="CommonIntroFinder.cs" />
+    <Compile Include="CommonPages.cs" />
+    <Compile Include="CommonPosts.cs" />
+    <Compile Include="CommonProp.cs" />
     <Compile Include="Feed.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Feed.Designer.cs">
       <DependentUpon>Feed.cs</DependentUpon>
     </Compile>
+    <Compile Include="ICommonProps.cs" />
     <Compile Include="ListWithPictureBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
