@@ -38,6 +38,7 @@ namespace FacebookApp
                if (i_ImageURL != null)
                {
                     pictureBoxPicturePost.LoadAsync(i_ImageURL);
+                    pictureBoxPicturePost.SizeMode = PictureBoxSizeMode.CenterImage;
                }
           }
      }

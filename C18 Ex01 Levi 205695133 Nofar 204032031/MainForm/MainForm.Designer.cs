@@ -54,10 +54,12 @@
                this.buttonGetPicturePath = new System.Windows.Forms.Button();
                this.textBoxPicturePath = new System.Windows.Forms.TextBox();
                this.feed = new FacebookApp.Feed();
+               this.photoPanel = new FacebookApp.PhotoPanel();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
                this.groupBoxFriends.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
+               this.groupBoxPhotos.SuspendLayout();
                this.groupBoxIntro.SuspendLayout();
                this.groupBoxEvents.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
@@ -178,6 +180,7 @@
                // 
                // groupBoxPhotos
                // 
+               this.groupBoxPhotos.Controls.Add(this.photoPanel);
                this.groupBoxPhotos.Location = new System.Drawing.Point(13, 378);
                this.groupBoxPhotos.Name = "groupBoxPhotos";
                this.groupBoxPhotos.Size = new System.Drawing.Size(200, 164);
@@ -340,6 +343,13 @@
                this.feed.Size = new System.Drawing.Size(399, 385);
                this.feed.TabIndex = 17;
                // 
+               // photoPanel
+               // 
+               this.photoPanel.Location = new System.Drawing.Point(0, 0);
+               this.photoPanel.Name = "photoPanel";
+               this.photoPanel.Size = new System.Drawing.Size(200, 164);
+               this.photoPanel.TabIndex = 0;
+               // 
                // MainForm
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -369,6 +379,7 @@
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
                this.groupBoxFriends.ResumeLayout(false);
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).EndInit();
+               this.groupBoxPhotos.ResumeLayout(false);
                this.groupBoxIntro.ResumeLayout(false);
                this.groupBoxIntro.PerformLayout();
                this.groupBoxEvents.ResumeLayout(false);
@@ -410,6 +421,7 @@
           private System.Windows.Forms.Button buttonGetPicturePath;
           private System.Windows.Forms.TextBox textBoxPicturePath;
           private Feed feed;
+          private PhotoPanel photoPanel;
      }
 }
 

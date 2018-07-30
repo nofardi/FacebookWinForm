@@ -1,5 +1,6 @@
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -8,6 +9,8 @@ namespace FacebookApp
 {
      public partial class MainForm : Form
      {
+          public const int k_NumOfLatestPostsToTake = 4;
+          public const int k_NumberOfPhotosToShow = 4;
           private UserLogic m_UserLogic = new UserLogic();
           private readonly Color r_DefaultFontColor = Color.LightGray;
 
@@ -18,7 +21,14 @@ namespace FacebookApp
 
           private void buttonLogIn_Click(object sender, EventArgs e)
           {
-               m_UserLogic.Login();
+               try
+               {
+                    m_UserLogic.Login();
+               }
+               catch(Exception ex)
+               {
+                    MessageBox.Show(ex.Message);
+               }
 
                if (!string.IsNullOrEmpty(m_UserLogic.LoginResult.AccessToken))
                {
@@ -47,7 +57,7 @@ namespace FacebookApp
                populateTextBoxPostWithDefaultString();
                populateUserFeed();
 
-               populateGroupBoxPhotos();
+               populatePhotoPanel();
 
                controlsEnabler();
           }
@@ -90,8 +100,8 @@ namespace FacebookApp
 
           private void populateUserFeed()
           {
-               
-               feed.PopulateFeed(m_UserLogic.LoggedInUser.Posts);             
+               IEnumerable<Post> postsToPresent = m_UserLogic.GetLatestPosts(k_NumOfLatestPostsToTake);
+               feed.PopulateFeed(postsToPresent);             
           }
 
           private void populateTextBoxIntro()
@@ -99,7 +109,7 @@ namespace FacebookApp
                textBoxIntro.Clear();
                try
                {
-                    textBoxIntro.Text = m_UserLogic.GetUserIntro();
+                    textBoxIntro.Text = m_UserLogic.GetUserIntroString();
                }
                catch (Exception ex)
                {
@@ -115,24 +125,10 @@ namespace FacebookApp
                textBoxPost.ForeColor = r_DefaultFontColor;
           }
 
-          private void populateGroupBoxPhotos()
+          private void populatePhotoPanel()
           {
-               //groupBoxPhotos.Controls.Clear();
-               //m_UserLogic.LoggedInUser.Albums.
-               //try
-               //{
-               //     foreach (Pictures photo in m_UserLogic.LoggedInUser.Pictures)
-               //     {
-               //          PictureBox pictureBox = new PictureBox();
-               //          pictureBox.LoadAsync(photo.ThumbURL);
-               //          groupBoxPhotos.Controls.Add(pictureBox);
-               //     }
-
-               //}
-               //catch (Exception ex)
-               //{
-               //     MessageBox.Show(ex.Message);
-               //}
+               IEnumerable<Photo> photos = m_UserLogic.GetLatestPhotos(k_NumberOfPhotosToShow);
+               photoPanel.Populate(photos);
           }
 
 
@@ -239,7 +235,7 @@ namespace FacebookApp
           {
                if (tryToPost())
                {
-                    //m_UserLogic.LoggedInUser.ReFetch();//!!!
+                    m_UserLogic.LoggedInUser.ReFetch();
                     populateUserFeed();
                }
                populateTextBoxPostWithDefaultString();

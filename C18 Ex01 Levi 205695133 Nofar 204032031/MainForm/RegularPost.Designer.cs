@@ -32,8 +32,8 @@
                this.labelUserName = new System.Windows.Forms.Label();
                this.textBoxPost = new System.Windows.Forms.TextBox();
                this.labelTime = new System.Windows.Forms.Label();
-               this.pictureBoxPicturePost = new System.Windows.Forms.PictureBox();
                this.linkLabelLike = new System.Windows.Forms.LinkLabel();
+               this.pictureBoxPicturePost = new System.Windows.Forms.PictureBox();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPicturePost)).BeginInit();
                this.SuspendLayout();
@@ -80,14 +80,6 @@
                this.labelTime.TabIndex = 4;
                this.labelTime.Text = "labelTime";
                // 
-               // pictureBoxPicturePost
-               // 
-               this.pictureBoxPicturePost.Location = new System.Drawing.Point(223, 3);
-               this.pictureBoxPicturePost.Name = "pictureBoxPicturePost";
-               this.pictureBoxPicturePost.Size = new System.Drawing.Size(96, 84);
-               this.pictureBoxPicturePost.TabIndex = 5;
-               this.pictureBoxPicturePost.TabStop = false;
-               // 
                // linkLabelLike
                // 
                this.linkLabelLike.AutoSize = true;
@@ -97,6 +89,14 @@
                this.linkLabelLike.TabIndex = 6;
                this.linkLabelLike.TabStop = true;
                this.linkLabelLike.Text = "like";
+               // 
+               // pictureBoxPicturePost
+               // 
+               this.pictureBoxPicturePost.Location = new System.Drawing.Point(223, 3);
+               this.pictureBoxPicturePost.Name = "pictureBoxPicturePost";
+               this.pictureBoxPicturePost.Size = new System.Drawing.Size(96, 84);
+               this.pictureBoxPicturePost.TabIndex = 5;
+               this.pictureBoxPicturePost.TabStop = false;
                // 
                // RegularPost
                // 
@@ -125,7 +125,7 @@
           private System.Windows.Forms.Label labelUserName;
           private System.Windows.Forms.TextBox textBoxPost;
           private System.Windows.Forms.Label labelTime;
-          private System.Windows.Forms.PictureBox pictureBoxPicturePost;
           private System.Windows.Forms.LinkLabel linkLabelLike;
+          private System.Windows.Forms.PictureBox pictureBoxPicturePost;
      }
 }

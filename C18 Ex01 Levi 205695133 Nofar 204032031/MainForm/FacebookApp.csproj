@@ -64,6 +64,12 @@
     <Compile Include="ListWithPictureBox.Designer.cs">
       <DependentUpon>ListWithPictureBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhotoPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PhotoPanel.Designer.cs">
+      <DependentUpon>PhotoPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegularPost.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhotoPanel.resx">
+      <DependentUpon>PhotoPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

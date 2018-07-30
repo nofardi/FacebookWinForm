@@ -1,6 +1,7 @@
 ﻿using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
@@ -91,7 +92,7 @@ namespace FacebookApp
                m_LoggedIn = false;
           }
 
-          public string GetUserIntro()
+          public string GetUserIntroString()
           {
                StringBuilder introString = new StringBuilder();
 
@@ -124,6 +125,44 @@ namespace FacebookApp
                }
 
                return introString.ToString();
+          }
+
+          public IEnumerable<Post> GetLatestPosts(int i_NumberOfLatestPosts)
+          {
+               List<Post> postList = new List<Post>();
+
+               for(int i=0; i< i_NumberOfLatestPosts; i++)
+               {
+                    try
+                    {
+                         postList.Add(LoggedInUser.Posts[i]);
+                    }
+                    catch
+                    {
+                         break;
+                    }
+               }
+
+               return postList;
+          }
+
+          public IEnumerable<Photo> GetLatestPhotos(int i_NumberOfLatestPhotos)
+          {
+               List<Photo> photoList = new List<Photo>();
+
+               for(int i = 0; i < i_NumberOfLatestPhotos; i++)
+               {
+                    try
+                    {
+                         photoList.Add(LoggedInUser.Albums[0].Photos[i]);
+                    }
+                    catch
+                    {
+                         break;
+                    }
+               }
+
+               return photoList;
           }
      }
 }
