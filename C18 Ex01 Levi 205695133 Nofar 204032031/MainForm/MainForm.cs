@@ -21,6 +21,7 @@ namespace FacebookApp
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
+            bool successLogin = true;
             try
             {
                 m_UserLogic.Login();
@@ -28,9 +29,11 @@ namespace FacebookApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                successLogin = false;
+                buttonLogOut.Enabled = true;
             }
 
-            if (!string.IsNullOrEmpty(m_UserLogic.LoginResult.AccessToken))
+            if (successLogin && !string.IsNullOrEmpty(m_UserLogic.LoginResult.AccessToken))
             {
                 populateUIWithUserInformation();
             }
