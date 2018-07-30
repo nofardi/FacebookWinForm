@@ -26,9 +26,11 @@ namespace FacebookApp
                {
                     foreach (Post post in i_Posts)
                     {
-                         RegularPost regularPost = new RegularPost();
-                         regularPost.Populate(post);
-                         flowLayoutPanelFeed.Controls.Add(regularPost);
+                         if (post != null)
+                         {
+                              RegularPost regularPost = new RegularPost(post);
+                              flowLayoutPanelFeed.Controls.Add(regularPost);
+                         }
                          post.ReFetch(DynamicWrapper.eLoadOptions.Full);
                     }
                }

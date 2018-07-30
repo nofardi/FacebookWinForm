@@ -17,6 +17,9 @@ namespace FacebookApp
                foreach (Photo photo in i_Photos)
                {
                     PictureBox pictureBox = new PictureBox();
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox.Width = 60;
+                    pictureBox.Height = 60;
                     pictureBox.Image = photo.ImageThumb;
                     flowLayoutPanelPhotos.Controls.Add(pictureBox);
                }

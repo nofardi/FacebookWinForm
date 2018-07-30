@@ -44,6 +44,7 @@
                this.pictureBoxUser.Location = new System.Drawing.Point(3, 0);
                this.pictureBoxUser.Name = "pictureBoxUser";
                this.pictureBoxUser.Size = new System.Drawing.Size(35, 35);
+               this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                this.pictureBoxUser.TabIndex = 0;
                this.pictureBoxUser.TabStop = false;
                // 
@@ -89,12 +90,14 @@
                this.linkLabelLike.TabIndex = 6;
                this.linkLabelLike.TabStop = true;
                this.linkLabelLike.Text = "like";
+               this.linkLabelLike.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLike_LinkClicked);
                // 
                // pictureBoxPicturePost
                // 
-               this.pictureBoxPicturePost.Location = new System.Drawing.Point(223, 3);
+               this.pictureBoxPicturePost.Location = new System.Drawing.Point(221, 5);
                this.pictureBoxPicturePost.Name = "pictureBoxPicturePost";
-               this.pictureBoxPicturePost.Size = new System.Drawing.Size(96, 84);
+               this.pictureBoxPicturePost.Size = new System.Drawing.Size(95, 95);
+               this.pictureBoxPicturePost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                this.pictureBoxPicturePost.TabIndex = 5;
                this.pictureBoxPicturePost.TabStop = false;
                // 
@@ -104,11 +107,11 @@
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.White;
                this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+               this.Controls.Add(this.labelUserName);
                this.Controls.Add(this.linkLabelLike);
                this.Controls.Add(this.pictureBoxPicturePost);
                this.Controls.Add(this.labelTime);
                this.Controls.Add(this.textBoxPost);
-               this.Controls.Add(this.labelUserName);
                this.Controls.Add(this.pictureBoxUser);
                this.Name = "RegularPost";
                this.Size = new System.Drawing.Size(320, 109);

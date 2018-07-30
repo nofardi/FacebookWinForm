@@ -58,3 +58,5 @@ C:\Users\Heiman\Documents\nofar\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 20
 C:\Users\Heiman\Documents\nofar\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.csproj.GenerateResource.Cache
 C:\Users\Heiman\Documents\nofar\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.EventsListBox.resources
 C:\Users\Heiman\Documents\nofar\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.FriendsListBox.resources
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.EventsListBox.resources
+C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.FriendsListBox.resources

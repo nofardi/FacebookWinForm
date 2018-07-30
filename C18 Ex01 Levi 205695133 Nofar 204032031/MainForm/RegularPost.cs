@@ -1,30 +1,39 @@
 ﻿using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
+using System;
 
 namespace FacebookApp
 {
      public partial class RegularPost : UserControl
      {
-          public RegularPost()
+          private Post m_Post = null;
+
+          public RegularPost(Post i_Post)
           {
                InitializeComponent();
+
+               m_Post = i_Post;
+               populate();
           }
 
-          public void Populate(Post i_Post)
+          private void populate()
           {
-               populateUserInformation(i_Post.From);
-               labelTime.Text = i_Post.UpdateTime.ToString();
-               textBoxPost.Text = i_Post.Message;
-               linkLabelLike.Text = string.Format("Like({0})", i_Post.LikedBy.Count);
-               populatePictureBoxPicturePost(i_Post.PictureURL);
-          }
-
-          private void populateUserInformation(User i_User)
-          {
-               if (i_User != null)
+               if (m_Post != null)
                {
-                    pictureBoxUser.LoadAsync(i_User.PictureSmallURL);
-                    labelUserName.Text = i_User.Name;
+                    populateUserInformation();
+                    labelTime.Text = m_Post.UpdateTime.ToString();
+                    textBoxPost.Text = m_Post.Message;
+                    populateLinkLabelLike();
+                    populatePictureBoxPicturePost(m_Post.PictureURL);
+               }
+          }
+
+          private void populateUserInformation()
+          {
+               if (m_Post.From != null)
+               {
+                    pictureBoxUser.LoadAsync(m_Post.From.PictureLargeURL);
+                    labelUserName.Text = m_Post.From.Name;
                }
                else
                {
@@ -33,12 +42,29 @@ namespace FacebookApp
                }
           }
 
+          private void populateLinkLabelLike()
+          {
+               linkLabelLike.Text = string.Format("Like({0})", m_Post.LikedBy.Count);
+          }
+
           private void populatePictureBoxPicturePost(string i_ImageURL)
           {
                if (i_ImageURL != null)
                {
                     pictureBoxPicturePost.LoadAsync(i_ImageURL);
-                    pictureBoxPicturePost.SizeMode = PictureBoxSizeMode.CenterImage;
+               }
+          }
+
+          private void linkLabelLike_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+          {
+               try
+               {
+                    m_Post.Like();
+                    populateLinkLabelLike();
+               }
+               catch(Exception ex)
+               {
+                    MessageBox.Show(ex.Message);
                }
           }
      }
