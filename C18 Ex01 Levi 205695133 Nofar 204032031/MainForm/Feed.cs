@@ -19,7 +19,7 @@ namespace FacebookApp
 
           public void PopulateFeed(IEnumerable<Post> i_Posts)
           {
-               panelFeed.Controls.Clear();
+               flowLayoutPanelFeed.Controls.Clear();
                //m_UserLogic.LoggedInUser.ReFetch();
 
                try
@@ -28,8 +28,8 @@ namespace FacebookApp
                     {
                          RegularPost regularPost = new RegularPost();
                          regularPost.Populate(post);
-                         panelFeed.Controls.Add(regularPost);
-                         //post.ReFetch()
+                         flowLayoutPanelFeed.Controls.Add(regularPost);
+                         post.ReFetch(DynamicWrapper.eLoadOptions.Full);
                     }
                }
                catch (Exception ex)

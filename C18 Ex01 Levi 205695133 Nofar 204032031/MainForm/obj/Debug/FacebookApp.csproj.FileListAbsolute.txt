@@ -42,5 +42,4 @@ C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 2
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.csproj.GenerateResource.Cache
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.ListWithPictureBox.resources
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.RegularPost.resources
-C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.csprojResolveAssemblyReference.cache
 C:\Users\Mark\Desktop\New folder\FacebookWinForm\C18 Ex01 Levi 205695133 Nofar 204032031\MainForm\obj\Debug\FacebookApp.Feed.resources

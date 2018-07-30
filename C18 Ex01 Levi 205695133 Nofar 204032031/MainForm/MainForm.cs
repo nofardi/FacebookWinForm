@@ -239,7 +239,7 @@ namespace FacebookApp
           {
                if (tryToPost())
                {
-                    m_UserLogic.LoggedInUser.ReFetch();//!!!
+                    //m_UserLogic.LoggedInUser.ReFetch();//!!!
                     populateUserFeed();
                }
                populateTextBoxPostWithDefaultString();

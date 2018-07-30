@@ -28,24 +28,22 @@
           /// </summary>
           private void InitializeComponent()
           {
-               this.panelFeed = new System.Windows.Forms.Panel();
+               this.flowLayoutPanelFeed = new System.Windows.Forms.FlowLayoutPanel();
                this.SuspendLayout();
                // 
-               // panelFeed
+               // flowLayoutPanelFeed
                // 
-               this.panelFeed.AutoScroll = true;
-               this.panelFeed.BackColor = System.Drawing.Color.WhiteSmoke;
-               this.panelFeed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-               this.panelFeed.Location = new System.Drawing.Point(0, 0);
-               this.panelFeed.Name = "panelFeed";
-               this.panelFeed.Size = new System.Drawing.Size(399, 372);
-               this.panelFeed.TabIndex = 0;
+               this.flowLayoutPanelFeed.AutoScroll = true;
+               this.flowLayoutPanelFeed.Location = new System.Drawing.Point(0, 0);
+               this.flowLayoutPanelFeed.Name = "flowLayoutPanelFeed";
+               this.flowLayoutPanelFeed.Size = new System.Drawing.Size(399, 369);
+               this.flowLayoutPanelFeed.TabIndex = 1;
                // 
                // Feed
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.Controls.Add(this.panelFeed);
+               this.Controls.Add(this.flowLayoutPanelFeed);
                this.Name = "Feed";
                this.Size = new System.Drawing.Size(399, 372);
                this.ResumeLayout(false);
@@ -53,7 +51,6 @@
           }
 
           #endregion
-
-          private System.Windows.Forms.Panel panelFeed;
+          private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFeed;
      }
 }
