@@ -12,11 +12,53 @@ namespace FacebookApp
         public const int k_NumOfLatestPostsToTake = 4;
         public const int k_NumberOfPhotosToShow = 4;
         private UserLogic m_UserLogic = new UserLogic();
+        private AppSettings m_AppSettings;
+        private const string k_LoginRequestMessage = "Error in Log in";
         private readonly Color r_DefaultFontColor = Color.LightGray;
 
         public MainForm()
         {
             InitializeComponent();
+            m_AppSettings = AppSettings.LoadFromFile();
+
+            this.StartPosition = FormStartPosition.Manual;
+            this.Size = m_AppSettings.LastWindowSize;
+            this.Location = m_AppSettings.LastWindowLocation;
+            this.rememberCheckbox.Checked = m_AppSettings.RememberMe;
+            m_UserLogic.AccessToken = m_AppSettings.AccessToken;
+
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            if(m_AppSettings.RememberMe 
+                && !string.IsNullOrEmpty(m_UserLogic.AccessToken))
+            {
+                m_UserLogic.Connect();
+                populateUIWithUserInformation();
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            m_AppSettings.LastWindowSize = this.Size;
+            m_AppSettings.LastWindowLocation = this.Location;
+            m_AppSettings.RememberMe = this.rememberCheckbox.Checked;
+            m_AppSettings.AccessToken = m_UserLogic.AccessToken;
+
+            if(this.rememberCheckbox.Checked)
+            {
+                m_AppSettings.AccessToken = m_UserLogic.LoginResult.AccessToken;
+            }
+            else
+            {
+                m_AppSettings.AccessToken = null;
+            }
+            m_AppSettings.SaveToFile();
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
@@ -39,7 +81,7 @@ namespace FacebookApp
             }
             else
             {
-                MessageBox.Show("Error accessing user");
+                Console.WriteLine(k_LoginRequestMessage);
             }
         }
 
@@ -72,7 +114,7 @@ namespace FacebookApp
             }
             else
             {
-                MessageBox.Show("Error: can't retrieve name");
+                Console.WriteLine("Error: can't retrieve name");
             }
         }
 
@@ -345,18 +387,6 @@ namespace FacebookApp
             fileDialog.Dispose();
         }
 
-        private void matchButton_Click(object sender, EventArgs e)
-        {
-            //const string k_FollowerPreName = "Your best matches are ";
-
-            /*
-            this.labelBestFollower.Text = k_FollowerPreName + this.r_AppLogic.BestFollowerFinder.BestFollower.Name;
-            this.pictureBoxBestFollower.LoadAsync(this.r_AppLogic.BestFollowerFinder.BestFollower.PictureURL);
-            this.populateBestFollowerLikedPostsListBox();
-            this.populateBestFollowerLikedPhotosListBox();
-            m_AppLogic.GetMatchedFriends(genderList.SelectedItems, locationCombo.SelectedItem, ageNumeric.Value);*/
-        }
-
         private void findCommonButton_Click(object sender, EventArgs e)
         {
             CommonProp commonProperties = m_UserLogic.GetCommon(friendsCommonListBox.SelectedItem);
@@ -376,6 +406,46 @@ namespace FacebookApp
             photosInCommonPanel.Populate(i_CommonProps.PhotosInCommon);
             feedInCommon.PopulateFeed(i_CommonProps.PostsInCommon);
             
+        }
+
+        private void findFollowersButton_Click(object sender, EventArgs e)
+        {
+            const string k_NoFollower = "No Top Followers Were Found";
+            if (m_UserLogic.LoggedInUser == null)
+            {
+                Console.WriteLine(k_LoginRequestMessage);
+            }
+            else
+            {
+                this.m_UserLogic.FindBestFollower();
+                if (this.m_UserLogic.BestFollowerFinder.BestFollower != null)
+                {
+                    populateBestFollower();
+                }
+                else
+                {
+                    MessageBox.Show(k_NoFollower);
+                }
+            }
+        }
+
+        private void populateBestFollower()
+        {
+            const string followerStr = "Your best follower is ";
+            this.topFollowerLabel.Text = string.Format("{0} {1}", followerStr, this.m_UserLogic.BestFollowerFinder.BestFollower.Name);
+            this.topFollowerPic.LoadAsync(this.m_UserLogic.BestFollowerFinder.BestFollower.PictureURL);
+            this.populateBestFollowerLikedPostsListBox();
+            this.populateBestFollowerLikedPhotosListBox();
+        }
+
+        private void populateBestFollowerLikedPhotosListBox()
+        {
+            topFollowerPhotos.Populate(this.m_UserLogic.BestFollowerFinder.BestFollower.LikedPhotos);
+        }
+
+        private void populateBestFollowerLikedPostsListBox()
+        {
+            topFollowerPosts.PopulateFeed(this.m_UserLogic.BestFollowerFinder.BestFollower.LikedPosts);
         }
     }
 }

@@ -3,12 +3,12 @@ using static System.Windows.Forms.Control;
 
 namespace FacebookApp
 {
-     class Utility
-     {
-          public static void ClearControls(ControlCollection i_Controls)
-          {
-               foreach (Control control in i_Controls)
-               {
+    class Utility
+    {
+        public static void ClearControls(ControlCollection i_Controls)
+        {
+            foreach (Control control in i_Controls)
+            {
                 if (control is ListBox)
                 {
                     ((ListBox)control).Items.Clear();
@@ -33,7 +33,19 @@ namespace FacebookApp
                 {
                     ClearControls(control.Controls);
                 }
-               }
-          }
-     }
+                else if (control is TabControl)
+                {
+                    clearTabs((TabControl)control);
+                }
+            }
+        }
+        private static void clearTabs(TabControl i_TabControl)
+        {
+            foreach (TabPage page in i_TabControl.TabPages)
+            {
+                ClearControls(page.Controls);
+            }
+        }
+
+    }
 }

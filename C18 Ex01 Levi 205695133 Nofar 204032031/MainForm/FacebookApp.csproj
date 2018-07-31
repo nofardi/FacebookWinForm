@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="BestFollowerFinder.cs" />
     <Compile Include="CheckinsListBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,6 +80,7 @@
     <Compile Include="Feed.Designer.cs">
       <DependentUpon>Feed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Follower.cs" />
     <Compile Include="FriendsListBox.cs">
       <SubType>UserControl</SubType>
     </Compile>

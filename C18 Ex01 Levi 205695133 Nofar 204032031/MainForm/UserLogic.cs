@@ -3,7 +3,6 @@ using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Windows.Forms;
 
 namespace FacebookApp
 {
@@ -13,7 +12,13 @@ namespace FacebookApp
         private User m_LoggedInUser = null;
         private bool m_LoggedIn = false;
         public const string k_MyAppID = "1771402262915011";
+        public const int k_CollectionLimit = 200;
         public CommonFinder m_CommonFinder { get; }
+        public BestFollowerFinder BestFollowerFinder { get; set; }
+        public string AccessToken
+        {
+            set; get;
+        }
         public readonly string[] r_Permissions =
                {
                "public_profile",
@@ -68,6 +73,7 @@ namespace FacebookApp
             {
                 return m_LoginResult;
             }
+            
         }
 
         public bool LoggedIn
@@ -82,12 +88,18 @@ namespace FacebookApp
         {
 
             m_LoginResult = FacebookService.Login(k_MyAppID, r_Permissions);
-
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+            AccessToken = m_LoginResult.AccessToken;
+            if (!string.IsNullOrEmpty(AccessToken))
             {
                 m_LoggedInUser = m_LoginResult.LoggedInUser;
                 m_LoggedIn = true;
             }
+
+        }
+
+        public void Connect()
+        {
+            m_LoginResult = FacebookService.Connect(k_MyAppID);
 
         }
 
@@ -178,6 +190,20 @@ namespace FacebookApp
         {
             m_CommonFinder.FindCommon(LoggedInUser, selectedItem as User);
             return m_CommonFinder.CommonProp;
+        }
+
+        internal void FindBestFollower()
+        {
+            if (this.BestFollowerFinder == null)
+            {
+                this.BestFollowerFinder = new BestFollowerFinder(this.LoggedInUser, k_CollectionLimit);
+            }
+            else
+            {
+                this.BestFollowerFinder.initializeFollowers();
+            }
+
+            this.BestFollowerFinder.FindBestFollower();
         }
     }
 }

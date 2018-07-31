@@ -36,50 +36,48 @@
             this.buttonPost = new System.Windows.Forms.Button();
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
             this.groupBoxFriends = new System.Windows.Forms.GroupBox();
+            this.listBoxFriends = new FacebookApp.FriendsListBox();
             this.pictureBoxFriend = new System.Windows.Forms.PictureBox();
             this.groupBoxPhotos = new System.Windows.Forms.GroupBox();
+            this.photoPanel = new FacebookApp.PhotoPanel();
             this.groupBoxIntro = new System.Windows.Forms.GroupBox();
             this.textBoxIntro = new System.Windows.Forms.TextBox();
             this.groupBoxEvents = new System.Windows.Forms.GroupBox();
+            this.listBoxEvents = new FacebookApp.EventsListBox();
             this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
             this.groupBoxCheckins = new System.Windows.Forms.GroupBox();
+            this.listBoxCheckins = new FacebookApp.CheckinsListBox();
             this.pictureBoxCheckin = new System.Windows.Forms.PictureBox();
             this.groupBoxLikedPages = new System.Windows.Forms.GroupBox();
+            this.likedPagesListBox = new FacebookApp.PagesListBox();
             this.pictureBoxLikedPage = new System.Windows.Forms.PictureBox();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonGetPicturePath = new System.Windows.Forms.Button();
             this.textBoxPicturePath = new System.Windows.Forms.TextBox();
             this.featuresTabs = new System.Windows.Forms.TabControl();
             this.timelineTab = new System.Windows.Forms.TabPage();
-            this.matchTab = new System.Windows.Forms.TabPage();
-            this.matchBox = new System.Windows.Forms.GroupBox();
-            this.matchProgress = new System.Windows.Forms.ProgressBar();
-            this.ageLabel = new System.Windows.Forms.Label();
-            this.locationLabel = new System.Windows.Forms.Label();
-            this.genderLabel = new System.Windows.Forms.Label();
-            this.matchButton = new System.Windows.Forms.Button();
-            this.ageNumeric = new System.Windows.Forms.NumericUpDown();
-            this.genderList = new System.Windows.Forms.CheckedListBox();
-            this.locationCombo = new System.Windows.Forms.ComboBox();
+            this.feed = new FacebookApp.Feed();
+            this.followersTab = new System.Windows.Forms.TabPage();
+            this.followersListBox = new System.Windows.Forms.ListBox();
+            this.findFollowersButton = new System.Windows.Forms.Button();
             this.commonTab = new System.Windows.Forms.TabPage();
+            this.feedInCommon = new FacebookApp.Feed();
+            this.photosInCommonPanel = new FacebookApp.PhotoPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.friendsInCommonPic = new System.Windows.Forms.PictureBox();
+            this.friendsInCommonListBox = new FacebookApp.FriendsListBox();
             this.commonIntro = new System.Windows.Forms.GroupBox();
             this.introInCommonText = new System.Windows.Forms.TextBox();
             this.commonPages = new System.Windows.Forms.GroupBox();
             this.pagesInCommonPic = new System.Windows.Forms.PictureBox();
+            this.pagesInCommonListBox = new FacebookApp.PagesListBox();
             this.findCommonButton = new System.Windows.Forms.Button();
             this.friendsCommonListBox = new System.Windows.Forms.ListBox();
-            this.feed = new FacebookApp.Feed();
-            this.listBoxFriends = new FacebookApp.FriendsListBox();
-            this.likedPagesListBox = new FacebookApp.PagesListBox();
-            this.listBoxEvents = new FacebookApp.EventsListBox();
-            this.listBoxCheckins = new FacebookApp.CheckinsListBox();
-            this.photoPanel = new FacebookApp.PhotoPanel();
-            this.feedInCommon = new FacebookApp.Feed();
-            this.photosInCommonPanel = new FacebookApp.PhotoPanel();
-            this.friendsInCommonListBox = new FacebookApp.FriendsListBox();
-            this.pagesInCommonListBox = new FacebookApp.PagesListBox();
+            this.rememberCheckbox = new System.Windows.Forms.CheckBox();
+            this.topFollowerLabel = new System.Windows.Forms.Label();
+            this.topFollowerPic = new System.Windows.Forms.PictureBox();
+            this.topFollowerPhotos = new FacebookApp.PhotoPanel();
+            this.topFollowerPosts = new FacebookApp.Feed();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.groupBoxFriends.SuspendLayout();
@@ -94,14 +92,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).BeginInit();
             this.featuresTabs.SuspendLayout();
             this.timelineTab.SuspendLayout();
-            this.matchTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ageNumeric)).BeginInit();
+            this.followersTab.SuspendLayout();
             this.commonTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.friendsInCommonPic)).BeginInit();
             this.commonIntro.SuspendLayout();
             this.commonPages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagesInCommonPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topFollowerPic)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogIn
@@ -195,6 +193,14 @@
             this.groupBoxFriends.TabStop = false;
             this.groupBoxFriends.Text = "Friends";
             // 
+            // listBoxFriends
+            // 
+            this.listBoxFriends.Location = new System.Drawing.Point(1, 68);
+            this.listBoxFriends.Name = "listBoxFriends";
+            this.listBoxFriends.PicBox = null;
+            this.listBoxFriends.Size = new System.Drawing.Size(139, 90);
+            this.listBoxFriends.TabIndex = 18;
+            // 
             // pictureBoxFriend
             // 
             this.pictureBoxFriend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -214,6 +220,13 @@
             this.groupBoxPhotos.TabIndex = 9;
             this.groupBoxPhotos.TabStop = false;
             this.groupBoxPhotos.Text = "Photos";
+            // 
+            // photoPanel
+            // 
+            this.photoPanel.Location = new System.Drawing.Point(0, 0);
+            this.photoPanel.Name = "photoPanel";
+            this.photoPanel.Size = new System.Drawing.Size(200, 164);
+            this.photoPanel.TabIndex = 0;
             // 
             // groupBoxIntro
             // 
@@ -247,6 +260,14 @@
             this.groupBoxEvents.TabStop = false;
             this.groupBoxEvents.Text = "Events";
             // 
+            // listBoxEvents
+            // 
+            this.listBoxEvents.Location = new System.Drawing.Point(2, 73);
+            this.listBoxEvents.Name = "listBoxEvents";
+            this.listBoxEvents.PicBox = null;
+            this.listBoxEvents.Size = new System.Drawing.Size(145, 94);
+            this.listBoxEvents.TabIndex = 16;
+            // 
             // pictureBoxEvent
             // 
             this.pictureBoxEvent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -267,6 +288,14 @@
             this.groupBoxCheckins.TabIndex = 12;
             this.groupBoxCheckins.TabStop = false;
             this.groupBoxCheckins.Text = "Checkins";
+            // 
+            // listBoxCheckins
+            // 
+            this.listBoxCheckins.Location = new System.Drawing.Point(2, 73);
+            this.listBoxCheckins.Name = "listBoxCheckins";
+            this.listBoxCheckins.PicBox = null;
+            this.listBoxCheckins.Size = new System.Drawing.Size(138, 91);
+            this.listBoxCheckins.TabIndex = 18;
             // 
             // pictureBoxCheckin
             // 
@@ -289,6 +318,14 @@
             this.groupBoxLikedPages.TabStop = false;
             this.groupBoxLikedPages.Text = "Liked Pages";
             // 
+            // likedPagesListBox
+            // 
+            this.likedPagesListBox.Location = new System.Drawing.Point(4, 68);
+            this.likedPagesListBox.Name = "likedPagesListBox";
+            this.likedPagesListBox.PicBox = null;
+            this.likedPagesListBox.Size = new System.Drawing.Size(137, 90);
+            this.likedPagesListBox.TabIndex = 19;
+            // 
             // pictureBoxLikedPage
             // 
             this.pictureBoxLikedPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -305,7 +342,7 @@
             this.buttonRefresh.BackColor = System.Drawing.SystemColors.Menu;
             this.buttonRefresh.Enabled = false;
             this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRefresh.Location = new System.Drawing.Point(679, 49);
+            this.buttonRefresh.Location = new System.Drawing.Point(760, 49);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(75, 27);
             this.buttonRefresh.TabIndex = 14;
@@ -339,14 +376,13 @@
             // featuresTabs
             // 
             this.featuresTabs.Controls.Add(this.timelineTab);
-            this.featuresTabs.Controls.Add(this.matchTab);
+            this.featuresTabs.Controls.Add(this.followersTab);
             this.featuresTabs.Controls.Add(this.commonTab);
             this.featuresTabs.Location = new System.Drawing.Point(12, 172);
             this.featuresTabs.Name = "featuresTabs";
             this.featuresTabs.SelectedIndex = 0;
             this.featuresTabs.Size = new System.Drawing.Size(834, 549);
             this.featuresTabs.TabIndex = 18;
-            this.featuresTabs.Click += new System.EventHandler(this.matchButton_Click);
             // 
             // timelineTab
             // 
@@ -370,102 +406,47 @@
             this.timelineTab.Text = "Timeline";
             this.timelineTab.UseVisualStyleBackColor = true;
             // 
-            // matchTab
+            // feed
             // 
-            this.matchTab.Controls.Add(this.matchBox);
-            this.matchTab.Controls.Add(this.matchProgress);
-            this.matchTab.Controls.Add(this.ageLabel);
-            this.matchTab.Controls.Add(this.locationLabel);
-            this.matchTab.Controls.Add(this.genderLabel);
-            this.matchTab.Controls.Add(this.matchButton);
-            this.matchTab.Controls.Add(this.ageNumeric);
-            this.matchTab.Controls.Add(this.genderList);
-            this.matchTab.Controls.Add(this.locationCombo);
-            this.matchTab.Location = new System.Drawing.Point(4, 25);
-            this.matchTab.Name = "matchTab";
-            this.matchTab.Padding = new System.Windows.Forms.Padding(3);
-            this.matchTab.Size = new System.Drawing.Size(826, 520);
-            this.matchTab.TabIndex = 1;
-            this.matchTab.Text = "Match!";
-            this.matchTab.UseVisualStyleBackColor = true;
+            this.feed.Location = new System.Drawing.Point(215, 158);
+            this.feed.Name = "feed";
+            this.feed.Size = new System.Drawing.Size(399, 352);
+            this.feed.TabIndex = 17;
             // 
-            // matchBox
+            // followersTab
             // 
-            this.matchBox.Location = new System.Drawing.Point(9, 136);
-            this.matchBox.Name = "matchBox";
-            this.matchBox.Size = new System.Drawing.Size(750, 386);
-            this.matchBox.TabIndex = 17;
-            this.matchBox.TabStop = false;
-            this.matchBox.Text = "Match Options";
+            this.followersTab.Controls.Add(this.topFollowerPosts);
+            this.followersTab.Controls.Add(this.topFollowerPhotos);
+            this.followersTab.Controls.Add(this.topFollowerPic);
+            this.followersTab.Controls.Add(this.topFollowerLabel);
+            this.followersTab.Controls.Add(this.followersListBox);
+            this.followersTab.Controls.Add(this.findFollowersButton);
+            this.followersTab.Location = new System.Drawing.Point(4, 25);
+            this.followersTab.Name = "followersTab";
+            this.followersTab.Padding = new System.Windows.Forms.Padding(3);
+            this.followersTab.Size = new System.Drawing.Size(826, 520);
+            this.followersTab.TabIndex = 1;
+            this.followersTab.Text = "Top Followers";
+            this.followersTab.UseVisualStyleBackColor = true;
             // 
-            // matchProgress
+            // followersListBox
             // 
-            this.matchProgress.Location = new System.Drawing.Point(9, 87);
-            this.matchProgress.Name = "matchProgress";
-            this.matchProgress.Size = new System.Drawing.Size(100, 23);
-            this.matchProgress.TabIndex = 16;
+            this.followersListBox.FormattingEnabled = true;
+            this.followersListBox.ItemHeight = 16;
+            this.followersListBox.Location = new System.Drawing.Point(6, 43);
+            this.followersListBox.Name = "followersListBox";
+            this.followersListBox.Size = new System.Drawing.Size(170, 132);
+            this.followersListBox.TabIndex = 1;
             // 
-            // ageLabel
+            // findFollowersButton
             // 
-            this.ageLabel.AutoSize = true;
-            this.ageLabel.Location = new System.Drawing.Point(259, 13);
-            this.ageLabel.Name = "ageLabel";
-            this.ageLabel.Size = new System.Drawing.Size(59, 17);
-            this.ageLabel.TabIndex = 15;
-            this.ageLabel.Text = "Min Age";
-            // 
-            // locationLabel
-            // 
-            this.locationLabel.AutoSize = true;
-            this.locationLabel.Location = new System.Drawing.Point(132, 13);
-            this.locationLabel.Name = "locationLabel";
-            this.locationLabel.Size = new System.Drawing.Size(62, 17);
-            this.locationLabel.TabIndex = 14;
-            this.locationLabel.Text = "Location";
-            // 
-            // genderLabel
-            // 
-            this.genderLabel.AutoSize = true;
-            this.genderLabel.Location = new System.Drawing.Point(6, 13);
-            this.genderLabel.Name = "genderLabel";
-            this.genderLabel.Size = new System.Drawing.Size(56, 17);
-            this.genderLabel.TabIndex = 13;
-            this.genderLabel.Text = "Gender";
-            // 
-            // matchButton
-            // 
-            this.matchButton.Location = new System.Drawing.Point(388, 32);
-            this.matchButton.Name = "matchButton";
-            this.matchButton.Size = new System.Drawing.Size(121, 23);
-            this.matchButton.TabIndex = 12;
-            this.matchButton.Text = "Find Me A Match";
-            this.matchButton.UseVisualStyleBackColor = true;
-            // 
-            // ageNumeric
-            // 
-            this.ageNumeric.Location = new System.Drawing.Point(262, 33);
-            this.ageNumeric.Name = "ageNumeric";
-            this.ageNumeric.Size = new System.Drawing.Size(120, 22);
-            this.ageNumeric.TabIndex = 11;
-            // 
-            // genderList
-            // 
-            this.genderList.FormattingEnabled = true;
-            this.genderList.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.genderList.Location = new System.Drawing.Point(9, 33);
-            this.genderList.Name = "genderList";
-            this.genderList.Size = new System.Drawing.Size(120, 38);
-            this.genderList.TabIndex = 10;
-            // 
-            // locationCombo
-            // 
-            this.locationCombo.FormattingEnabled = true;
-            this.locationCombo.Location = new System.Drawing.Point(135, 33);
-            this.locationCombo.Name = "locationCombo";
-            this.locationCombo.Size = new System.Drawing.Size(121, 24);
-            this.locationCombo.TabIndex = 9;
+            this.findFollowersButton.Location = new System.Drawing.Point(6, 6);
+            this.findFollowersButton.Name = "findFollowersButton";
+            this.findFollowersButton.Size = new System.Drawing.Size(170, 31);
+            this.findFollowersButton.TabIndex = 0;
+            this.findFollowersButton.Text = "Find My Top Followers";
+            this.findFollowersButton.UseVisualStyleBackColor = true;
+            this.findFollowersButton.Click += new System.EventHandler(this.findFollowersButton_Click);
             // 
             // commonTab
             // 
@@ -482,6 +463,20 @@
             this.commonTab.TabIndex = 2;
             this.commonTab.Text = "Common Finder";
             this.commonTab.UseVisualStyleBackColor = true;
+            // 
+            // feedInCommon
+            // 
+            this.feedInCommon.Location = new System.Drawing.Point(400, 148);
+            this.feedInCommon.Name = "feedInCommon";
+            this.feedInCommon.Size = new System.Drawing.Size(399, 372);
+            this.feedInCommon.TabIndex = 26;
+            // 
+            // photosInCommonPanel
+            // 
+            this.photosInCommonPanel.Location = new System.Drawing.Point(187, 14);
+            this.photosInCommonPanel.Name = "photosInCommonPanel";
+            this.photosInCommonPanel.Size = new System.Drawing.Size(207, 168);
+            this.photosInCommonPanel.TabIndex = 25;
             // 
             // groupBox1
             // 
@@ -501,6 +496,14 @@
             this.friendsInCommonPic.Size = new System.Drawing.Size(48, 41);
             this.friendsInCommonPic.TabIndex = 27;
             this.friendsInCommonPic.TabStop = false;
+            // 
+            // friendsInCommonListBox
+            // 
+            this.friendsInCommonListBox.Location = new System.Drawing.Point(6, 21);
+            this.friendsInCommonListBox.Name = "friendsInCommonListBox";
+            this.friendsInCommonListBox.PicBox = null;
+            this.friendsInCommonListBox.Size = new System.Drawing.Size(141, 93);
+            this.friendsInCommonListBox.TabIndex = 0;
             // 
             // commonIntro
             // 
@@ -539,6 +542,14 @@
             this.pagesInCommonPic.TabIndex = 28;
             this.pagesInCommonPic.TabStop = false;
             // 
+            // pagesInCommonListBox
+            // 
+            this.pagesInCommonListBox.Location = new System.Drawing.Point(6, 21);
+            this.pagesInCommonListBox.Name = "pagesInCommonListBox";
+            this.pagesInCommonListBox.PicBox = null;
+            this.pagesInCommonListBox.Size = new System.Drawing.Size(141, 90);
+            this.pagesInCommonListBox.TabIndex = 0;
+            // 
             // findCommonButton
             // 
             this.findCommonButton.Location = new System.Drawing.Point(17, 228);
@@ -560,87 +571,53 @@
             this.friendsCommonListBox.Size = new System.Drawing.Size(164, 196);
             this.friendsCommonListBox.TabIndex = 19;
             // 
-            // feed
+            // rememberCheckbox
             // 
-            this.feed.Location = new System.Drawing.Point(215, 158);
-            this.feed.Name = "feed";
-            this.feed.Size = new System.Drawing.Size(399, 352);
-            this.feed.TabIndex = 17;
+            this.rememberCheckbox.AutoSize = true;
+            this.rememberCheckbox.Location = new System.Drawing.Point(713, 125);
+            this.rememberCheckbox.Name = "rememberCheckbox";
+            this.rememberCheckbox.Size = new System.Drawing.Size(122, 21);
+            this.rememberCheckbox.TabIndex = 19;
+            this.rememberCheckbox.Text = "Remember Me";
+            this.rememberCheckbox.UseVisualStyleBackColor = true;
             // 
-            // listBoxFriends
+            // topFollowerLabel
             // 
-            this.listBoxFriends.Location = new System.Drawing.Point(1, 68);
-            this.listBoxFriends.Name = "listBoxFriends";
-            this.listBoxFriends.PicBox = null;
-            this.listBoxFriends.Size = new System.Drawing.Size(139, 90);
-            this.listBoxFriends.TabIndex = 18;
+            this.topFollowerLabel.AutoSize = true;
+            this.topFollowerLabel.Location = new System.Drawing.Point(182, 43);
+            this.topFollowerLabel.Name = "topFollowerLabel";
+            this.topFollowerLabel.Size = new System.Drawing.Size(0, 17);
+            this.topFollowerLabel.TabIndex = 2;
             // 
-            // likedPagesListBox
+            // topFollowerPic
             // 
-            this.likedPagesListBox.Location = new System.Drawing.Point(4, 68);
-            this.likedPagesListBox.Name = "likedPagesListBox";
-            this.likedPagesListBox.PicBox = null;
-            this.likedPagesListBox.Size = new System.Drawing.Size(137, 90);
-            this.likedPagesListBox.TabIndex = 19;
+            this.topFollowerPic.Location = new System.Drawing.Point(185, 84);
+            this.topFollowerPic.Name = "topFollowerPic";
+            this.topFollowerPic.Size = new System.Drawing.Size(53, 50);
+            this.topFollowerPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.topFollowerPic.TabIndex = 3;
+            this.topFollowerPic.TabStop = false;
             // 
-            // listBoxEvents
+            // topFollowerPhotos
             // 
-            this.listBoxEvents.Location = new System.Drawing.Point(2, 73);
-            this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.PicBox = null;
-            this.listBoxEvents.Size = new System.Drawing.Size(145, 94);
-            this.listBoxEvents.TabIndex = 16;
+            this.topFollowerPhotos.Location = new System.Drawing.Point(185, 140);
+            this.topFollowerPhotos.Name = "topFollowerPhotos";
+            this.topFollowerPhotos.Size = new System.Drawing.Size(200, 164);
+            this.topFollowerPhotos.TabIndex = 4;
             // 
-            // listBoxCheckins
+            // topFollowerPosts
             // 
-            this.listBoxCheckins.Location = new System.Drawing.Point(2, 73);
-            this.listBoxCheckins.Name = "listBoxCheckins";
-            this.listBoxCheckins.PicBox = null;
-            this.listBoxCheckins.Size = new System.Drawing.Size(138, 91);
-            this.listBoxCheckins.TabIndex = 18;
-            // 
-            // photoPanel
-            // 
-            this.photoPanel.Location = new System.Drawing.Point(0, 0);
-            this.photoPanel.Name = "photoPanel";
-            this.photoPanel.Size = new System.Drawing.Size(200, 164);
-            this.photoPanel.TabIndex = 0;
-            // 
-            // feedInCommon
-            // 
-            this.feedInCommon.Location = new System.Drawing.Point(400, 148);
-            this.feedInCommon.Name = "feedInCommon";
-            this.feedInCommon.Size = new System.Drawing.Size(399, 372);
-            this.feedInCommon.TabIndex = 26;
-            // 
-            // photosInCommonPanel
-            // 
-            this.photosInCommonPanel.Location = new System.Drawing.Point(187, 14);
-            this.photosInCommonPanel.Name = "photosInCommonPanel";
-            this.photosInCommonPanel.Size = new System.Drawing.Size(207, 168);
-            this.photosInCommonPanel.TabIndex = 25;
-            // 
-            // friendsInCommonListBox
-            // 
-            this.friendsInCommonListBox.Location = new System.Drawing.Point(6, 21);
-            this.friendsInCommonListBox.Name = "friendsInCommonListBox";
-            this.friendsInCommonListBox.PicBox = null;
-            this.friendsInCommonListBox.Size = new System.Drawing.Size(141, 93);
-            this.friendsInCommonListBox.TabIndex = 0;
-            // 
-            // pagesInCommonListBox
-            // 
-            this.pagesInCommonListBox.Location = new System.Drawing.Point(6, 21);
-            this.pagesInCommonListBox.Name = "pagesInCommonListBox";
-            this.pagesInCommonListBox.PicBox = null;
-            this.pagesInCommonListBox.Size = new System.Drawing.Size(141, 90);
-            this.pagesInCommonListBox.TabIndex = 0;
+            this.topFollowerPosts.Location = new System.Drawing.Point(391, 43);
+            this.topFollowerPosts.Name = "topFollowerPosts";
+            this.topFollowerPosts.Size = new System.Drawing.Size(399, 372);
+            this.topFollowerPosts.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(858, 733);
+            this.Controls.Add(this.rememberCheckbox);
             this.Controls.Add(this.featuresTabs);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.labelName);
@@ -667,9 +644,8 @@
             this.featuresTabs.ResumeLayout(false);
             this.timelineTab.ResumeLayout(false);
             this.timelineTab.PerformLayout();
-            this.matchTab.ResumeLayout(false);
-            this.matchTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ageNumeric)).EndInit();
+            this.followersTab.ResumeLayout(false);
+            this.followersTab.PerformLayout();
             this.commonTab.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.friendsInCommonPic)).EndInit();
@@ -677,6 +653,7 @@
             this.commonIntro.PerformLayout();
             this.commonPages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pagesInCommonPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topFollowerPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -709,17 +686,8 @@
           private PhotoPanel photoPanel;
         private System.Windows.Forms.TabControl featuresTabs;
         private System.Windows.Forms.TabPage timelineTab;
-        private System.Windows.Forms.TabPage matchTab;
+        private System.Windows.Forms.TabPage followersTab;
         private System.Windows.Forms.TabPage commonTab;
-        private System.Windows.Forms.GroupBox matchBox;
-        private System.Windows.Forms.ProgressBar matchProgress;
-        private System.Windows.Forms.Label ageLabel;
-        private System.Windows.Forms.Label locationLabel;
-        private System.Windows.Forms.Label genderLabel;
-        private System.Windows.Forms.Button matchButton;
-        private System.Windows.Forms.NumericUpDown ageNumeric;
-        private System.Windows.Forms.CheckedListBox genderList;
-        private System.Windows.Forms.ComboBox locationCombo;
         private System.Windows.Forms.GroupBox commonIntro;
         private System.Windows.Forms.GroupBox commonPages;
         private System.Windows.Forms.Button findCommonButton;
@@ -736,6 +704,13 @@
         private Feed feedInCommon;
         private System.Windows.Forms.PictureBox friendsInCommonPic;
         private System.Windows.Forms.PictureBox pagesInCommonPic;
+        private System.Windows.Forms.CheckBox rememberCheckbox;
+        private System.Windows.Forms.Button findFollowersButton;
+        private System.Windows.Forms.ListBox followersListBox;
+        private System.Windows.Forms.Label topFollowerLabel;
+        private System.Windows.Forms.PictureBox topFollowerPic;
+        private Feed topFollowerPosts;
+        private PhotoPanel topFollowerPhotos;
     }
 }
 
