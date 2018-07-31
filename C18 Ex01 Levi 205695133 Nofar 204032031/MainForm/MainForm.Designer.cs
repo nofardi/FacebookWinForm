@@ -62,13 +62,14 @@
             this.genderList = new System.Windows.Forms.CheckedListBox();
             this.locationCombo = new System.Windows.Forms.ComboBox();
             this.commonTab = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.friendsInCommonPic = new System.Windows.Forms.PictureBox();
             this.commonIntro = new System.Windows.Forms.GroupBox();
+            this.introInCommonText = new System.Windows.Forms.TextBox();
             this.commonPages = new System.Windows.Forms.GroupBox();
+            this.pagesInCommonPic = new System.Windows.Forms.PictureBox();
             this.findCommonButton = new System.Windows.Forms.Button();
             this.friendsCommonListBox = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.introInCommonText = new System.Windows.Forms.TextBox();
-            this.friendsInCommonPic = new System.Windows.Forms.PictureBox();
             this.feed = new FacebookApp.Feed();
             this.listBoxFriends = new FacebookApp.FriendsListBox();
             this.likedPagesListBox = new FacebookApp.PagesListBox();
@@ -79,7 +80,6 @@
             this.photosInCommonPanel = new FacebookApp.PhotoPanel();
             this.friendsInCommonListBox = new FacebookApp.FriendsListBox();
             this.pagesInCommonListBox = new FacebookApp.PagesListBox();
-            this.pagesInCommonPic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.groupBoxFriends.SuspendLayout();
@@ -97,10 +97,10 @@
             this.matchTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ageNumeric)).BeginInit();
             this.commonTab.SuspendLayout();
-            this.commonIntro.SuspendLayout();
-            this.commonPages.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.friendsInCommonPic)).BeginInit();
+            this.commonIntro.SuspendLayout();
+            this.commonPages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagesInCommonPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -483,6 +483,25 @@
             this.commonTab.Text = "Common Finder";
             this.commonTab.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.friendsInCommonPic);
+            this.groupBox1.Controls.Add(this.friendsInCommonListBox);
+            this.groupBox1.Location = new System.Drawing.Point(400, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(153, 120);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Friends In Common";
+            // 
+            // friendsInCommonPic
+            // 
+            this.friendsInCommonPic.Location = new System.Drawing.Point(105, 73);
+            this.friendsInCommonPic.Name = "friendsInCommonPic";
+            this.friendsInCommonPic.Size = new System.Drawing.Size(48, 41);
+            this.friendsInCommonPic.TabIndex = 27;
+            this.friendsInCommonPic.TabStop = false;
+            // 
             // commonIntro
             // 
             this.commonIntro.Controls.Add(this.introInCommonText);
@@ -492,6 +511,14 @@
             this.commonIntro.TabIndex = 23;
             this.commonIntro.TabStop = false;
             this.commonIntro.Text = "Intro In Common";
+            // 
+            // introInCommonText
+            // 
+            this.introInCommonText.Location = new System.Drawing.Point(6, 21);
+            this.introInCommonText.Multiline = true;
+            this.introInCommonText.Name = "introInCommonText";
+            this.introInCommonText.Size = new System.Drawing.Size(309, 156);
+            this.introInCommonText.TabIndex = 0;
             // 
             // commonPages
             // 
@@ -503,6 +530,14 @@
             this.commonPages.TabIndex = 22;
             this.commonPages.TabStop = false;
             this.commonPages.Text = "Pages In Common";
+            // 
+            // pagesInCommonPic
+            // 
+            this.pagesInCommonPic.Location = new System.Drawing.Point(106, 73);
+            this.pagesInCommonPic.Name = "pagesInCommonPic";
+            this.pagesInCommonPic.Size = new System.Drawing.Size(48, 41);
+            this.pagesInCommonPic.TabIndex = 28;
+            this.pagesInCommonPic.TabStop = false;
             // 
             // findCommonButton
             // 
@@ -524,32 +559,6 @@
             this.friendsCommonListBox.ScrollAlwaysVisible = true;
             this.friendsCommonListBox.Size = new System.Drawing.Size(164, 196);
             this.friendsCommonListBox.TabIndex = 19;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.friendsInCommonPic);
-            this.groupBox1.Controls.Add(this.friendsInCommonListBox);
-            this.groupBox1.Location = new System.Drawing.Point(400, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(153, 120);
-            this.groupBox1.TabIndex = 24;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Friends In Common";
-            // 
-            // introInCommonText
-            // 
-            this.introInCommonText.Location = new System.Drawing.Point(6, 21);
-            this.introInCommonText.Name = "introInCommonText";
-            this.introInCommonText.Size = new System.Drawing.Size(309, 22);
-            this.introInCommonText.TabIndex = 0;
-            // 
-            // friendsInCommonPic
-            // 
-            this.friendsInCommonPic.Location = new System.Drawing.Point(105, 73);
-            this.friendsInCommonPic.Name = "friendsInCommonPic";
-            this.friendsInCommonPic.Size = new System.Drawing.Size(48, 41);
-            this.friendsInCommonPic.TabIndex = 27;
-            this.friendsInCommonPic.TabStop = false;
             // 
             // feed
             // 
@@ -627,14 +636,6 @@
             this.pagesInCommonListBox.Size = new System.Drawing.Size(141, 90);
             this.pagesInCommonListBox.TabIndex = 0;
             // 
-            // pagesInCommonPic
-            // 
-            this.pagesInCommonPic.Location = new System.Drawing.Point(106, 73);
-            this.pagesInCommonPic.Name = "pagesInCommonPic";
-            this.pagesInCommonPic.Size = new System.Drawing.Size(48, 41);
-            this.pagesInCommonPic.TabIndex = 28;
-            this.pagesInCommonPic.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -670,11 +671,11 @@
             this.matchTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ageNumeric)).EndInit();
             this.commonTab.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.friendsInCommonPic)).EndInit();
             this.commonIntro.ResumeLayout(false);
             this.commonIntro.PerformLayout();
             this.commonPages.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.friendsInCommonPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pagesInCommonPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
