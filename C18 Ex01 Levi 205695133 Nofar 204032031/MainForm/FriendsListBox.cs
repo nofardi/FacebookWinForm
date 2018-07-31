@@ -1,6 +1,7 @@
 ﻿using System;
 using FacebookWrapper.ObjectModel;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace FacebookApp
 {
@@ -11,7 +12,9 @@ namespace FacebookApp
             InitializeComponent();
         }
 
-        public string GetImageUrlOnClick()
+        public PictureBox PicBox { get; set; }
+
+        private string getImageUrlOnClick()
         {
             User selectedFriend = this.friendsList.SelectedItem as User;
             string picUrl = string.Empty;
@@ -25,18 +28,35 @@ namespace FacebookApp
 
         public void ListItems(User i_User)
         {
-            try
+            ShowItems(i_User.Friends);
+        }
+
+        public void ShowItems(FacebookObjectCollection<User> i_Users)
+        {
+            this.friendsList.DisplayMember = "Name";
+            this.Clear();
+            foreach (User user in i_Users)
             {
-                foreach (User friend in i_User.Friends)
-                {
-                    this.friendsList.Items.Add(friend);
-                }
+                this.friendsList.Items.Add(user);
             }
-            catch (Exception ex)
+        }
+
+        private void onIndexSelectChanged(object sender, EventArgs e)
+        {
+            string picUrl = getImageUrlOnClick();
+            if (!string.IsNullOrEmpty(picUrl))
             {
-                string message = string.Format(@"Friends: {0}", ex.Message);
-                MessageBox.Show(message);
+                PicBox.LoadAsync(picUrl);
             }
+            else
+            {
+                PicBox.Image = PicBox.ErrorImage;
+            }
+        }
+
+        public void Clear()
+        {
+            friendsList.Items.Clear();
         }
     }
 }

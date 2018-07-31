@@ -1,30 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
+using System.Windows.Forms;
 
 namespace FacebookApp
 {
-    public partial class EventsListBox : UserControl, IListBoxable
+    public partial class PagesListBox : UserControl, IListBoxable
     {
-        public PictureBox PicBox { get; set; }
-        public EventsListBox()
+        public PagesListBox()
         {
             InitializeComponent();
         }
 
+        public PictureBox PicBox { get; set; }
+
         private string getImageUrlOnClick()
         {
-            Event selectedEvent = this.eventsList.SelectedItem as Event;
+            Page selectedPage = this.pagesList.SelectedItem as Page;
             string picUrl = string.Empty;
-            if (selectedEvent.PictureSmallURL != null)
+            if (selectedPage.PictureSmallURL != null)
             {
-                picUrl = selectedEvent.PictureSmallURL;
+                picUrl = selectedPage.PictureSmallURL;
             }
 
             return picUrl;
@@ -32,12 +27,16 @@ namespace FacebookApp
 
         public void ListItems(User i_User)
         {
-            this.eventsList.DisplayMember = "Name";
-            this.eventsList.Items.Clear();
+            ShowItems(i_User.LikedPages);
+        }
 
-            foreach (Event userEvent in i_User.Events)
+        public void ShowItems(FacebookObjectCollection<Page> i_Pages)
+        {
+            this.pagesList.DisplayMember = "Name";
+            this.Clear();
+            foreach (Page page in i_Pages)
             {
-                this.eventsList.Items.Add(userEvent);
+                this.pagesList.Items.Add(page);
             }
         }
 
@@ -56,7 +55,7 @@ namespace FacebookApp
 
         public void Clear()
         {
-            eventsList.Items.Clear();
+            pagesList.Items.Clear();
         }
     }
 }

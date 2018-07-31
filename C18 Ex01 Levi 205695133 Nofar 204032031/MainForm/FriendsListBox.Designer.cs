@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace FacebookApp
 {
@@ -41,8 +42,9 @@ namespace FacebookApp
             this.friendsList.ItemHeight = 16;
             this.friendsList.Location = new System.Drawing.Point(3, 3);
             this.friendsList.Name = "friendsList";
-            this.friendsList.Size = new System.Drawing.Size(144, 100);
+            this.friendsList.Size = new System.Drawing.Size(134, 84);
             this.friendsList.TabIndex = 0;
+            this.friendsList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
             // 
             // FriendsListBox
             // 
@@ -50,7 +52,7 @@ namespace FacebookApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.friendsList);
             this.Name = "FriendsListBox";
-            this.Size = new System.Drawing.Size(150, 107);
+            this.Size = new System.Drawing.Size(140, 91);
             this.ResumeLayout(false);
 
         }
@@ -58,5 +60,10 @@ namespace FacebookApp
         #endregion
 
         private ListBox friendsList;
+
+        public static implicit operator ListBox(FriendsListBox v)
+        {
+            return new ListBox();
+        }
     }
 }

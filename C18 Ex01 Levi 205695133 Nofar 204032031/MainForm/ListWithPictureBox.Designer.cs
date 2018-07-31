@@ -62,7 +62,7 @@
                this.listBox.Name = "listBox";
                this.listBox.Size = new System.Drawing.Size(128, 132);
                this.listBox.TabIndex = 0;
-               this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
+               //this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
                // 
                // ListWithPictureBox
                // 

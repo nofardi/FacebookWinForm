@@ -4,7 +4,7 @@ namespace FacebookApp
 {
     interface IListBoxable
     {
-        string GetImageUrlOnClick();
         void ListItems(User i_User);
+        void Clear();
     }
 }

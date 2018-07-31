@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckinsListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckinsListBox.Designer.cs">
+      <DependentUpon>CheckinsListBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonFinder.cs" />
     <Compile Include="CommonFriends.cs" />
     <Compile Include="CommonIntroFinder.cs" />
@@ -86,6 +92,12 @@
     <Compile Include="ListWithPictureBox.Designer.cs">
       <DependentUpon>ListWithPictureBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagesListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagesListBox.Designer.cs">
+      <DependentUpon>PagesListBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="PhotoPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +120,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
+    <EmbeddedResource Include="CheckinsListBox.resx">
+      <DependentUpon>CheckinsListBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EventsListBox.resx">
       <DependentUpon>EventsListBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagesListBox.resx">
+      <DependentUpon>PagesListBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PhotoPanel.resx">
       <DependentUpon>PhotoPanel.cs</DependentUpon>

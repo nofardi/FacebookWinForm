@@ -7,15 +7,11 @@ namespace FacebookApp
 {
     public class CommonPhotosFinder : ICommonFinders
     {
-        public List<Photo> PhotosInCommon { get; set; }
-
-        public CommonPhotosFinder()
-        {
-        }
-
+        public FacebookObjectCollection<Photo> PhotosInCommon { get; set; }
+        
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
-            PhotosInCommon = new List<Photo>();
+            PhotosInCommon = new FacebookObjectCollection<Photo>();
 
             foreach (Photo photo in i_FirstUser.PhotosTaggedIn)
             {

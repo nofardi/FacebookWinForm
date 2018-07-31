@@ -10,21 +10,22 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
-    public partial class EventsListBox : UserControl, IListBoxable
+    public partial class CheckinsListBox : UserControl, IListBoxable
     {
-        public PictureBox PicBox { get; set; }
-        public EventsListBox()
+        public CheckinsListBox()
         {
             InitializeComponent();
         }
 
+        public PictureBox PicBox { get; set; }
+
         private string getImageUrlOnClick()
         {
-            Event selectedEvent = this.eventsList.SelectedItem as Event;
+            Checkin selectedCheckin = this.checkinList.SelectedItem as Checkin;
             string picUrl = string.Empty;
-            if (selectedEvent.PictureSmallURL != null)
+            if (selectedCheckin.PictureURL != null)
             {
-                picUrl = selectedEvent.PictureSmallURL;
+                picUrl = selectedCheckin.PictureURL;
             }
 
             return picUrl;
@@ -32,12 +33,12 @@ namespace FacebookApp
 
         public void ListItems(User i_User)
         {
-            this.eventsList.DisplayMember = "Name";
-            this.eventsList.Items.Clear();
+            this.checkinList.DisplayMember = "Name";
+            Clear();
 
-            foreach (Event userEvent in i_User.Events)
+            foreach (Checkin checkin in i_User.Checkins)
             {
-                this.eventsList.Items.Add(userEvent);
+                this.checkinList.Items.Add(checkin);
             }
         }
 
@@ -56,7 +57,7 @@ namespace FacebookApp
 
         public void Clear()
         {
-            eventsList.Items.Clear();
+            checkinList.Items.Clear();
         }
     }
 }

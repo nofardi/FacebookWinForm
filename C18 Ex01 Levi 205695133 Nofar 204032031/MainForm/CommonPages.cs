@@ -8,10 +8,10 @@ namespace FacebookApp
 {
     class CommonPagesFinder : ICommonFinders
     {
-        public List<Page> PagesInCommon { get; set; }
+        public FacebookObjectCollection<Page> PagesInCommon { get; set; }
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
-            PagesInCommon = new List<Page>();
+            PagesInCommon = new FacebookObjectCollection<Page>();
             foreach(Page page in i_FirstUser.LikedPages)
             {
                 foreach(Page friendPage in i_SecUser.LikedPages)

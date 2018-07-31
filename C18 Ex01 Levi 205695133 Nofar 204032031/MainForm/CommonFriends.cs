@@ -8,23 +8,26 @@ namespace FacebookApp
 {
     class CommonFriendsFinder : ICommonFinders
     {
-        public List<User> FriendsInCommon;
+        private FacebookObjectCollection<User> m_FriendsInCommon;
 
-        public void FindCommon(User i_FisrtUser, User i_SecUser)
+        public void FindCommon(User i_FirstUser, User i_SecUser)
         {
-            FriendsInCommon = new List<User>();
-            foreach(User friend in i_FisrtUser.Friends)
+            m_FriendsInCommon = new FacebookObjectCollection<User>();
+            foreach(User friend in i_FirstUser.Friends)
             {
-                if(friend.Friends.Contains(i_SecUser))
+                foreach (User friendOfFriend in friend.Friends)
                 {
-                    FriendsInCommon.Add(friend);
+                    if (friendOfFriend.Id == i_SecUser.Id)
+                    {
+                        m_FriendsInCommon.Add(friend);
+                    }
                 }
             }
         }
 
         public void SetProp(CommonProp i_CommonProp)
         {
-            i_CommonProp.FriendsInCommon = FriendsInCommon;
+            i_CommonProp.FriendsInCommon = m_FriendsInCommon;
         }
     }
 }

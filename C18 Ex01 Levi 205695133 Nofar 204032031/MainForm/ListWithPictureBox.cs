@@ -6,10 +6,11 @@ namespace FacebookApp
 {
     public partial class ListWithPictureBox : UserControl
     {
-        User m_LoggedInUser;
-        public ListWithPictureBox(User i_LoggedInUser)
+        public User LoggedInUser { get; set; }
+        public ListBox ListBoxInGroup { get { return listBox; } set { ListBoxInGroup = value; } }
+
+        public ListWithPictureBox()
         {
-            m_LoggedInUser = i_LoggedInUser;
             InitializeComponent();
         }
 
@@ -25,25 +26,25 @@ namespace FacebookApp
             }
         }
 
-        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            IListBoxable listBoxableItem = sender as IListBoxable;
-            string imageUrl =  listBoxableItem.GetImageUrlOnClick();
-            if (!string.IsNullOrEmpty(imageUrl))
-            {
-                pictureBox.LoadAsync(imageUrl);
-            }
-            else
-            {
-                pictureBox.Image = pictureBox.ErrorImage;
-            }
-        }
+        //private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    IListBoxable listBoxableItem = sender as IListBoxable;
+        //    string imageUrl =  listBoxableItem.GetImageUrlOnClick();
+        //    if (!string.IsNullOrEmpty(imageUrl))
+        //    {
+        //        pictureBox.LoadAsync(imageUrl);
+        //    }
+        //    else
+        //    {
+        //        pictureBox.Image = pictureBox.ErrorImage;
+        //    }
+        //}
 
-        public void PopulateListBox(object i_Items)
+        public void PopulateListBox()
         {
-            IListBoxable listBoxableItem = i_Items as IListBoxable;
+            IListBoxable listBoxableItem = listBox as IListBoxable;
             listBox.Items.Clear();
-            listBoxableItem.ListItems(m_LoggedInUser);  
+            listBoxableItem.ListItems(LoggedInUser);  
         }
 
         private void displaySelectedFriendPicture()

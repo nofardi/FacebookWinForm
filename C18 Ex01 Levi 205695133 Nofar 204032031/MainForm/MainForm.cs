@@ -78,14 +78,14 @@ namespace FacebookApp
 
         private void populateListBoxCommonFriends()
         {
-            friendsListBox.Items.Clear();
-            friendsListBox.DisplayMember = "Name";
+            friendsCommonListBox.Items.Clear();
+            friendsCommonListBox.DisplayMember = "Name";
 
             try
             {
                 foreach (User friend in m_UserLogic.LoggedInUser.Friends)
                 {
-                    friendsListBox.Items.Add(friend);
+                    friendsCommonListBox.Items.Add(friend);
                 }
             }
             catch (Exception ex)
@@ -152,81 +152,66 @@ namespace FacebookApp
             photoPanel.Populate(photos);
         }
 
+        private void populateListBoxItems(object i_ListBoxToPopulate)
+        {
+            IListBoxable listBoxableItem = i_ListBoxToPopulate as IListBoxable;
+            listBoxableItem.ListItems(m_UserLogic.LoggedInUser);
+        }
+
         private void populateListBoxFriends()
         {
-           
-            listBoxFriends.Items.Clear();
-            listBoxFriends.DisplayMember = "Name";
-
+            listBoxFriends.PicBox = pictureBoxFriend;
             try
             {
-                foreach (User friend in m_UserLogic.LoggedInUser.Friends)
-                {
-                    listBoxFriends.Items.Add(friend);
-                }
+                populateListBoxItems(listBoxFriends);
             }
             catch (Exception ex)
             {
-                string message = string.Format(@"Friends: {0}", ex.Message);
-                MessageBox.Show(message);
+                string message = string.Format(@"Error: Friends: {0}", ex.Message);
+                Console.WriteLine(message);
             }
         }
 
         private void populateListBoxEvents()
         {
-            listBoxEvents.Items.Clear();
-            listBoxEvents.DisplayMember = "Name";
-
+            listBoxEvents.PicBox = pictureBoxEvent;
             try
             {
-                foreach (Event fbEvent in m_UserLogic.LoggedInUser.Events)
-                {
-                    listBoxEvents.Items.Add(fbEvent);
-                }
+                populateListBoxItems(listBoxEvents);
             }
             catch (Exception ex)
             {
-                string message = string.Format(@"Events: {0}", ex.Message);
-                MessageBox.Show(message);
+                string message = string.Format(@"Error: Events: {0}", ex.Message);
+                Console.WriteLine(message);
             }
         }
 
         private void populateListBoxCheckins()
         {
-            listBoxCheckins.Items.Clear();
-            listBoxCheckins.DisplayMember = "Name";
+            listBoxCheckins.PicBox = pictureBoxCheckin;
             try
             {
-                foreach (Checkin checkin in m_UserLogic.LoggedInUser.Checkins)
-                {
-                    listBoxCheckins.Items.Add(checkin.Place.Name);
-                }
+                populateListBoxItems(listBoxCheckins);
             }
             catch (Exception ex)
             {
-                string message = string.Format(@"Checkins: {0}", ex.Message);
-                MessageBox.Show(message);
+                string message = string.Format(@"Error: Checkins: {0}", ex.Message);
+                Console.WriteLine(message);
             }
         }
 
         private void populateListBoxLikedPages()
         {
-            listBoxLikedPages.Items.Clear();
-            listBoxLikedPages.DisplayMember = "Name";
-
+            likedPagesListBox.PicBox = pictureBoxLikedPage;
             try
             {
-                foreach (Page page in m_UserLogic.LoggedInUser.LikedPages)
-                {
-                    listBoxLikedPages.Items.Add(page);
-                }
+                populateListBoxItems(likedPagesListBox);
             }
             catch (Exception ex)
             {
-                string message = string.Format(@"Liked pages: {0}", ex.Message);
-                MessageBox.Show(message);
+                string message = string.Format(@"Error: Liked pages: {0}", ex.Message);
+                Console.WriteLine(message);
             }
-
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)
@@ -331,95 +316,10 @@ namespace FacebookApp
             return isSuccess;
         }
 
-
         private void textBoxPost_Enter(object sender, EventArgs e)
         {
             textBoxPost.Clear();
             textBoxPost.ForeColor = System.Drawing.Color.Black;
-        }
-
-        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displaySelectedFriendPicture();
-        }
-
-        private void displaySelectedFriendPicture()
-        {
-            if (listBoxFriends.SelectedItems.Count == 1)
-            {
-                User selectedFriend = listBoxFriends.SelectedItem as User;
-                if (selectedFriend.PictureSmallURL != null)
-                {
-                    pictureBoxFriend.LoadAsync(selectedFriend.PictureSmallURL);
-                }
-                else
-                {
-                    pictureBoxFriend.Image = pictureBoxFriend.ErrorImage;
-                }
-            }
-        }
-
-        private void listBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displaySelectedEventPicture();
-        }
-
-        private void displaySelectedEventPicture()
-        {
-            if (listBoxEvents.SelectedItems.Count == 1)
-            {
-                Event selectedEvent = listBoxEvents.SelectedItem as Event;
-                if (selectedEvent.PictureSmallURL != null)
-                {
-                    pictureBoxEvent.LoadAsync(selectedEvent.PictureSmallURL);
-                }
-                else
-                {
-                    pictureBoxEvent.Image = pictureBoxEvent.ErrorImage;
-                }
-            }
-        }
-
-        private void listBoxCheckins_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displaySelectedCheckinPicture();
-        }
-
-        private void displaySelectedCheckinPicture()
-        {
-            if (listBoxCheckins.SelectedItems.Count == 1)
-            {
-                Checkin selectedCheckin = listBoxCheckins.SelectedItem as Checkin;
-                if (selectedCheckin.PictureURL != null)
-                {
-                    pictureBoxCheckin.LoadAsync(selectedCheckin.PictureURL);
-                }
-                else
-                {
-                    pictureBoxCheckin.Image = pictureBoxCheckin.ErrorImage;
-                }
-            }
-        }
-
-        private void listBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displaySelectedPagePicture();
-        }
-
-        private void displaySelectedPagePicture()
-        {
-            if (listBoxLikedPages.SelectedItems.Count == 1)
-            {
-                Page selectedPage = listBoxLikedPages.SelectedItem as Page;
-                if (selectedPage.PictureSmallURL != null)
-                {
-                    pictureBoxLikedPage.LoadAsync(selectedPage.PictureSmallURL);
-                }
-                else
-                {
-                    pictureBoxLikedPage.Image = pictureBoxLikedPage.ErrorImage;
-                }
-            }
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
@@ -459,14 +359,23 @@ namespace FacebookApp
 
         private void findCommonButton_Click(object sender, EventArgs e)
         {
-            CommonProp commonProperties = m_UserLogic.GetCommon(friendsListBox.SelectedItem);
+            CommonProp commonProperties = m_UserLogic.GetCommon(friendsCommonListBox.SelectedItem);
             populateCommonProps(commonProperties);
         }
 
         private void populateCommonProps(CommonProp i_CommonProps)
         {
+            commonIntro.Text = i_CommonProps.IntroInCommon;
 
+            friendsInCommonListBox.PicBox = friendsInCommonPic;
+            friendsInCommonListBox.ShowItems(i_CommonProps.FriendsInCommon);
 
+            pagesInCommonListBox.PicBox = pagesInCommonPic;
+            pagesInCommonListBox.ShowItems(i_CommonProps.PagesInCommon);
+
+            photosInCommonPanel.Populate(i_CommonProps.PhotosInCommon);
+            feedInCommon.PopulateFeed(i_CommonProps.PostsInCommon);
+            
         }
     }
 }

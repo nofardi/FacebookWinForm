@@ -1,6 +1,6 @@
 ﻿namespace FacebookApp
 {
-    partial class EventsListBox
+    partial class CheckinsListBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.eventsList = new System.Windows.Forms.ListBox();
+            this.checkinList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // eventsList
+            // checkinList
             // 
-            this.eventsList.FormattingEnabled = true;
-            this.eventsList.ItemHeight = 16;
-            this.eventsList.Location = new System.Drawing.Point(3, 3);
-            this.eventsList.Name = "eventsList";
-            this.eventsList.Size = new System.Drawing.Size(134, 84);
-            this.eventsList.TabIndex = 0;
-            this.eventsList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
+            this.checkinList.FormattingEnabled = true;
+            this.checkinList.ItemHeight = 16;
+            this.checkinList.Location = new System.Drawing.Point(3, 3);
+            this.checkinList.Name = "checkinList";
+            this.checkinList.Size = new System.Drawing.Size(134, 84);
+            this.checkinList.TabIndex = 0;
+            this.checkinList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
             // 
-            // EventsListBox
+            // CheckinsListBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.eventsList);
-            this.Name = "EventsListBox";
-            this.Size = new System.Drawing.Size(141, 91);
+            this.Controls.Add(this.checkinList);
+            this.Name = "CheckinsListBox";
+            this.Size = new System.Drawing.Size(140, 91);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox eventsList;
+        private System.Windows.Forms.ListBox checkinList;
     }
 }

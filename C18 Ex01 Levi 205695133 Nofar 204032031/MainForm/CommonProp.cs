@@ -5,9 +5,12 @@ namespace FacebookApp
 {
     public class CommonProp
     {
-        public List<Photo> PhotosInCommon { get; set; }
-        public List<User> FriendsInCommon { get; set; }
-        public List<Page> PagesInCommon { get; set; }
-        public List<Post> PostsInCommon { get; set; }
+        public FacebookObjectCollection<Photo> PhotosInCommon { get; set; }
+        public FacebookObjectCollection<User> FriendsInCommon { get; set; }
+        public FacebookObjectCollection<Page> PagesInCommon { get; set; }
+        public FacebookObjectCollection<Post> PostsInCommon { get; set; }
+        public string IntroInCommon { get; set; }
+        
+        
     }
 }

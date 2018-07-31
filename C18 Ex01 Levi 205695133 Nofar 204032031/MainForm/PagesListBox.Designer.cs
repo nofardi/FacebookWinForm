@@ -1,6 +1,6 @@
 ﻿namespace FacebookApp
 {
-    partial class EventsListBox
+    partial class PagesListBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.eventsList = new System.Windows.Forms.ListBox();
+            this.pagesList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // eventsList
+            // pagesList
             // 
-            this.eventsList.FormattingEnabled = true;
-            this.eventsList.ItemHeight = 16;
-            this.eventsList.Location = new System.Drawing.Point(3, 3);
-            this.eventsList.Name = "eventsList";
-            this.eventsList.Size = new System.Drawing.Size(134, 84);
-            this.eventsList.TabIndex = 0;
-            this.eventsList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
+            this.pagesList.FormattingEnabled = true;
+            this.pagesList.ItemHeight = 16;
+            this.pagesList.Location = new System.Drawing.Point(3, 3);
+            this.pagesList.Name = "pagesList";
+            this.pagesList.Size = new System.Drawing.Size(134, 84);
+            this.pagesList.TabIndex = 0;
+            this.pagesList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
             // 
-            // EventsListBox
+            // PagesListBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.eventsList);
-            this.Name = "EventsListBox";
-            this.Size = new System.Drawing.Size(141, 91);
+            this.Controls.Add(this.pagesList);
+            this.Name = "PagesListBox";
+            this.Size = new System.Drawing.Size(141, 90);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox eventsList;
+        private System.Windows.Forms.ListBox pagesList;
     }
 }

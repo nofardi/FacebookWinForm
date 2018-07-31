@@ -49,6 +49,11 @@ namespace FacebookApp
                 //"rsvp_event"
           };
 
+        public UserLogic()
+        {
+            m_CommonFinder = new CommonFinder();
+        }
+
         public User LoggedInUser
         {
             get

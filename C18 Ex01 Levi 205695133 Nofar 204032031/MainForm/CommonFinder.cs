@@ -1,4 +1,5 @@
 ﻿using FacebookWrapper.ObjectModel;
+using System;
 using System.Collections.Generic;
 namespace FacebookApp
 {
@@ -25,8 +26,19 @@ namespace FacebookApp
             List<object> commonProperty = new List<object>();
             foreach(ICommonFinders commonFinder in m_CommonFinders)
             {
-                commonFinder.FindCommon(i_FirstUser, i_SecUser);
-                commonFinder.SetProp(CommonProp);
+                try
+                {
+                    commonFinder.FindCommon(i_FirstUser, i_SecUser);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(string.Format("Error: Common: {0} {1}", commonFinder.GetType(), ex.Message));
+                }
+                finally
+                {
+                    commonFinder.SetProp(CommonProp);
+                }
+
             }
         }
     }
