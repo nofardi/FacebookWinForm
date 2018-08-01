@@ -1,5 +1,4 @@
 ﻿using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
 namespace FacebookApp
 {
     public interface ICommonFinders

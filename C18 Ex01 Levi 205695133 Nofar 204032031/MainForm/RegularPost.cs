@@ -33,7 +33,7 @@ namespace FacebookApp
           {
                StringBuilder message = new StringBuilder();
                message.Append(m_Post.Message);
-               message.Append(m_Post.Description);//****
+               message.Append(m_Post.Description);
                textBoxPost.Text = message.ToString();
           }
 

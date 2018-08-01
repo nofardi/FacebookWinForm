@@ -18,7 +18,7 @@ namespace FacebookApp
         public BestFollowerFinder(User i_LoggedInUser, int i_CollectionLimit)
         {
             LoggedInUser = i_LoggedInUser;
-            GeneralCollectionLimit = i_CollectionLimit;
+            this.GeneralCollectionLimit = i_CollectionLimit;
             initializeFollowers();
         }
 
@@ -37,16 +37,16 @@ namespace FacebookApp
             const int k_CollectionLimit = 30;
             FacebookService.s_CollectionLimit = k_CollectionLimit;
             LoggedInUser.ReFetch();
-            bool postsLikesFound = countLikesInPosts();
-            bool photosLikesFound = countLikesInPhotos();
+            bool postsLikesFound = this.countLikesInPosts();
+            bool photosLikesFound = this.countLikesInPhotos();
             if (postsLikesFound || photosLikesFound)
             {
-                BestFollower = new Follower();
+                this.BestFollower = new Follower();
                 foreach (Follower follower in m_Followers.Values)
                 {
-                    if (follower.numberOfLikes > BestFollower.numberOfLikes)
+                    if (follower.numberOfLikes > this.BestFollower.numberOfLikes)
                     {
-                        BestFollower = follower;
+                        this.BestFollower = follower;
                     }
                 }
             }
@@ -74,7 +74,8 @@ namespace FacebookApp
                     }
                 }
             }
-            catch(Exception ex)
+
+            catch (Exception ex)
             {
                 Console.WriteLine(string.Format("Error: Finding liked posts by follower {0}", ex.Message));
             }
@@ -107,7 +108,7 @@ namespace FacebookApp
                 Console.WriteLine(string.Format("Error: Finding liked photos by follower {0}", ex.Message));
             }
 
-            FacebookService.s_CollectionLimit = GeneralCollectionLimit;
+            FacebookService.s_CollectionLimit = this.GeneralCollectionLimit;
             return likesFound;
         }
 

@@ -33,7 +33,7 @@ namespace FacebookApp
         {
             base.OnShown(e);
 
-            if(m_AppSettings.RememberMe 
+            if (m_AppSettings.RememberMe 
                 && !string.IsNullOrEmpty(m_UserLogic.AccessToken))
             {
                 m_UserLogic.Connect();
@@ -50,7 +50,7 @@ namespace FacebookApp
             m_AppSettings.RememberMe = this.rememberCheckbox.Checked;
             m_AppSettings.AccessToken = m_UserLogic.AccessToken;
 
-            if(this.rememberCheckbox.Checked)
+            if (this.rememberCheckbox.Checked)
             {
                 m_AppSettings.AccessToken = m_UserLogic.LoginResult.AccessToken;
             }
@@ -373,7 +373,7 @@ namespace FacebookApp
         private void buttonGetPicturePath_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            // image filters  
+            /// image filters  
             fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {

@@ -24,13 +24,13 @@ namespace FacebookApp
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
             List<object> commonProperty = new List<object>();
-            foreach(ICommonFinders commonFinder in m_CommonFinders)
+            foreach (ICommonFinders commonFinder in m_CommonFinders)
             {
                 try
                 {
                     commonFinder.FindCommon(i_FirstUser, i_SecUser);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(string.Format("Error: Common: {0} {1}", commonFinder.GetType(), ex.Message));
                 }

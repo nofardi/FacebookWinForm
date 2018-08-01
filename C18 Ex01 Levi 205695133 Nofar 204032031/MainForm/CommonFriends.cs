@@ -13,7 +13,7 @@ namespace FacebookApp
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
             m_FriendsInCommon = new FacebookObjectCollection<User>();
-            foreach(User friend in i_FirstUser.Friends)
+            foreach (User friend in i_FirstUser.Friends)
             {
                 foreach (User friendOfFriend in friend.Friends)
                 {

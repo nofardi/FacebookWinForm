@@ -22,36 +22,36 @@ namespace FacebookApp
         public readonly string[] r_Permissions =
                {
                "public_profile",
-                //"user_education_history",
-                //"user_birthday",
-                //"user_actions.video",
-                //"user_actions.news",
-                //"user_actions.music",
-                //"user_actions.fitness",
-                //"user_actions.books",
-                //"user_about_me",
-                //"user_friends",
-                //"user_events",
-                //"user_games_activity",
-                //"user_hometown",
-                //"user_likes",
-                //"user_location",
-                //"user_managed_groups",
-                //"user_posts",
-                //"user_photos",
-                //"user_relationships",
-                //"user_relationship_details",
-                //"user_religion_politics",
-                //"user_tagged_places",
-                //"user_videos",
-                //"user_website",
-                //"user_work_history",
-                //"read_custom_friendlists",
-                //"read_page_mailboxes",
-                //"manage_pages",
-                //"publish_pages",
-                //"publish_actions",
-                //"rsvp_event"
+                "user_education_history",
+                "user_birthday",
+                "user_actions.video",
+                "user_actions.news",
+                "user_actions.music",
+                "user_actions.fitness",
+                "user_actions.books",
+                "user_about_me",
+                "user_friends",
+                "user_events",
+                "user_games_activity",
+                "user_hometown",
+                "user_likes",
+                "user_location",
+                "user_managed_groups",
+                "user_posts",
+                "user_photos",
+                "user_relationships",
+                "user_relationship_details",
+                "user_religion_politics",
+                "user_tagged_places",
+                "user_videos",
+                "user_website",
+                "user_work_history",
+                "read_custom_friendlists",
+                "read_page_mailboxes",
+                "manage_pages",
+                "publish_pages",
+                "publish_actions",
+                "rsvp_event"
           };
 
         public UserLogic()
@@ -89,18 +89,23 @@ namespace FacebookApp
 
             m_LoginResult = FacebookService.Login(k_MyAppID, r_Permissions);
             AccessToken = m_LoginResult.AccessToken;
-            if (!string.IsNullOrEmpty(AccessToken))
+            if (!string.IsNullOrEmpty(this.AccessToken))
             {
-                m_LoggedInUser = m_LoginResult.LoggedInUser;
-                m_LoggedIn = true;
+                setLoggedInUser();
             }
 
         }
 
         public void Connect()
         {
-            m_LoginResult = FacebookService.Connect(k_MyAppID);
+            m_LoginResult = FacebookService.Connect(this.AccessToken);
+            setLoggedInUser();
+        }
 
+        private void setLoggedInUser()
+        {
+            m_LoggedInUser = m_LoginResult.LoggedInUser;
+            m_LoggedIn = true;
         }
 
         public void Logout()

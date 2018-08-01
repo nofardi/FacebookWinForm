@@ -20,8 +20,6 @@ namespace FacebookApp
           public void PopulateFeed(IEnumerable<Post> i_Posts)
           {
                flowLayoutPanelFeed.Controls.Clear();
-               //m_UserLogic.LoggedInUser.ReFetch();
-
                try
                {
                     foreach (Post post in i_Posts)

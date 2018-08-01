@@ -1,6 +1,5 @@
-﻿using System;
+﻿using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
-using System.Windows.Forms;
 
 namespace FacebookApp
 {
@@ -26,19 +25,7 @@ namespace FacebookApp
             }
         }
 
-        //private void listBox_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    IListBoxable listBoxableItem = sender as IListBoxable;
-        //    string imageUrl =  listBoxableItem.GetImageUrlOnClick();
-        //    if (!string.IsNullOrEmpty(imageUrl))
-        //    {
-        //        pictureBox.LoadAsync(imageUrl);
-        //    }
-        //    else
-        //    {
-        //        pictureBox.Image = pictureBox.ErrorImage;
-        //    }
-        //}
+      
 
         public void PopulateListBox()
         {

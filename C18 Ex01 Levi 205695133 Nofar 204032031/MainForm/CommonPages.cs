@@ -12,11 +12,12 @@ namespace FacebookApp
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
             PagesInCommon = new FacebookObjectCollection<Page>();
-            foreach(Page page in i_FirstUser.LikedPages)
+
+            foreach (Page page in i_FirstUser.LikedPages)
             {
-                foreach(Page friendPage in i_SecUser.LikedPages)
+                foreach (Page friendPage in i_SecUser.LikedPages)
                 {
-                    if(friendPage.Id == page.Id)
+                    if (friendPage.Id == page.Id)
                     {
                         PagesInCommon.Add(page);
                     }

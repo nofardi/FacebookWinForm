@@ -12,9 +12,9 @@ namespace FacebookApp
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
             PostsInCommon = new FacebookObjectCollection<Post>();
-            foreach(Post post in i_FirstUser.PostsTaggedIn)
+            foreach (Post post in i_FirstUser.PostsTaggedIn)
             {
-                if(post.TaggedUsers.Contains(i_SecUser))
+                if (post.TaggedUsers.Contains(i_SecUser))
                 {
                     PostsInCommon.Add(post);
                 }

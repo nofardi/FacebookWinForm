@@ -8,12 +8,13 @@ using System.Xml.Serialization;
 
 namespace FacebookApp
 {
-    class AppSettings
+    public class AppSettings
     {
         public Point LastWindowLocation { get; set; }
         public Size LastWindowSize { get; set; }
         public bool RememberMe { get; set; }
         public string AccessToken { get; set; }
+        private const string k_FileName = "appSettings.xml";
 
         public AppSettings()
         {
@@ -26,7 +27,7 @@ namespace FacebookApp
         public void SaveToFile()
         {
             String path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            path = string.Format("{0}\\appSettings.xml", path);
+            path = string.Format("{0}\\{1}", path, k_FileName);
             using (Stream stream = new FileStream(path, FileMode.OpenOrCreate))
             {
                 XmlSerializer serializer = new XmlSerializer(this.GetType());
@@ -37,16 +38,16 @@ namespace FacebookApp
         public static AppSettings LoadFromFile()
         {
             String path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            path = string.Format("{0}\\appSettings.xml", path);
+            path = string.Format("{0}\\{1}", path, k_FileName);
             AppSettings obj = null;
             try
             {
                 if (File.Exists(path))
                 {
-                    using (Stream stream = new FileStream("", FileMode.Truncate))
+                    using (Stream stream = new FileStream(path, FileMode.Open))
                     {
                         XmlSerializer serializer = new XmlSerializer(typeof(AppSettings));
-                        obj = serializer.Deserialize(stream) as AppSettings;
+                        obj = (AppSettings)serializer.Deserialize(stream);
                     }
                 }
                 else
@@ -54,7 +55,7 @@ namespace FacebookApp
                     obj = new AppSettings();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(string.Format("Error: {0}", ex.Message));
                 obj = new AppSettings();

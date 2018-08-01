@@ -11,12 +11,12 @@ namespace FacebookApp
         public StringBuilder IntroStr = new StringBuilder();
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
-            IntroStr.AppendLine(getCommonBirthday(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(getCommonHometown(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(getCommonLocation(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(getCommonRelationStatus(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(getCommonBirthday(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(getCommonEducation(i_FirstUser, i_SecUser));
+            IntroStr.AppendLine(this.getCommonBirthday(i_FirstUser, i_SecUser));
+            IntroStr.AppendLine(this.getCommonHometown(i_FirstUser, i_SecUser));
+            IntroStr.AppendLine(this.getCommonLocation(i_FirstUser, i_SecUser));
+            IntroStr.AppendLine(this.getCommonRelationStatus(i_FirstUser, i_SecUser));
+            IntroStr.AppendLine(this.getCommonBirthday(i_FirstUser, i_SecUser));
+            IntroStr.AppendLine(this.getCommonEducation(i_FirstUser, i_SecUser));
         }
 
         private string getCommonBirthday(User i_FirstUser, User i_SecUser)
@@ -42,7 +42,7 @@ namespace FacebookApp
                     birthStr = DateTime.Parse(i_FirstUser.Birthday).Day.ToString();
                 }
             }
-            if(!string.IsNullOrEmpty(birthStr))
+            if (!string.IsNullOrEmpty(birthStr))
             {
                 birthStr = string.Format("{0} {1}", introStr, birthStr);
             }
@@ -110,7 +110,7 @@ namespace FacebookApp
             string introStr = "Both study at:";
             if (i_FirstUser.Educations != null && i_SecUser.Educations != null)
             {
-                if(i_FirstUser.Educations[0].School.Id == i_SecUser.Educations[0].School.Id)
+                if (i_FirstUser.Educations[0].School.Id == i_SecUser.Educations[0].School.Id)
                 {
                     education = i_FirstUser.Educations[0].School.Name;
                 }
