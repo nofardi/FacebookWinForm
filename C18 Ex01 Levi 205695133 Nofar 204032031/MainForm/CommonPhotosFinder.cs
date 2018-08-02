@@ -1,7 +1,4 @@
-﻿using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
-using System;
+﻿using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {

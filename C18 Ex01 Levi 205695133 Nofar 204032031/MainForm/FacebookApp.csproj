@@ -89,12 +89,6 @@
     </Compile>
     <Compile Include="ICommonProps.cs" />
     <Compile Include="IListBoxable.cs" />
-    <Compile Include="ListWithPictureBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ListWithPictureBox.Designer.cs">
-      <DependentUpon>ListWithPictureBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="PagesListBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,9 +128,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FriendsListBox.resx">
       <DependentUpon>FriendsListBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ListWithPictureBox.resx">
-      <DependentUpon>ListWithPictureBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

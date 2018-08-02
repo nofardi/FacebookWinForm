@@ -13,22 +13,29 @@ namespace FacebookApp
     public partial class EventsListBox : UserControl, IListBoxable
     {
         public PictureBox PicBox { get; set; }
+
         public EventsListBox()
         {
             InitializeComponent();
         }
 
-        private string getImageUrlOnClick()
-        {
-            Event selectedEvent = this.eventsList.SelectedItem as Event;
-            string picUrl = string.Empty;
-            if (selectedEvent.PictureSmallURL != null)
-            {
-                picUrl = selectedEvent.PictureSmallURL;
-            }
+          private string getImageUrlOnClick()
+          {
+               Event selectedEvent = this.eventsList.SelectedItem as Event;
+               string picUrl = string.Empty;
+               if (selectedEvent != null)
+               {
+                    if (selectedEvent != null)
+                    {
+                         if (selectedEvent.PictureSmallURL != null)
+                         {
+                              picUrl = selectedEvent.PictureSmallURL;
+                         }
+                    }
+               }
 
-            return picUrl;
-        }
+               return picUrl;
+          }
 
         public void ListItems(User i_User)
         {

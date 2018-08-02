@@ -2,9 +2,10 @@
 
 namespace FacebookApp
 {
-    interface IListBoxable
+    public interface IListBoxable
     {
         void ListItems(User i_User);
+
         void Clear();
     }
 }

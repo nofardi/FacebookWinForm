@@ -1,7 +1,7 @@
-﻿using System.Windows.Forms;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Text;
+using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {

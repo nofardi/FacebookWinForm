@@ -1,25 +1,15 @@
-﻿using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System.Text;
 using System.Collections.Generic;
-using System.Text;
+using FacebookWrapper;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
-    class UserLogic
+    public class UserLogic
     {
-        private LoginResult m_LoginResult = null;
-        private User m_LoggedInUser = null;
-        private bool m_LoggedIn = false;
-        public const string k_MyAppID = "1771402262915011";
-        public const int k_CollectionLimit = 200;
-        public CommonFinder m_CommonFinder { get; }
-        public BestFollowerFinder BestFollowerFinder { get; set; }
-        public string AccessToken
-        {
-            set; get;
-        }
-        public readonly string[] r_Permissions =
+          public const string k_MyAppID = "1771402262915011";
+          public const int k_CollectionLimit = 200;
+          private readonly string[] r_Permissions =
                {
                "public_profile",
                 "user_education_history",
@@ -54,9 +44,19 @@ namespace FacebookApp
                 "rsvp_event"
           };
 
+        private LoginResult m_LoginResult = null;
+        private User m_LoggedInUser = null;
+        private bool m_LoggedIn = false;
+
+        public CommonFinder CommonFinder { get; }
+
+        public BestFollowerFinder BestFollowerFinder { get; set; }
+
+        public string AccessToken { get; set; }
+
         public UserLogic()
         {
-            m_CommonFinder = new CommonFinder();
+            CommonFinder = new CommonFinder();
         }
 
         public User LoggedInUser
@@ -72,8 +72,7 @@ namespace FacebookApp
             get
             {
                 return m_LoginResult;
-            }
-            
+            }           
         }
 
         public bool LoggedIn
@@ -86,14 +85,12 @@ namespace FacebookApp
 
         public void Login()
         {
-
             m_LoginResult = FacebookService.Login(k_MyAppID, r_Permissions);
             AccessToken = m_LoginResult.AccessToken;
             if (!string.IsNullOrEmpty(this.AccessToken))
             {
                 setLoggedInUser();
             }
-
         }
 
         public void Connect()
@@ -193,8 +190,8 @@ namespace FacebookApp
 
         internal CommonProp GetCommon(object selectedItem)
         {
-            m_CommonFinder.FindCommon(LoggedInUser, selectedItem as User);
-            return m_CommonFinder.CommonProp;
+            CommonFinder.FindCommon(LoggedInUser, selectedItem as User);
+            return CommonFinder.CommonProp;
         }
 
         internal void FindBestFollower()
@@ -205,7 +202,7 @@ namespace FacebookApp
             }
             else
             {
-                this.BestFollowerFinder.initializeFollowers();
+                this.BestFollowerFinder.InitializeFollowers();
             }
 
             this.BestFollowerFinder.FindBestFollower();

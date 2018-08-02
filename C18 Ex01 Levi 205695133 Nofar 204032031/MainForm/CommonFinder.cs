@@ -1,11 +1,13 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using FacebookWrapper.ObjectModel;
+
 namespace FacebookApp
 {
-    class CommonFinder
+    public class CommonFinder
     {
         private List<ICommonFinders> m_CommonFinders;
+
         public CommonProp CommonProp { get; set; }
 
         public CommonFinder()
@@ -38,7 +40,6 @@ namespace FacebookApp
                 {
                     commonFinder.SetProp(CommonProp);
                 }
-
             }
         }
     }

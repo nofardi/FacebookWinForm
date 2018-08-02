@@ -6,7 +6,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
-    class CommonFriendsFinder : ICommonFinders
+    public class CommonFriendsFinder : ICommonFinders
     {
         private FacebookObjectCollection<User> m_FriendsInCommon;
 

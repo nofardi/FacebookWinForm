@@ -1,6 +1,6 @@
 ﻿namespace FacebookApp
 {
-    partial class CheckinsListBox
+   public partial class CheckinsListBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -28,27 +29,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkinList = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
-            // 
-            // checkinList
-            // 
-            this.checkinList.FormattingEnabled = true;
-            this.checkinList.ItemHeight = 16;
-            this.checkinList.Location = new System.Drawing.Point(3, 3);
-            this.checkinList.Name = "checkinList";
-            this.checkinList.Size = new System.Drawing.Size(134, 84);
-            this.checkinList.TabIndex = 0;
-            this.checkinList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
-            // 
-            // CheckinsListBox
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.checkinList);
-            this.Name = "CheckinsListBox";
-            this.Size = new System.Drawing.Size(140, 91);
-            this.ResumeLayout(false);
+               this.checkinList = new System.Windows.Forms.ListBox();
+               this.SuspendLayout();
+               // 
+               // checkinList
+               // 
+               this.checkinList.FormattingEnabled = true;
+               this.checkinList.ItemHeight = 16;
+               this.checkinList.Location = new System.Drawing.Point(0, 3);
+               this.checkinList.Name = "checkinList";
+               this.checkinList.ScrollAlwaysVisible = true;
+               this.checkinList.Size = new System.Drawing.Size(132, 132);
+               this.checkinList.TabIndex = 0;
+               this.checkinList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
+               // 
+               // CheckinsListBox
+               // 
+               this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+               this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+               this.Controls.Add(this.checkinList);
+               this.Name = "CheckinsListBox";
+               this.Size = new System.Drawing.Size(133, 143);
+               this.ResumeLayout(false);
 
         }
 

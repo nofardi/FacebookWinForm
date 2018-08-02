@@ -1,61 +1,64 @@
 ﻿using System;
-using FacebookWrapper.ObjectModel;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
-    public partial class PagesListBox : UserControl, IListBoxable
-    {
-        public PagesListBox()
-        {
-            InitializeComponent();
-        }
+     public partial class PagesListBox : UserControl, IListBoxable
+     {
+          public PagesListBox()
+          {
+               InitializeComponent();
+          }
 
-        public PictureBox PicBox { get; set; }
+          public PictureBox PicBox { get; set; }
 
-        private string getImageUrlOnClick()
-        {
-            Page selectedPage = this.pagesList.SelectedItem as Page;
-            string picUrl = string.Empty;
-            if (selectedPage.PictureSmallURL != null)
-            {
-                picUrl = selectedPage.PictureSmallURL;
-            }
+          private string getImageUrlOnClick()
+          {
+               Page selectedPage = this.pagesList.SelectedItem as Page;
+               string picUrl = string.Empty;
+               if (selectedPage != null)
+               {
+                    if (selectedPage.PictureSmallURL != null)
+                    {
+                         picUrl = selectedPage.PictureSmallURL;
+                    }
+               }
 
-            return picUrl;
-        }
+               return picUrl;
+          }
 
-        public void ListItems(User i_User)
-        {
-            ShowItems(i_User.LikedPages);
-        }
+          public void ListItems(User i_User)
+          {
+               ShowItems(i_User.LikedPages);
+          }
 
-        public void ShowItems(FacebookObjectCollection<Page> i_Pages)
-        {
-            this.pagesList.DisplayMember = "Name";
-            this.Clear();
-            foreach (Page page in i_Pages)
-            {
-                this.pagesList.Items.Add(page);
-            }
-        }
+          public void ShowItems(FacebookObjectCollection<Page> i_Pages)
+          {
+               this.pagesList.DisplayMember = "Name";
+               this.Clear();
+               foreach (Page page in i_Pages)
+               {
+                    this.pagesList.Items.Add(page);
+               }
+          }
 
-        private void onIndexSelectChanged(object sender, EventArgs e)
-        {
-            string picUrl = getImageUrlOnClick();
-            if (!string.IsNullOrEmpty(picUrl))
-            {
-                PicBox.LoadAsync(picUrl);
-            }
-            else
-            {
-                PicBox.Image = PicBox.ErrorImage;
-            }
-        }
+          private void onIndexSelectChanged(object sender, EventArgs e)
+          {
+               string picUrl = getImageUrlOnClick();
+               if (!string.IsNullOrEmpty(picUrl))
+               {
+                    PicBox.LoadAsync(picUrl);
+               }
+               else
+               {
+                    PicBox.Image = PicBox.ErrorImage;
+               }
+          }
 
-        public void Clear()
-        {
-            pagesList.Items.Clear();
-        }
-    }
+          public void Clear()
+          {
+               pagesList.Items.Clear();
+          }
+     }
 }

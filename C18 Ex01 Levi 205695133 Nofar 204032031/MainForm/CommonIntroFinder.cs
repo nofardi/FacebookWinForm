@@ -6,17 +6,18 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
-    class CommonIntroFinder : ICommonFinders
+    public class CommonIntroFinder : ICommonFinders
     {
-        public StringBuilder IntroStr = new StringBuilder();
+        private StringBuilder m_IntroStr = new StringBuilder();
+
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
-            IntroStr.AppendLine(this.getCommonBirthday(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(this.getCommonHometown(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(this.getCommonLocation(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(this.getCommonRelationStatus(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(this.getCommonBirthday(i_FirstUser, i_SecUser));
-            IntroStr.AppendLine(this.getCommonEducation(i_FirstUser, i_SecUser));
+            m_IntroStr.AppendLine(this.getCommonBirthday(i_FirstUser, i_SecUser));
+            m_IntroStr.AppendLine(this.getCommonHometown(i_FirstUser, i_SecUser));
+            m_IntroStr.AppendLine(this.getCommonLocation(i_FirstUser, i_SecUser));
+            m_IntroStr.AppendLine(this.getCommonRelationStatus(i_FirstUser, i_SecUser));
+            m_IntroStr.AppendLine(this.getCommonBirthday(i_FirstUser, i_SecUser));
+            m_IntroStr.AppendLine(this.getCommonEducation(i_FirstUser, i_SecUser));
         }
 
         private string getCommonBirthday(User i_FirstUser, User i_SecUser)
@@ -42,10 +43,12 @@ namespace FacebookApp
                     birthStr = DateTime.Parse(i_FirstUser.Birthday).Day.ToString();
                 }
             }
+
             if (!string.IsNullOrEmpty(birthStr))
             {
                 birthStr = string.Format("{0} {1}", introStr, birthStr);
             }
+
             return birthStr;
         }
 
@@ -60,6 +63,7 @@ namespace FacebookApp
                     status = i_FirstUser.RelationshipStatus.Value.ToString();
                 }
             }
+
             if (!string.IsNullOrEmpty(status))
             {
                 status = string.Format("{0} {1}", introStr, status);
@@ -79,10 +83,12 @@ namespace FacebookApp
                     location = i_FirstUser.Location.Name.ToString();
                 }
             }
+
             if (!string.IsNullOrEmpty(location))
             {
                 location = string.Format("{0} {1}", introStr, location);
             }
+
             return location;
         }
 
@@ -97,10 +103,12 @@ namespace FacebookApp
                     hometown = i_FirstUser.Hometown.Name.ToString();
                 }
             }
+
             if (!string.IsNullOrEmpty(hometown))
             {
                 hometown = string.Format("{0} {1}", introStr, hometown);
             }
+
             return hometown;
         }
 
@@ -120,12 +128,13 @@ namespace FacebookApp
             {
                 education = string.Format("{0} {1}", introStr, education);
             }
+
             return education;
         }
 
         public void SetProp(CommonProp i_CommonProp)
         {
-            i_CommonProp.IntroInCommon = IntroStr.ToString();
+            i_CommonProp.IntroInCommon = m_IntroStr.ToString();
         }
     }
 }

@@ -1,20 +1,20 @@
-using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
     public partial class MainForm : Form
     {
+        public const string k_LoginRequestMessage = "Error in Log in";
+        private readonly Color r_DefaultFontColor = Color.LightGray;
         public const int k_NumOfLatestPostsToTake = 4;
         public const int k_NumberOfPhotosToShow = 4;
         private UserLogic m_UserLogic = new UserLogic();
         private AppSettings m_AppSettings;
-        private const string k_LoginRequestMessage = "Error in Log in";
-        private readonly Color r_DefaultFontColor = Color.LightGray;
 
         public MainForm()
         {
@@ -22,24 +22,29 @@ namespace FacebookApp
             m_AppSettings = AppSettings.LoadFromFile();
 
             this.StartPosition = FormStartPosition.Manual;
-            this.Size = m_AppSettings.LastWindowSize;
             this.Location = m_AppSettings.LastWindowLocation;
             this.rememberCheckbox.Checked = m_AppSettings.RememberMe;
             m_UserLogic.AccessToken = m_AppSettings.AccessToken;
-
         }
 
-        protected override void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
+          protected override void OnShown(EventArgs e)
+          {
+               base.OnShown(e);
 
-            if (m_AppSettings.RememberMe 
-                && !string.IsNullOrEmpty(m_UserLogic.AccessToken))
-            {
-                m_UserLogic.Connect();
-                populateUIWithUserInformation();
-            }
-        }
+               if (m_AppSettings.RememberMe
+                   && !string.IsNullOrEmpty(m_UserLogic.AccessToken))
+               {
+                    try
+                    {
+                         m_UserLogic.Connect();
+                         populateUIWithUserInformation();
+                    }
+                    catch(Exception ex)
+                    {
+                         MessageBox.Show(ex.Message);
+                    }
+               }
+          }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -58,6 +63,7 @@ namespace FacebookApp
             {
                 m_AppSettings.AccessToken = null;
             }
+
             m_AppSettings.SaveToFile();
         }
 
@@ -286,6 +292,7 @@ namespace FacebookApp
                 m_UserLogic.LoggedInUser.ReFetch();
                 populateUserFeed();
             }
+
             populateTextBoxPostWithDefaultString();
         }
 
@@ -328,7 +335,6 @@ namespace FacebookApp
             {
                 MessageBox.Show(ex.Message);
             }
-
 
             return isSuccess;
         }
@@ -373,17 +379,15 @@ namespace FacebookApp
         private void buttonGetPicturePath_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            /// image filters  
+  
             fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                // display image in picture box  
-                //pictureBox1.Image = new Bitmap(open.FileName);
-                // image file path 
                 textBoxPicturePath.Visible = true;
                 textBoxPicturePath.Text = fileDialog.FileName;
                 textBoxPost.Text = string.Empty;
             }
+
             fileDialog.Dispose();
         }
 
@@ -404,8 +408,7 @@ namespace FacebookApp
             pagesInCommonListBox.ShowItems(i_CommonProps.PagesInCommon);
 
             photosInCommonPanel.Populate(i_CommonProps.PhotosInCommon);
-            feedInCommon.PopulateFeed(i_CommonProps.PostsInCommon);
-            
+            feedInCommon.PopulateFeed(i_CommonProps.PostsInCommon);          
         }
 
         private void findFollowersButton_Click(object sender, EventArgs e)
@@ -449,4 +452,3 @@ namespace FacebookApp
         }
     }
 }
-

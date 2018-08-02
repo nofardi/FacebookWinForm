@@ -1,11 +1,11 @@
-﻿using FacebookWrapper.ObjectModel;
-using FacebookWrapper;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using FacebookWrapper;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
-    internal class BestFollowerFinder
+    public class BestFollowerFinder
     {
         private int GeneralCollectionLimit { get; }
 
@@ -19,10 +19,10 @@ namespace FacebookApp
         {
             LoggedInUser = i_LoggedInUser;
             this.GeneralCollectionLimit = i_CollectionLimit;
-            initializeFollowers();
+            InitializeFollowers();
         }
 
-        public void initializeFollowers()
+        public void InitializeFollowers()
         {
             m_Followers = new Dictionary<string, Follower>(LoggedInUser.Friends.Count);
             foreach (User friend in LoggedInUser.Friends)
@@ -74,7 +74,6 @@ namespace FacebookApp
                     }
                 }
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(string.Format("Error: Finding liked posts by follower {0}", ex.Message));
@@ -122,6 +121,7 @@ namespace FacebookApp
                     result = true;
                 }
             }
+
             return result;
         }
 

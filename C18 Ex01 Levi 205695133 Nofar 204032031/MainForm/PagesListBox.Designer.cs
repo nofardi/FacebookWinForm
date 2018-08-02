@@ -1,6 +1,6 @@
 ﻿namespace FacebookApp
 {
-    partial class PagesListBox
+    public partial class PagesListBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -28,27 +29,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pagesList = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
-            // 
-            // pagesList
-            // 
-            this.pagesList.FormattingEnabled = true;
-            this.pagesList.ItemHeight = 16;
-            this.pagesList.Location = new System.Drawing.Point(3, 3);
-            this.pagesList.Name = "pagesList";
-            this.pagesList.Size = new System.Drawing.Size(134, 84);
-            this.pagesList.TabIndex = 0;
-            this.pagesList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
-            // 
-            // PagesListBox
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pagesList);
-            this.Name = "PagesListBox";
-            this.Size = new System.Drawing.Size(141, 90);
-            this.ResumeLayout(false);
+               this.pagesList = new System.Windows.Forms.ListBox();
+               this.SuspendLayout();
+               // 
+               // pagesList
+               // 
+               this.pagesList.FormattingEnabled = true;
+               this.pagesList.ItemHeight = 16;
+               this.pagesList.Location = new System.Drawing.Point(0, 3);
+               this.pagesList.Name = "pagesList";
+               this.pagesList.ScrollAlwaysVisible = true;
+               this.pagesList.Size = new System.Drawing.Size(132, 132);
+               this.pagesList.TabIndex = 0;
+               this.pagesList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
+               // 
+               // PagesListBox
+               // 
+               this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+               this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+               this.Controls.Add(this.pagesList);
+               this.Name = "PagesListBox";
+               this.Size = new System.Drawing.Size(132, 143);
+               this.ResumeLayout(false);
 
         }
 

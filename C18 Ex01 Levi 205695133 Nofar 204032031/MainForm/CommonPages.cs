@@ -6,9 +6,10 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
-    class CommonPagesFinder : ICommonFinders
+    public class CommonPagesFinder : ICommonFinders
     {
         public FacebookObjectCollection<Page> PagesInCommon { get; set; }
+
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
             PagesInCommon = new FacebookObjectCollection<Page>();

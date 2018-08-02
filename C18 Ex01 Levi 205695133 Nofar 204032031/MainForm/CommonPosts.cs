@@ -6,9 +6,10 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
-    class CommonPostsFinder : ICommonFinders
+    public class CommonPostsFinder : ICommonFinders
     {
         public FacebookObjectCollection<Post> PostsInCommon;
+
         public void FindCommon(User i_FirstUser, User i_SecUser)
         {
             PostsInCommon = new FacebookObjectCollection<Post>();

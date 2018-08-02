@@ -13,17 +13,20 @@ namespace FacebookApp
 
         public PictureBox PicBox { get; set; }
 
-        private string getImageUrlOnClick()
-        {
-            User selectedFriend = this.friendsList.SelectedItem as User;
-            string picUrl = string.Empty;
-            if (selectedFriend.PictureSmallURL != null)
-            {
-                picUrl = selectedFriend.PictureSmallURL;
-            }
+          private string getImageUrlOnClick()
+          {
+               User selectedFriend = this.friendsList.SelectedItem as User;
+               string picUrl = string.Empty;
+               if (selectedFriend != null)
+               {
+                    if (selectedFriend.PictureSmallURL != null)
+                    {
+                         picUrl = selectedFriend.PictureSmallURL;
+                    }
+               }
 
-            return picUrl;
-        }
+               return picUrl;
+          }
 
         public void ListItems(User i_User)
         {

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace FacebookApp
 {
-    partial class FriendsListBox
+    public partial class FriendsListBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -22,6 +22,7 @@ namespace FacebookApp
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -33,27 +34,28 @@ namespace FacebookApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.friendsList = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
-            // 
-            // friendsList
-            // 
-            this.friendsList.FormattingEnabled = true;
-            this.friendsList.ItemHeight = 16;
-            this.friendsList.Location = new System.Drawing.Point(3, 3);
-            this.friendsList.Name = "friendsList";
-            this.friendsList.Size = new System.Drawing.Size(134, 84);
-            this.friendsList.TabIndex = 0;
-            this.friendsList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
-            // 
-            // FriendsListBox
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.friendsList);
-            this.Name = "FriendsListBox";
-            this.Size = new System.Drawing.Size(140, 91);
-            this.ResumeLayout(false);
+               this.friendsList = new System.Windows.Forms.ListBox();
+               this.SuspendLayout();
+               // 
+               // friendsList
+               // 
+               this.friendsList.FormattingEnabled = true;
+               this.friendsList.ItemHeight = 16;
+               this.friendsList.Location = new System.Drawing.Point(0, 2);
+               this.friendsList.Name = "friendsList";
+               this.friendsList.ScrollAlwaysVisible = true;
+               this.friendsList.Size = new System.Drawing.Size(132, 132);
+               this.friendsList.TabIndex = 0;
+               this.friendsList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
+               // 
+               // FriendsListBox
+               // 
+               this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+               this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+               this.Controls.Add(this.friendsList);
+               this.Name = "FriendsListBox";
+               this.Size = new System.Drawing.Size(133, 143);
+               this.ResumeLayout(false);
 
         }
 

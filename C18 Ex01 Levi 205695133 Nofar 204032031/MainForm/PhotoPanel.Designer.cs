@@ -1,6 +1,6 @@
 ﻿namespace FacebookApp
 {
-     partial class PhotoPanel
+     public partial class PhotoPanel
      {
           /// <summary> 
           /// Required designer variable.
@@ -17,6 +17,7 @@
                {
                     components.Dispose();
                }
+
                base.Dispose(disposing);
           }
 

@@ -1,6 +1,6 @@
 ﻿namespace FacebookApp
 {
-    partial class EventsListBox
+    public partial class EventsListBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -28,27 +29,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.eventsList = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
-            // 
-            // eventsList
-            // 
-            this.eventsList.FormattingEnabled = true;
-            this.eventsList.ItemHeight = 16;
-            this.eventsList.Location = new System.Drawing.Point(3, 3);
-            this.eventsList.Name = "eventsList";
-            this.eventsList.Size = new System.Drawing.Size(134, 84);
-            this.eventsList.TabIndex = 0;
-            this.eventsList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
-            // 
-            // EventsListBox
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.eventsList);
-            this.Name = "EventsListBox";
-            this.Size = new System.Drawing.Size(141, 91);
-            this.ResumeLayout(false);
+               this.eventsList = new System.Windows.Forms.ListBox();
+               this.SuspendLayout();
+               // 
+               // eventsList
+               // 
+               this.eventsList.FormattingEnabled = true;
+               this.eventsList.ItemHeight = 16;
+               this.eventsList.Location = new System.Drawing.Point(0, 6);
+               this.eventsList.Name = "eventsList";
+               this.eventsList.ScrollAlwaysVisible = true;
+               this.eventsList.Size = new System.Drawing.Size(132, 132);
+               this.eventsList.TabIndex = 0;
+               this.eventsList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
+               // 
+               // EventsListBox
+               // 
+               this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+               this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+               this.Controls.Add(this.eventsList);
+               this.Name = "EventsListBox";
+               this.Size = new System.Drawing.Size(133, 143);
+               this.ResumeLayout(false);
 
         }
 

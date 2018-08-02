@@ -29,6 +29,7 @@ namespace FacebookApp
                               RegularPost regularPost = new RegularPost(post);
                               flowLayoutPanelFeed.Controls.Add(regularPost);
                          }
+
                          post.ReFetch(DynamicWrapper.eLoadOptions.Full);
                     }
                }
@@ -37,7 +38,6 @@ namespace FacebookApp
                     string message = string.Format(@"Feed: {0}", ex.Message);
                     MessageBox.Show(message);
                }
-
           }
      }
 }

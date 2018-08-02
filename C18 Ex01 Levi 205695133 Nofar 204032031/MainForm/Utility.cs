@@ -3,7 +3,7 @@ using static System.Windows.Forms.Control;
 
 namespace FacebookApp
 {
-    class Utility
+    public class Utility
     {
         public static void ClearControls(ControlCollection i_Controls)
         {
@@ -39,6 +39,7 @@ namespace FacebookApp
                 }
             }
         }
+
         private static void clearTabs(TabControl i_TabControl)
         {
             foreach (TabPage page in i_TabControl.TabPages)
@@ -46,6 +47,5 @@ namespace FacebookApp
                 ClearControls(page.Controls);
             }
         }
-
     }
 }
