@@ -196,6 +196,7 @@
                // 
                // pictureBoxFriend
                // 
+               this.pictureBoxFriend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
                this.pictureBoxFriend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                this.pictureBoxFriend.Location = new System.Drawing.Point(137, 9);
                this.pictureBoxFriend.Name = "pictureBoxFriend";
@@ -248,8 +249,9 @@
                // 
                // pictureBoxEvent
                // 
+               this.pictureBoxEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
                this.pictureBoxEvent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-               this.pictureBoxEvent.Location = new System.Drawing.Point(138, 10);
+               this.pictureBoxEvent.Location = new System.Drawing.Point(138, 8);
                this.pictureBoxEvent.Name = "pictureBoxEvent";
                this.pictureBoxEvent.Size = new System.Drawing.Size(60, 60);
                this.pictureBoxEvent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -262,15 +264,16 @@
                this.groupBoxCheckins.Controls.Add(this.pictureBoxCheckin);
                this.groupBoxCheckins.Location = new System.Drawing.Point(628, 176);
                this.groupBoxCheckins.Name = "groupBoxCheckins";
-               this.groupBoxCheckins.Size = new System.Drawing.Size(195, 164);
+               this.groupBoxCheckins.Size = new System.Drawing.Size(200, 164);
                this.groupBoxCheckins.TabIndex = 12;
                this.groupBoxCheckins.TabStop = false;
                this.groupBoxCheckins.Text = "Checkins";
                // 
                // pictureBoxCheckin
                // 
+               this.pictureBoxCheckin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
                this.pictureBoxCheckin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-               this.pictureBoxCheckin.Location = new System.Drawing.Point(135, 8);
+               this.pictureBoxCheckin.Location = new System.Drawing.Point(136, 9);
                this.pictureBoxCheckin.Name = "pictureBoxCheckin";
                this.pictureBoxCheckin.Size = new System.Drawing.Size(60, 60);
                this.pictureBoxCheckin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -290,6 +293,7 @@
                // 
                // pictureBoxLikedPage
                // 
+               this.pictureBoxLikedPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
                this.pictureBoxLikedPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                this.pictureBoxLikedPage.Location = new System.Drawing.Point(140, 9);
                this.pictureBoxLikedPage.Name = "pictureBoxLikedPage";
@@ -304,7 +308,7 @@
                this.buttonRefresh.BackColor = System.Drawing.SystemColors.Menu;
                this.buttonRefresh.Enabled = false;
                this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.buttonRefresh.Location = new System.Drawing.Point(789, 49);
+               this.buttonRefresh.Location = new System.Drawing.Point(708, 49);
                this.buttonRefresh.Name = "buttonRefresh";
                this.buttonRefresh.Size = new System.Drawing.Size(75, 27);
                this.buttonRefresh.TabIndex = 14;
@@ -533,15 +537,16 @@
                // 
                // listBoxFriends
                // 
-               this.listBoxFriends.Location = new System.Drawing.Point(6, 21);
+               this.listBoxFriends.Dock = System.Windows.Forms.DockStyle.Left;
+               this.listBoxFriends.Location = new System.Drawing.Point(3, 18);
                this.listBoxFriends.Name = "listBoxFriends";
                this.listBoxFriends.PicBox = null;
-               this.listBoxFriends.Size = new System.Drawing.Size(130, 132);
+               this.listBoxFriends.Size = new System.Drawing.Size(130, 143);
                this.listBoxFriends.TabIndex = 18;
                // 
                // likedPagesListBox
                // 
-               this.likedPagesListBox.Location = new System.Drawing.Point(9, 21);
+               this.likedPagesListBox.Location = new System.Drawing.Point(4, 29);
                this.likedPagesListBox.Name = "likedPagesListBox";
                this.likedPagesListBox.PicBox = null;
                this.likedPagesListBox.Size = new System.Drawing.Size(130, 132);
@@ -549,7 +554,7 @@
                // 
                // listBoxEvents
                // 
-               this.listBoxEvents.Location = new System.Drawing.Point(5, 17);
+               this.listBoxEvents.Location = new System.Drawing.Point(0, 21);
                this.listBoxEvents.Name = "listBoxEvents";
                this.listBoxEvents.PicBox = null;
                this.listBoxEvents.Size = new System.Drawing.Size(130, 143);
@@ -557,7 +562,7 @@
                // 
                // listBoxCheckins
                // 
-               this.listBoxCheckins.Location = new System.Drawing.Point(5, 21);
+               this.listBoxCheckins.Location = new System.Drawing.Point(0, 32);
                this.listBoxCheckins.Name = "listBoxCheckins";
                this.listBoxCheckins.PicBox = null;
                this.listBoxCheckins.Size = new System.Drawing.Size(130, 132);

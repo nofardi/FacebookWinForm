@@ -39,12 +39,13 @@ namespace FacebookApp
                // 
                // friendsList
                // 
+               this.friendsList.Dock = System.Windows.Forms.DockStyle.Fill;
                this.friendsList.FormattingEnabled = true;
                this.friendsList.ItemHeight = 16;
-               this.friendsList.Location = new System.Drawing.Point(0, 2);
+               this.friendsList.Location = new System.Drawing.Point(0, 0);
                this.friendsList.Name = "friendsList";
                this.friendsList.ScrollAlwaysVisible = true;
-               this.friendsList.Size = new System.Drawing.Size(132, 132);
+               this.friendsList.Size = new System.Drawing.Size(137, 137);
                this.friendsList.TabIndex = 0;
                this.friendsList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
                // 
@@ -54,7 +55,7 @@ namespace FacebookApp
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.Controls.Add(this.friendsList);
                this.Name = "FriendsListBox";
-               this.Size = new System.Drawing.Size(133, 143);
+               this.Size = new System.Drawing.Size(137, 137);
                this.ResumeLayout(false);
 
         }

@@ -34,12 +34,13 @@
                // 
                // pagesList
                // 
+               this.pagesList.Dock = System.Windows.Forms.DockStyle.Fill;
                this.pagesList.FormattingEnabled = true;
                this.pagesList.ItemHeight = 16;
-               this.pagesList.Location = new System.Drawing.Point(0, 3);
+               this.pagesList.Location = new System.Drawing.Point(0, 0);
                this.pagesList.Name = "pagesList";
                this.pagesList.ScrollAlwaysVisible = true;
-               this.pagesList.Size = new System.Drawing.Size(132, 132);
+               this.pagesList.Size = new System.Drawing.Size(137, 137);
                this.pagesList.TabIndex = 0;
                this.pagesList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
                // 
@@ -49,7 +50,7 @@
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.Controls.Add(this.pagesList);
                this.Name = "PagesListBox";
-               this.Size = new System.Drawing.Size(132, 143);
+               this.Size = new System.Drawing.Size(137, 137);
                this.ResumeLayout(false);
 
         }

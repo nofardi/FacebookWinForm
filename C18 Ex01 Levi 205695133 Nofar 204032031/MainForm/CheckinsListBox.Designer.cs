@@ -34,12 +34,13 @@
                // 
                // checkinList
                // 
+               this.checkinList.Dock = System.Windows.Forms.DockStyle.Fill;
                this.checkinList.FormattingEnabled = true;
                this.checkinList.ItemHeight = 16;
-               this.checkinList.Location = new System.Drawing.Point(0, 3);
+               this.checkinList.Location = new System.Drawing.Point(0, 0);
                this.checkinList.Name = "checkinList";
                this.checkinList.ScrollAlwaysVisible = true;
-               this.checkinList.Size = new System.Drawing.Size(132, 132);
+               this.checkinList.Size = new System.Drawing.Size(137, 137);
                this.checkinList.TabIndex = 0;
                this.checkinList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
                // 
@@ -49,7 +50,7 @@
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.Controls.Add(this.checkinList);
                this.Name = "CheckinsListBox";
-               this.Size = new System.Drawing.Size(133, 143);
+               this.Size = new System.Drawing.Size(137, 137);
                this.ResumeLayout(false);
 
         }

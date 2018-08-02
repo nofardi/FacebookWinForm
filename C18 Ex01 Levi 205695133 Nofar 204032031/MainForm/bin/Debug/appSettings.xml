@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <AppSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <LastWindowLocation>
-    <X>527</X>
-    <Y>108</Y>
+    <X>430</X>
+    <Y>49</Y>
   </LastWindowLocation>
   <LastWindowSize>
     <Width>673</Width>
@@ -10,4 +10,4 @@
   </LastWindowSize>
   <RememberMe>true</RememberMe>
   <AccessToken>EAAZALFLqip8MBAJOoMjHNFZBPEBjb8kWX3t0qx9SaVRQkEdgG0EE8RBMplnceBRwszT955ipizfX9VXPA035RmXkQn0CWhN7DKHXEL816q758yogf4TowTjbVVWv47OZA7rcylnkI7qBZAArhZCspdOD4Pdd6Sz5GdfVhaAA682WZAZBxjT0fIE</AccessToken>
-</AppSettings>
+</AppSettings>>

@@ -34,12 +34,13 @@
                // 
                // eventsList
                // 
+               this.eventsList.Dock = System.Windows.Forms.DockStyle.Fill;
                this.eventsList.FormattingEnabled = true;
                this.eventsList.ItemHeight = 16;
-               this.eventsList.Location = new System.Drawing.Point(0, 6);
+               this.eventsList.Location = new System.Drawing.Point(0, 0);
                this.eventsList.Name = "eventsList";
                this.eventsList.ScrollAlwaysVisible = true;
-               this.eventsList.Size = new System.Drawing.Size(132, 132);
+               this.eventsList.Size = new System.Drawing.Size(137, 137);
                this.eventsList.TabIndex = 0;
                this.eventsList.SelectedIndexChanged += new System.EventHandler(this.onIndexSelectChanged);
                // 
@@ -49,7 +50,7 @@
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.Controls.Add(this.eventsList);
                this.Name = "EventsListBox";
-               this.Size = new System.Drawing.Size(133, 143);
+               this.Size = new System.Drawing.Size(137, 137);
                this.ResumeLayout(false);
 
         }
