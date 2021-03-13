@@ -1,0 +1,11 @@
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\bin\Debug\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031.exe.config
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\bin\Debug\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031.exe
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\bin\Debug\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031.pdb
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\bin\Debug\Facebook.dll
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\obj\Debug\FacebookApp.MainForm.resources
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\obj\Debug\FacebookApp.Properties.Resources.resources
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\obj\Debug\C18 Ex01 LeviKorenblit 205695133 NofarDiamant 204032031.csproj.GenerateResource.Cache
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\obj\Debug\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031.exe
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\obj\Debug\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031.pdb
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\C18 Ex01 Levi 205695133 Nofar 204032031\C18 Ex0X LeviKorenblit 205695133 NofarDiamant 204032031\obj\Debug\FacebookApp.ListPictureContainer.resources
